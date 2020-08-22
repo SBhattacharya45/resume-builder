@@ -1,0 +1,11 @@
+.header{
+    display: flex;
+    justify-content: space-between;
+    background-color: lightgrey;
+    padding: 5px;
+    align-items: center;
+}
+
+.header__brand{
+    color: rgb(43, 43, 43);
+}
