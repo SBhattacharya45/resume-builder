@@ -2,6 +2,7 @@ import React,{Component} from 'react';
 
 import Input from '../../components/Input/Input';
 import classes from './FormContainer.module.css';
+import Grid from '@material-ui/core/Grid';
 
 
 class FormConatiner extends Component {
@@ -13,7 +14,7 @@ class FormConatiner extends Component {
                 value: '',
                 config: {
                     type: 'text', 
-                    placeholder: 'First Name'
+                    placeholder: 'First Name',
                 },
                 label: 'First Name'
             },
@@ -108,6 +109,7 @@ class FormConatiner extends Component {
         )
 
         return(
+<<<<<<< HEAD
             <div className={classes.Container}>
                 <h3>Enter Your Details</h3>
                 {form}
@@ -118,6 +120,24 @@ class FormConatiner extends Component {
                     <input type="text" placeholder="Passout Year" />
                 </div>
             </div>
+=======
+            <>
+            <h2>Enter Your Details</h2>
+            <Grid container-fluid spacing={3}>
+                <Grid item xs={12} sm={2}>
+                    <div className={classes.Container}>
+                        {form}
+                    </div>
+                </Grid>
+                <Grid item xs={12} sm={2}>
+                    <div className={classes.Container}>
+                        {form}
+                    </div>
+                </Grid>
+                    
+            </Grid>
+            </>
+>>>>>>> fd5a7f8e29eeb38d7c3c4e507e6b00ce5e6093d3
         )
     }
 }
