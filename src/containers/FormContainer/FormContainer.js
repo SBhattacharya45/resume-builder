@@ -1,6 +1,7 @@
 import React,{Component} from 'react';
 
 import Input from '../../components/Input/Input';
+import Item from '../../components/Item/Item';
 import classes from './FormContainer.module.css';
 import Grid from '@material-ui/core/Grid';
 
@@ -91,6 +92,20 @@ class FormConatiner extends Component {
         this.setState({formValues: updatedFormElements});
     }
 
+    eduSubmitHandler = (event) => {
+        event.preventDefault();
+        const data = new FormData(event.target);
+        let updatedEduDetails = this.state.eduDetails;
+        updatedEduDetails.push({
+            qualification: data.get('qualification'),
+            institute: data.get('institute'),
+            field: data.get('field'),
+            passout: data.get('passout')
+        })
+        this.setState({eduDetails: updatedEduDetails});
+        console.log(this.state.eduDetails);
+    }
+
     render() {
 
         const formElementArray = this.state.formValues;
@@ -108,19 +123,16 @@ class FormConatiner extends Component {
             </form>
         )
 
-        return(
-<<<<<<< HEAD
-            <div className={classes.Container}>
-                <h3>Enter Your Details</h3>
-                {form}
-                <div>
-                    <input type="text" placeholder="Qualification" />
-                    <input type="text" placeholder="Institute" />
-                    <input type="text" placeholder="Field" />
-                    <input type="text" placeholder="Passout Year" />
-                </div>
+        const eduItemsArray = this.state.eduDetails;
+        let eduItems = ( 
+            <div>
+                {eduItemsArray.map((eduElement, igKey) => (
+                    <Item key={igKey} qualification={eduElement.qualification}/>
+                ))}
             </div>
-=======
+        )
+
+        return(
             <>
             <h2>Enter Your Details</h2>
             <Grid container-fluid spacing={3}>
@@ -131,13 +143,31 @@ class FormConatiner extends Component {
                 </Grid>
                 <Grid item xs={12} sm={2}>
                     <div className={classes.Container}>
-                        {form}
+                        <h2>Educational Details</h2>
+                        <form onSubmit={this.eduSubmitHandler}>
+                            <input 
+                            placeholder="Qualification"
+                            type="text"
+                            name="qualification"/>
+                            <input 
+                            placeholder="Field"
+                            type="text"
+                            name="field"/>
+                            <input 
+                            placeholder="Institute"
+                            type="text"
+                            name="institute"/>
+                            <input 
+                            placeholder="Passout Year"
+                            type="text"
+                            name="passout"/>
+                            <button type="submit">Submit</button>
+                        </form>
+                        {eduItems}
                     </div>
-                </Grid>
-                    
+                </Grid>  
             </Grid>
             </>
->>>>>>> fd5a7f8e29eeb38d7c3c4e507e6b00ce5e6093d3
         )
     }
 }
