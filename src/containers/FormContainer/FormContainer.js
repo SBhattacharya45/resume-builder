@@ -8,6 +8,7 @@ class FormConatiner extends Component {
     state = {
         formValues: [
             {
+                id: 0,
                 value: '',
                 config: {
                     type: 'text', 
@@ -16,6 +17,7 @@ class FormConatiner extends Component {
                 label: 'First Name'
             },
             {
+                id: 1,
                 value: '',
                 config: {
                     type: 'text', 
@@ -26,8 +28,19 @@ class FormConatiner extends Component {
         ]
     }
 
-    inputChangedHandler = (event) => {
+    inputChangedHandler = (event, key) => {
+        let updatedFormElements = [
+            ...this.state.formValues
+        ];
 
+        const updatedElement = { 
+            ...updatedFormElements[key]
+        }
+
+        updatedElement.value = event.target.value;
+        updatedFormElements[key] = updatedElement;
+
+        this.setState({formValues: updatedFormElements});
     }
 
     render() {
@@ -37,10 +50,12 @@ class FormConatiner extends Component {
             <form>
                 {formElementArray.map(formElement => (
                     <Input
+                    key={formElement.id}
                     inputType='text' 
                     value={formElement.value}
                     config={formElement.config}
-                    label={formElement.label} />
+                    label={formElement.label}
+                    changed={(event) => this.inputChangedHandler(event, formElement.id)} />
                 ))}
             </form>
         )
