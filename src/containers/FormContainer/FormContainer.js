@@ -71,7 +71,8 @@ class FormConatiner extends Component {
                 },
                 label: 'Phone'
             }
-        ]
+        ],
+        eduDetails: []
     }
 
     inputChangedHandler = (event, key) => {
@@ -110,6 +111,12 @@ class FormConatiner extends Component {
             <div className={classes.Container}>
                 <h3>Enter Your Details</h3>
                 {form}
+                <div>
+                    <input type="text" placeholder="Qualification" />
+                    <input type="text" placeholder="Institute" />
+                    <input type="text" placeholder="Field" />
+                    <input type="text" placeholder="Passout Year" />
+                </div>
             </div>
         )
     }
