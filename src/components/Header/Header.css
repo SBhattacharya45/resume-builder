@@ -4,6 +4,7 @@
     background-color: lightgrey;
     padding: 5px;
     align-items: center;
+    height: 5vh;
 }
 
 .header__brand{

@@ -1,6 +1,6 @@
 .landingPage{
     background-image: url('../../assets/Resume_image.webp');
-    height: 97vh;
+    height: 95vh;
     width: 100%;
     background-position: center;
     background-repeat: no-repeat;
@@ -42,7 +42,7 @@
 
 .landingPage__icons .MuiSvgIcon-root{
 
-    color: skyblue;
+    color: rgb(36, 97, 121);
     font-size: 2rem;
 }
 
@@ -61,16 +61,19 @@
     .landingPage__controls{
         margin-top: auto;
         margin-bottom: auto;
-        background-color: rgba(0, 0, 0, 0.507);
+        background-color:rgba(11, 76, 78, 0.267);
         padding: 5rem;
         border-radius: 10px;
         margin-left: 10px;
         margin-right: 10px;
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
     }
 
     .landingPage__icons{
         flex-direction: row;
         padding-bottom: 3rem;
+        margin-right: 0rem;
     }
 
 }
