@@ -1,6 +1,7 @@
 import React,{Component} from 'react';
 
 import Input from '../../components/Input/Input';
+import classes from './FormContainer.module.css';
 
 
 class FormConatiner extends Component {
@@ -24,7 +25,52 @@ class FormConatiner extends Component {
                     placeholder: 'Last Name'
                 },
                 label: 'Last Name'
-            },
+            },            
+            {
+                id: 2,
+                value: '',
+                config: {
+                    type: 'text', 
+                    placeholder: 'City'
+                },
+                label: 'City'
+            },            
+            {
+                id: 3,
+                value: '',
+                config: {
+                    type: 'text', 
+                    placeholder: 'State'
+                },
+                label: 'State'
+            },            
+            {
+                id: 4,
+                value: '',
+                config: {
+                    type: 'text', 
+                    placeholder: 'Pincode'
+                },
+                label: 'Pincode'
+            },            
+            {
+                id: 5,
+                value: '',
+                config: {
+                    type: 'email', 
+                    placeholder: 'Enter your mail'
+                },
+                label: 'E-mail'
+            },            
+            {
+                id: 6,
+                value: '',
+                config: {
+                    type: 'text', 
+                    placeholder: 'Enter your phone number'
+                },
+                label: 'Phone'
+            }
         ]
     }
 
@@ -51,7 +97,7 @@ class FormConatiner extends Component {
                 {formElementArray.map(formElement => (
                     <Input
                     key={formElement.id}
-                    inputType='text' 
+                    inputType='input' 
                     value={formElement.value}
                     config={formElement.config}
                     label={formElement.label}
@@ -61,7 +107,8 @@ class FormConatiner extends Component {
         )
 
         return(
-            <div>
+            <div className={classes.Container}>
+                <h3>Enter Your Details</h3>
                 {form}
             </div>
         )
