@@ -23,7 +23,7 @@ const MainNavigation = (props) => {
     <React.Fragment>
       {drawerIsOpen && <Backdrop onClick={closeDrawerHandler} />}
 
-      <SideDrawer show={drawerIsOpen} onClick={closeDrawerHandler}>
+      <SideDrawer className="sideDrawer"  show={drawerIsOpen} onClick={closeDrawerHandler}>
          <h2 className="side-navigation__title">
             <Link to="/">Resume-Builder</Link>
           </h2>

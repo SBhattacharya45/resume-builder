@@ -11,8 +11,9 @@ function App() {
   return (
     <div className="App">
       <MainNavigation />
-  
-        <Switch>
+
+      <main className="main">
+      <Switch>
           <Route path="/form">
             <FormContainer />
           </Route>
@@ -20,6 +21,8 @@ function App() {
             <Home />
           </Route>
         </Switch>
+      </main>
+        
    
     </div>
   );
