@@ -109,18 +109,6 @@ class FormConatiner extends Component {
         )
 
         return(
-<<<<<<< HEAD
-            <div className={classes.Container}>
-                <h3>Enter Your Details</h3>
-                {form}
-                <div>
-                    <input type="text" placeholder="Qualification" />
-                    <input type="text" placeholder="Institute" />
-                    <input type="text" placeholder="Field" />
-                    <input type="text" placeholder="Passout Year" />
-                </div>
-            </div>
-=======
             <>
             <h2>Enter Your Details</h2>
             <Grid container-fluid spacing={3}>
@@ -137,7 +125,6 @@ class FormConatiner extends Component {
                     
             </Grid>
             </>
->>>>>>> fd5a7f8e29eeb38d7c3c4e507e6b00ce5e6093d3
         )
     }
 }
