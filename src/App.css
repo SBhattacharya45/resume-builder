@@ -1,7 +1,22 @@
 * {
   margin: 0;
+  
 }
 
-main {
-  margin-top: 3rem;
+body{
+  background-color: rgb(226, 247, 255);
 }
+
+.main{
+  margin-top: 7vh;
+  background-color: white;
+}
+
+.main-header{
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw !important;
+}
+
+
