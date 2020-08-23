@@ -1,15 +1,18 @@
-.landingPage {
-  background-image: url("../../assets/Resume_image.webp");
-  height: 97vh;
-  width: 100%;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  object-fit: contain;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+
+.landingPage{
+    background-image: url('../../assets/Resume_image.webp');
+    height: 93vh;
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    object-fit: contain;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
+
+
 
 .landingPage__controls {
   color: white;
@@ -39,9 +42,10 @@
   margin-right: 2rem;
 }
 
-.landingPage__icons .MuiSvgIcon-root {
-  color: skyblue;
-  font-size: 2rem;
+.landingPage__icons .MuiSvgIcon-root{
+
+    color: rgb(36, 97, 121);
+    font-size: 2rem;
 }
 
 .landingPage__icons .MuiIconButton-root {
@@ -50,24 +54,27 @@
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.199);
 }
 
-@media only screen and (max-width: 600px) {
-  .landingPage {
-    background-position: 30% 30%;
-    flex-direction: column;
-  }
+@media only screen and (max-width: 600px){
+    .landingPage{
+        background-position: 30% 30%;
+        flex-direction: column;
+    }
 
-  .landingPage__controls {
-    margin-top: auto;
-    margin-bottom: auto;
-    background-color: rgba(0, 0, 0, 0.507);
-    padding: 5rem;
-    border-radius: 10px;
-    margin-left: 10px;
-    margin-right: 10px;
-  }
+    .landingPage__controls{
+        margin-top: auto;
+        margin-bottom: auto;
+        background-color:rgba(11, 76, 78, 0.267);
+        padding: 5rem;
+        border-radius: 10px;
+        margin-left: 10px;
+        margin-right: 10px;
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+    }
 
-  .landingPage__icons {
-    flex-direction: row;
-    padding-bottom: 3rem;
+    .landingPage__icons{
+        flex-direction: row;
+        padding-bottom: 3rem;
+        margin-right: 0rem;
+    }
   }
-}
