@@ -6,12 +6,12 @@ import "./NavLinks.css";
 const NavLinks = (props) => {
   return (
     <ul className="nav-links">
-      <li>
+      <li className="nav-item">
         <NavLink to="/" exact>
           Home
         </NavLink>
       </li>
-      <li>
+      <li className="nav-item">
         <NavLink to="/templates">Templates</NavLink>
       </li>
     </ul>

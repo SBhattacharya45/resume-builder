@@ -1,7 +1,7 @@
 import React from "react";
 import { Route, Switch, withRouter } from "react-router-dom";
 import "./App.css";
-import MainNavigation from "./components/NavBar/MainNavigation";
+import MainNavigation from "./components/NavBar/MainNavigation/MainNavigation";
 import Home from "./containers/Home";
 
 
@@ -11,7 +11,7 @@ function App() {
   return (
     <div className="App">
       <MainNavigation />
-      <main>
+  
         <Switch>
           <Route path="/form">
             <FormContainer />
@@ -20,7 +20,7 @@ function App() {
             <Home />
           </Route>
         </Switch>
-      </main>
+   
     </div>
   );
 }
