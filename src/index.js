@@ -1,25 +1,28 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
-import { BrowserRouter } from 'react-router-dom';
-import { Provider } from 'react-redux';
-import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
-import createSagaMiddleware from 'redux-saga';
-import formReducer from './store/reducers/form';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import App from "./App";
+import * as serviceWorker from "./serviceWorker";
+import { BrowserRouter } from "react-router-dom";
+import { Provider } from "react-redux";
+import { createStore, applyMiddleware, compose, combineReducers } from "redux";
+import createSagaMiddleware from "redux-saga";
+import formReducer from "./store/reducers/form";
 
-const composeEnhancers = process.env.NODE_ENV ===  'development' ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ : null || compose;
-
+const composeEnhancers =
+  process.env.NODE_ENV === "development"
+    ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
+    : null || compose;
 
 const rootReducer = combineReducers({
-  form : formReducer
-})
+  form: formReducer,
+});
 
 const sagaMiddleware = createSagaMiddleware();
-const store = createStore(rootReducer, composeEnhancers(
-  applyMiddleware(sagaMiddleware)
-));
+const store = createStore(
+  rootReducer,
+  composeEnhancers(applyMiddleware(sagaMiddleware))
+);
 
 ReactDOM.render(
   <React.StrictMode>
@@ -28,9 +31,8 @@ ReactDOM.render(
         <App />
       </BrowserRouter>
     </Provider>
-    
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 
 // If you want your app to work offline and load faster, you can change
