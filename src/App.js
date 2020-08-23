@@ -4,7 +4,7 @@ import "./App.css";
 import MainNavigation from "./components/NavBar/MainNavigation";
 import Home from "./containers/Home";
 
-import Home from "./containers/Home";
+
 import FormContainer from "./containers/FormContainer/FormContainer";
 
 function App() {
