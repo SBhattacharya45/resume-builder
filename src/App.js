@@ -4,7 +4,6 @@ import "./App.css";
 import MainNavigation from "./components/NavBar/MainNavigation";
 import Home from "./containers/Home";
 
-import Header from "./components/Header/Header";
 import Home from "./containers/Home";
 import FormContainer from "./containers/FormContainer/FormContainer";
 
@@ -15,22 +14,13 @@ function App() {
       <main>
         <Switch>
           <Route path="/form">
-            <h1>This is through routing</h1>
+            <FormContainer />
           </Route>
           <Route path="/">
             <Home />
           </Route>
         </Switch>
       </main>
-      <Header />
-      <Switch>
-        <Route path="/form">
-          <FormContainer />
-        </Route>
-        <Route path="/">
-          <Home />
-        </Route>
-      </Switch>
     </div>
   );
 }
