@@ -4,6 +4,10 @@ import "./App.css";
 import MainNavigation from "./components/NavBar/MainNavigation";
 import Home from "./containers/Home";
 
+import Header from "./components/Header/Header";
+import Home from "./containers/Home";
+import FormContainer from "./containers/FormContainer/FormContainer";
+
 function App() {
   return (
     <div className="App">
@@ -18,6 +22,15 @@ function App() {
           </Route>
         </Switch>
       </main>
+      <Header />
+      <Switch>
+        <Route path="/form">
+          <FormContainer />
+        </Route>
+        <Route path="/">
+          <Home />
+        </Route>
+      </Switch>
     </div>
   );
 }
