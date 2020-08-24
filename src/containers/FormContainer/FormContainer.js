@@ -74,7 +74,8 @@ class FormConatiner extends Component {
                 label: 'Phone'
             }
         ],
-        eduDetails: []
+        eduDetails: [],
+        expDetails: []
     }
 
     inputChangedHandler = (event, key) => {
@@ -111,6 +112,22 @@ class FormConatiner extends Component {
         this.setState({eduDetails: updatedEduDetails});
     }
 
+    expSubmitHandler = (event) => {
+        event.preventDefault();
+        const data = new FormData(event.target);
+        let updatedExpDetails = [...this.state.expDetails];
+        updatedExpDetails.push({
+            type: data.get('type')
+        })
+        this.setState({expDetails: updatedExpDetails});
+    }
+
+    expDeleteHandler = (key) => {
+        let updatedExpDetails = [...this.state.expDetails];
+        updatedExpDetails.splice(key, 1);
+        this.setState({expDetails: updatedExpDetails});
+    }
+
     
 
     render() {
@@ -135,6 +152,15 @@ class FormConatiner extends Component {
             <div>
                 {eduItemsArray.map((eduElement, igKey) => (
                     <Item key={igKey} id={igKey} delete={this.eduDeleteHandler} qualification={eduElement.qualification}/>
+                ))}
+            </div>
+        )
+
+        const expItemsArray = this.state.expDetails;
+        let expItems = ( 
+            <div>
+                {expItemsArray.map((expElement, igKey) => (
+                    <Item key={igKey} id={igKey} delete={this.expDeleteHandler} type={expElement.type}/>
                 ))}
             </div>
         )
@@ -172,7 +198,20 @@ class FormConatiner extends Component {
                         </form>
                         {eduItems}
                     </div>
-                </Grid>  
+                </Grid>
+                <Grid item xs={12} sm={2}>
+                    <div className={classes.Container}>
+                        <h2>Experience</h2>
+                        <form onSubmit={this.expSubmitHandler}>
+                            <input 
+                            placeholder="Type"
+                            type="text"
+                            name="type"/>
+                            <button type="submit">Submit</button>
+                        </form>
+                        {expItems}
+                    </div>
+                </Grid>    
             </Grid>
             </>
         )
