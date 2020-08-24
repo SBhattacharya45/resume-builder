@@ -75,7 +75,8 @@ class FormConatiner extends Component {
             }
         ],
         eduDetails: [],
-        expDetails: []
+        expDetails: [],
+        skills: []
     }
 
     inputChangedHandler = (event, key) => {
@@ -131,6 +132,22 @@ class FormConatiner extends Component {
         this.setState({expDetails: updatedExpDetails});
     }
 
+    skillSubmitHandler = (event) => {
+        event.preventDefault();
+        const data = new FormData(event.target);
+        let updatedSkills = [...this.state.skills];
+        updatedSkills.push({
+            skill: data.get('skill')
+        })
+        this.setState({skills: updatedSkills});
+    }
+
+    skillDeleteHandler = (key) => {
+        let updatedSkills = [...this.state.skills];
+        updatedSkills.splice(key, 1);
+        this.setState({skills: updatedSkills});
+    }
+
     
 
     render() {
@@ -164,6 +181,15 @@ class FormConatiner extends Component {
             <div>
                 {expItemsArray.map((expElement, igKey) => (
                     <Item key={igKey} id={igKey} delete={this.expDeleteHandler} type={expElement.type}/>
+                ))}
+            </div>
+        )
+
+        const skillsArray = this.state.skills;
+        let skills = ( 
+            <div>
+                {skillsArray.map((skillElement, igKey) => (
+                    <Item key={igKey} id={igKey} delete={this.skillDeleteHandler} skill={skillElement.skill}/>
                 ))}
             </div>
         )
@@ -227,6 +253,19 @@ class FormConatiner extends Component {
                         {expItems}
                     </div>
                 </Grid>    
+                <Grid item xs={12} sm={2}>
+                    <div className={classes.Container}>
+                        <h2>Skills</h2>
+                        <form onSubmit={this.skillSubmitHandler}>
+                            <input 
+                            placeholder="Skill"
+                            type="text"
+                            name="skill"/>
+                            <button type="submit">Add Skill</button>
+                        </form>
+                        {skills}
+                    </div>
+                </Grid>
             </Grid>
             </>
         )

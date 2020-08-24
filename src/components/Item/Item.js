@@ -17,6 +17,13 @@ const item = (props) => {
                 <span onClick={() => props.delete(props.id)}>X</span>
             </div>
         )
+    } else if(props.skill) {
+        return (
+            <div className={classes.Item}>
+                <span>{props.skill}</span>
+                <span onClick={() => props.delete(props.id)}>X</span>
+            </div>
+        )
     }
 
 }
