@@ -117,7 +117,10 @@ class FormConatiner extends Component {
         const data = new FormData(event.target);
         let updatedExpDetails = [...this.state.expDetails];
         updatedExpDetails.push({
-            type: data.get('type')
+            type: data.get('type'),
+            oragnisation: data.get('oragnization'),
+            position: data.get('position'),
+            duration: data.get('duration')
         })
         this.setState({expDetails: updatedExpDetails});
     }
@@ -207,6 +210,18 @@ class FormConatiner extends Component {
                             placeholder="Type"
                             type="text"
                             name="type"/>
+                            <input 
+                            placeholder="Organization"
+                            type="text"
+                            name="organization"/>
+                            <input 
+                            placeholder="Position"
+                            type="text"
+                            name="position"/>
+                            <input 
+                            placeholder="Duration"
+                            type="text"
+                            name="Duration"/>
                             <button type="submit">Submit</button>
                         </form>
                         {expItems}
