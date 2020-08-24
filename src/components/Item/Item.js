@@ -6,7 +6,7 @@ const item = (props) => {
     return (
         <div className={classes.Item}>
             <span>{props.qualification}</span>
-            <span>X</span>
+            <span onClick={() => props.delete(props.id)}>X</span>
         </div>
     )
 }

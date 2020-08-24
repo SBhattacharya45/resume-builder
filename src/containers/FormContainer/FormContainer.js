@@ -95,7 +95,7 @@ class FormConatiner extends Component {
     eduSubmitHandler = (event) => {
         event.preventDefault();
         const data = new FormData(event.target);
-        let updatedEduDetails = this.state.eduDetails;
+        let updatedEduDetails = [...this.state.eduDetails];
         updatedEduDetails.push({
             qualification: data.get('qualification'),
             institute: data.get('institute'),
@@ -103,8 +103,15 @@ class FormConatiner extends Component {
             passout: data.get('passout')
         })
         this.setState({eduDetails: updatedEduDetails});
-        console.log(this.state.eduDetails);
     }
+
+    eduDeleteHandler = (key) => {
+        let updatedEduDetails = [...this.state.eduDetails];
+        updatedEduDetails.splice(key, 1);
+        this.setState({eduDetails: updatedEduDetails});
+    }
+
+    
 
     render() {
 
@@ -127,7 +134,7 @@ class FormConatiner extends Component {
         let eduItems = ( 
             <div>
                 {eduItemsArray.map((eduElement, igKey) => (
-                    <Item key={igKey} qualification={eduElement.qualification}/>
+                    <Item key={igKey} id={igKey} delete={this.eduDeleteHandler} qualification={eduElement.qualification}/>
                 ))}
             </div>
         )
