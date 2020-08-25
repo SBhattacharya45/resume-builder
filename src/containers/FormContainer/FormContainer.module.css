@@ -1,3 +1,10 @@
+.MainContainer {
+    display: flex;
+    justify-content: center;
+    background: rgb(199,167,255);
+    background: linear-gradient(180deg, rgba(199,167,255,1) 0%, rgba(133,182,252,1) 100%);
+}
+
 .Container {
     margin: 10px auto;
     width: 800px;
@@ -17,6 +24,7 @@
 }
 
 .InputContainer {
+    margin-top: 7px;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
@@ -39,6 +47,7 @@
 }
 
 .ButtonContainer {
+    margin-top: 7px;
     display: flex;
     justify-content: center;
 }

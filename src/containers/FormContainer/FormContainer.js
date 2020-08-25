@@ -219,8 +219,7 @@ class FormConatiner extends Component {
         )
 
         return(
-            <>
-            <h2>Enter Your Details</h2>
+            <div className={classes.MainContainer}>
             <Grid container-fluid>
                 <Grid item xs={12} sm={2}>
                     <div className={classes.Container}>
@@ -315,7 +314,7 @@ class FormConatiner extends Component {
                     </div>
                 </Grid>
             </Grid>
-            </>
+            </div>
         )
     }
 }
