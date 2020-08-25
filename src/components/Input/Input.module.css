@@ -2,8 +2,8 @@
     width: 100%;
     padding: 10px;
     box-sizing: border-box;
+    border-radius: 10px;
+    margin: 10px 0px;
+    border: 1px solid #eee;
 }
 
-.InputContainer {
-    margin-top: 8px;
-}

@@ -1,7 +1,48 @@
 .Container {
     margin: 10px auto;
     width: 800px;
-    border: 2px solid black;
+    background-color: wheat;
     box-sizing: border-box;
-    padding: 5px;
+    padding: 9px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding-bottom: 10px;
+    color: rgb(36, 97, 121);
 }
+
+.InputContainer {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.Input {
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    border: 1px solid #eee;
+}
+
+.Button {
+    background-color: rgb(70, 123, 145);
+    border-radius: 5px;
+    padding: 7px;
+    border: 1px solid #eee;
+    color: rgb(253, 246, 234);
+}
+
+
+@media only screen and (max-width: 600px) {
+    .Container {
+        width: 98%;
+    }
+
+    .Input {
+        width: 100%;
+        padding: 10px;
+        box-sizing: border-box;
+        margin: 10px 1px;
+        border-radius: 10px;
+        border: 1px solid #eee;
+    }
+  }

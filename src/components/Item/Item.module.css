@@ -1,6 +1,10 @@
 .Item {
-    width: 90%;
+    width: 96%;
     display: flex;
     justify-content: space-between;
-    background-color: cornflowerblue;
+    background-color: rgb(70, 123, 145);
+    color: white;
+    padding: 7px;
+    margin: 5px 0px;
+    border-radius: 5px;
 }

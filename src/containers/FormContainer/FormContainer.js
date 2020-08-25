@@ -74,7 +74,12 @@ class FormConatiner extends Component {
                 label: 'Phone'
             }
         ],
-        eduDetails: [],
+        eduDetails: [{
+            qualification: "B.Tech",
+            institute: 'Heritage Institute of Technology',
+            field: 'Electronics',
+            passout: '2022'
+        }],
         expDetails: [],
         skills: []
     }
@@ -197,9 +202,10 @@ class FormConatiner extends Component {
         return(
             <>
             <h2>Enter Your Details</h2>
-            <Grid container-fluid spacing={3}>
+            <Grid container-fluid>
                 <Grid item xs={12} sm={2}>
                     <div className={classes.Container}>
+                    <h2>Basic Details</h2>
                         {form}
                     </div>
                 </Grid>
@@ -207,48 +213,62 @@ class FormConatiner extends Component {
                     <div className={classes.Container}>
                         <h2>Educational Details</h2>
                         <form onSubmit={this.eduSubmitHandler}>
-                            <input 
-                            placeholder="Qualification"
-                            type="text"
-                            name="qualification"/>
-                            <input 
-                            placeholder="Field"
-                            type="text"
-                            name="field"/>
-                            <input 
-                            placeholder="Institute"
-                            type="text"
-                            name="institute"/>
-                            <input 
-                            placeholder="Passout Year"
-                            type="text"
-                            name="passout"/>
-                            <button type="submit">Submit</button>
+                            <div className={classes.InputContainer}>
+                                <input
+                                className={classes.Input} 
+                                placeholder="Qualification"
+                                type="text"
+                                name="qualification"/>
+                                <input
+                                className={classes.Input} 
+                                placeholder="Field"
+                                type="text"
+                                name="field"/>
+                                <input
+                                className={classes.Input} 
+                                placeholder="Institute"
+                                type="text"
+                                name="institute"/>
+                                <input
+                                className={classes.Input} 
+                                placeholder="Passout Year"
+                                type="text"
+                                name="passout"/>
+                            </div>
+                            <button className={classes.Button} type="submit">Submit</button>
                         </form>
-                        {eduItems}
+                        <div className={classes.ItemContainer}>
+                            {eduItems}
+                        </div>
                     </div>
                 </Grid>
                 <Grid item xs={12} sm={2}>
                     <div className={classes.Container}>
                         <h2>Experience</h2>
                         <form onSubmit={this.expSubmitHandler}>
-                            <input 
-                            placeholder="Type"
-                            type="text"
-                            name="type"/>
-                            <input 
-                            placeholder="Organization"
-                            type="text"
-                            name="organization"/>
-                            <input 
-                            placeholder="Position"
-                            type="text"
-                            name="position"/>
-                            <input 
-                            placeholder="Duration"
-                            type="text"
-                            name="Duration"/>
-                            <button type="submit">Submit</button>
+                            <div className={classes.InputContainer}>
+                                <input
+                                className={classes.Input} 
+                                placeholder="Type"
+                                type="text"
+                                name="type"/>
+                                <input
+                                className={classes.Input} 
+                                placeholder="Organization"
+                                type="text"
+                                name="organization"/>
+                                <input
+                                className={classes.Input} 
+                                placeholder="Position"
+                                type="text"
+                                name="position"/>
+                                <input
+                                className={classes.Input} 
+                                placeholder="Duration"
+                                type="text"
+                                name="Duration"/>
+                            </div>
+                            <button className={classes.Button} type="submit">Submit</button>
                         </form>
                         {expItems}
                     </div>
@@ -257,11 +277,14 @@ class FormConatiner extends Component {
                     <div className={classes.Container}>
                         <h2>Skills</h2>
                         <form onSubmit={this.skillSubmitHandler}>
-                            <input 
-                            placeholder="Skill"
-                            type="text"
-                            name="skill"/>
-                            <button type="submit">Add Skill</button>
+                            <div className={classes.InputContainer}>
+                                <input
+                                className={classes.Input} 
+                                placeholder="Skill"
+                                type="text"
+                                name="skill"/>
+                            </div>
+                            <button className={classes.Button} type="submit">Add Skill</button>
                         </form>
                         {skills}
                     </div>

@@ -13,7 +13,6 @@ const input = (props) => {
 
     return (
         <div className={classes.InputContainer}>
-            <label>{props.label}</label>
             {inputElement}
         </div>
     );
