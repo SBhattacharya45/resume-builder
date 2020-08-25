@@ -2,11 +2,15 @@
     width: 96%;
     display: flex;
     justify-content: space-between;
-    background-color: rgb(70, 123, 145);
-    color: white;
+    background-color: white;
+    color: rgb(39, 39, 39);
     padding: 7px;
     margin: 5px 0px;
     border-radius: 5px;
+    box-shadow: 2px 2px 7px rgba(143, 143, 143, 0.411), -2px -2px 7px white;
+    margin-top: 20px ;
+    margin-bottom:20px;
+
 }
 .ItemDataContainer {
     display: flex;

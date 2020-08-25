@@ -4,6 +4,7 @@ import Input from '../../components/Input/Input';
 import Item from '../../components/Item/Item';
 import classes from './FormContainer.module.css';
 import Grid from '@material-ui/core/Grid';
+import Button from '@material-ui/core/Button';
 
 
 class FormConatiner extends Component {
@@ -167,6 +168,7 @@ class FormConatiner extends Component {
             <form>
                 {formElementArray.map(formElement => (
                     <Input
+                    className="form__input"
                     key={formElement.id}
                     inputType='input' 
                     value={formElement.value}
@@ -254,7 +256,7 @@ class FormConatiner extends Component {
                                 name="passout"/>
                             </div>
                             <div className={classes.ButtonContainer}>
-                                <button className={classes.Button} type="submit">Submit</button>
+                                <Button disableElevation variant="contained" className={classes.Button} type="submit">Submit</Button>
                             </div>
                         </form>
                         <div className={classes.ItemContainer}>
@@ -289,7 +291,7 @@ class FormConatiner extends Component {
                                 name="duration"/>
                             </div>
                             <div className={classes.ButtonContainer}>
-                                <button className={classes.Button} type="submit">Submit</button>
+                                <Button  disableElevation variant="contained" className={classes.Button} type="submit">Submit</Button>
                             </div>
                         </form>
                         {expItems}
@@ -307,7 +309,7 @@ class FormConatiner extends Component {
                                 name="skill"/>
                             </div>
                             <div className={classes.ButtonContainer}>
-                                <button className={classes.Button} type="submit">Add Skill</button>
+                                <Button disableElevation variant="contained" className={classes.Button} type="submit">Add Skill</Button>
                             </div>
                         </form>
                         {skills}
