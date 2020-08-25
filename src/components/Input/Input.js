@@ -6,7 +6,7 @@ const input = (props) => {
     let inputElement = null;
 
     inputElement = <input
-    className={classes.Input}
+        className={classes.Input}
         {...props.config}
         value={props.value}
         onChange={props.changed} />;
