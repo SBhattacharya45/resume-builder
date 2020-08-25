@@ -13,10 +13,12 @@
 
 .Container h2 {
     font-weight: 400;
+    margin: 5px auto;
 }
 
 .InputContainer {
     display: flex;
+    justify-content: space-between;
     flex-wrap: wrap;
 }
 
@@ -33,6 +35,12 @@
     padding: 7px;
     border: 1px solid #eee;
     color: rgb(253, 246, 234);
+    margin: 5px auto;
+}
+
+.ButtonContainer {
+    display: flex;
+    justify-content: center;
 }
 
 
@@ -48,5 +56,10 @@
         margin: 10px 1px;
         border-radius: 10px;
         border: 1px solid #eee;
+    }
+
+    .InputContainer {
+        display: flex;
+        flex-wrap: wrap;
     }
   }

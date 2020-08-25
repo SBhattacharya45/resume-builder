@@ -80,7 +80,12 @@ class FormConatiner extends Component {
             field: 'Electronics',
             passout: '2022'
         }],
-        expDetails: [],
+        expDetails: [{
+            type: 'Internship',
+            organization: 'OrangeInk',
+            position: 'Web Developer',
+            duration: '2 months'
+        }],
         skills: []
     }
 
@@ -124,7 +129,7 @@ class FormConatiner extends Component {
         let updatedExpDetails = [...this.state.expDetails];
         updatedExpDetails.push({
             type: data.get('type'),
-            oragnisation: data.get('oragnization'),
+            organization: data.get('organization'),
             position: data.get('position'),
             duration: data.get('duration')
         })
@@ -176,7 +181,14 @@ class FormConatiner extends Component {
         let eduItems = ( 
             <div>
                 {eduItemsArray.map((eduElement, igKey) => (
-                    <Item key={igKey} id={igKey} delete={this.eduDeleteHandler} qualification={eduElement.qualification}/>
+                    <Item 
+                    key={igKey} 
+                    id={igKey} 
+                    delete={this.eduDeleteHandler} 
+                    qualification={eduElement.qualification}
+                    institute={eduElement.institute}
+                    field={eduElement.field}
+                    passout={eduElement.passout}/>
                 ))}
             </div>
         )
@@ -185,7 +197,14 @@ class FormConatiner extends Component {
         let expItems = ( 
             <div>
                 {expItemsArray.map((expElement, igKey) => (
-                    <Item key={igKey} id={igKey} delete={this.expDeleteHandler} type={expElement.type}/>
+                    <Item 
+                    key={igKey} 
+                    id={igKey} 
+                    delete={this.expDeleteHandler} 
+                    type={expElement.type}
+                    position={expElement.position}
+                    organization={expElement.organization}
+                    duration={expElement.duration}/>
                 ))}
             </div>
         )
@@ -235,7 +254,9 @@ class FormConatiner extends Component {
                                 type="text"
                                 name="passout"/>
                             </div>
-                            <button className={classes.Button} type="submit">Submit</button>
+                            <div className={classes.ButtonContainer}>
+                                <button className={classes.Button} type="submit">Submit</button>
+                            </div>
                         </form>
                         <div className={classes.ItemContainer}>
                             {eduItems}
@@ -266,9 +287,11 @@ class FormConatiner extends Component {
                                 className={classes.Input} 
                                 placeholder="Duration"
                                 type="text"
-                                name="Duration"/>
+                                name="duration"/>
                             </div>
-                            <button className={classes.Button} type="submit">Submit</button>
+                            <div className={classes.ButtonContainer}>
+                                <button className={classes.Button} type="submit">Submit</button>
+                            </div>
                         </form>
                         {expItems}
                     </div>
@@ -284,7 +307,9 @@ class FormConatiner extends Component {
                                 type="text"
                                 name="skill"/>
                             </div>
-                            <button className={classes.Button} type="submit">Add Skill</button>
+                            <div className={classes.ButtonContainer}>
+                                <button className={classes.Button} type="submit">Add Skill</button>
+                            </div>
                         </form>
                         {skills}
                     </div>
