@@ -1,6 +1,51 @@
 .Item {
-    width: 90%;
+    width: 96%;
     display: flex;
     justify-content: space-between;
-    background-color: cornflowerblue;
+    background-color: white;
+    color: rgb(39, 39, 39);
+    padding: 7px;
+    margin: 5px 0px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 7px rgba(143, 143, 143, 0.411), -2px -2px 7px white;
+    margin-top: 20px ;
+    margin-bottom:20px;
+
+}
+.ItemDataContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.ItemData {
+    margin-top: 3px;
+}
+
+/* for close icon */
+.CloseIcon {
+    box-sizing: border-box;
+    position: relative;
+    display: block;
+    transform: scale(var(--ggs,1));
+    width: 22px;
+    height: 22px;
+    border: 2px solid transparent;
+    border-radius: 40px
+}
+.CloseIcon::after,
+.CloseIcon::before {
+    content: "";
+    display: block;
+    box-sizing: border-box;
+    position: absolute;
+    width: 16px;
+    height: 2px;
+    background: currentColor;
+    transform: rotate(45deg);
+    border-radius: 5px;
+    top: 8px;
+    left: 1px
+}
+.CloseIcon::after {
+    transform: rotate(-45deg)
 }

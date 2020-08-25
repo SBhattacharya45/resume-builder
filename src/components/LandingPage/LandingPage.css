@@ -12,6 +12,10 @@
     align-items: center;
 }
 
+.landingPage__text{
+  font-size: 1rem;
+}
+
 
 
 .landingPage__controls {
@@ -42,6 +46,12 @@
   margin-right: 2rem;
 }
 
+.landingPage__heading{
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+  font-weight: 400;
+  margin-bottom: 10px;
+}
+
 .landingPage__icons .MuiSvgIcon-root{
 
     color: rgb(36, 97, 121);
@@ -58,6 +68,10 @@
     .landingPage{
         background-position: 30% 30%;
         flex-direction: column;
+    }
+
+    .landingPage__heading{
+      text-shadow: none;
     }
 
     .landingPage__controls{
