@@ -5,94 +5,17 @@ import Item from '../../components/Item/Item';
 import classes from './FormContainer.module.css';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
+import {connect } from 'react-redux';
+import * as actionTypes from '../../store/actions/actions';
 
 
 class FormConatiner extends Component {
 
-    state = {
-        formValues: [
-            {
-                id: 0,
-                value: '',
-                config: {
-                    type: 'text', 
-                    placeholder: 'First Name',
-                },
-                label: 'First Name'
-            },
-            {
-                id: 1,
-                value: '',
-                config: {
-                    type: 'text', 
-                    placeholder: 'Last Name'
-                },
-                label: 'Last Name'
-            },            
-            {
-                id: 2,
-                value: '',
-                config: {
-                    type: 'text', 
-                    placeholder: 'City'
-                },
-                label: 'City'
-            },            
-            {
-                id: 3,
-                value: '',
-                config: {
-                    type: 'text', 
-                    placeholder: 'State'
-                },
-                label: 'State'
-            },            
-            {
-                id: 4,
-                value: '',
-                config: {
-                    type: 'text', 
-                    placeholder: 'Pincode'
-                },
-                label: 'Pincode'
-            },            
-            {
-                id: 5,
-                value: '',
-                config: {
-                    type: 'email', 
-                    placeholder: 'Enter your mail'
-                },
-                label: 'E-mail'
-            },            
-            {
-                id: 6,
-                value: '',
-                config: {
-                    type: 'text', 
-                    placeholder: 'Enter your phone number'
-                },
-                label: 'Phone'
-            }
-        ],
-        eduDetails: [{
-            qualification: "B.Tech",
-            institute: 'Heritage Institute of Technology',
-            field: 'Electronics',
-            passout: '2022'
-        }],
-        expDetails: [{
-            type: 'Internship',
-            organization: 'OrangeInk',
-            position: 'Web Developer',
-            duration: '2 months'
-        }],
-        skills: []
-    }
+
 
     inputChangedHandler = (event, key) => {
         let updatedFormElements = [
-            ...this.state.formValues
+            ...this.props.formValues
         ];
 
         const updatedElement = { 
@@ -108,7 +31,7 @@ class FormConatiner extends Component {
     eduSubmitHandler = (event) => {
         event.preventDefault();
         const data = new FormData(event.target);
-        let updatedEduDetails = [...this.state.eduDetails];
+        let updatedEduDetails = [...this.props.eduDetails];
         updatedEduDetails.push({
             qualification: data.get('qualification'),
             institute: data.get('institute'),
@@ -119,7 +42,7 @@ class FormConatiner extends Component {
     }
 
     eduDeleteHandler = (key) => {
-        let updatedEduDetails = [...this.state.eduDetails];
+        let updatedEduDetails = [...this.props.eduDetails];
         updatedEduDetails.splice(key, 1);
         this.setState({eduDetails: updatedEduDetails});
     }
@@ -127,7 +50,7 @@ class FormConatiner extends Component {
     expSubmitHandler = (event) => {
         event.preventDefault();
         const data = new FormData(event.target);
-        let updatedExpDetails = [...this.state.expDetails];
+        let updatedExpDetails = [...this.props.expDetails];
         updatedExpDetails.push({
             type: data.get('type'),
             organization: data.get('organization'),
@@ -138,7 +61,7 @@ class FormConatiner extends Component {
     }
 
     expDeleteHandler = (key) => {
-        let updatedExpDetails = [...this.state.expDetails];
+        let updatedExpDetails = [...this.props.expDetails];
         updatedExpDetails.splice(key, 1);
         this.setState({expDetails: updatedExpDetails});
     }
@@ -146,7 +69,7 @@ class FormConatiner extends Component {
     skillSubmitHandler = (event) => {
         event.preventDefault();
         const data = new FormData(event.target);
-        let updatedSkills = [...this.state.skills];
+        let updatedSkills = [...this.props.skills];
         updatedSkills.push({
             skill: data.get('skill')
         })
@@ -154,7 +77,7 @@ class FormConatiner extends Component {
     }
 
     skillDeleteHandler = (key) => {
-        let updatedSkills = [...this.state.skills];
+        let updatedSkills = [...this.props.skills];
         updatedSkills.splice(key, 1);
         this.setState({skills: updatedSkills});
     }
@@ -163,7 +86,8 @@ class FormConatiner extends Component {
 
     render() {
 
-        const formElementArray = this.state.formValues;
+        const formElementArray = this.props.formValues;
+        console.log(formElementArray)
         let form = (
             <form>
                 {formElementArray.map(formElement => (
@@ -179,7 +103,7 @@ class FormConatiner extends Component {
             </form>
         )
 
-        const eduItemsArray = this.state.eduDetails;
+        const eduItemsArray = this.props.eduDetails;
         let eduItems = ( 
             <div>
                 {eduItemsArray.map((eduElement, igKey) => (
@@ -195,7 +119,7 @@ class FormConatiner extends Component {
             </div>
         )
 
-        const expItemsArray = this.state.expDetails;
+        const expItemsArray = this.props.expDetails;
         let expItems = ( 
             <div>
                 {expItemsArray.map((expElement, igKey) => (
@@ -211,7 +135,7 @@ class FormConatiner extends Component {
             </div>
         )
 
-        const skillsArray = this.state.skills;
+        const skillsArray = this.props.skills;
         let skills = ( 
             <div>
                 {skillsArray.map((skillElement, igKey) => (
@@ -321,4 +245,22 @@ class FormConatiner extends Component {
     }
 }
 
-export default FormConatiner;
+
+const mapStateToProps = state => {
+    return{
+        formValues : state.form.formValues,
+        eduDetails : state.form.eduDetails,
+        expDetails : state.form.expDetails,
+        skills : state.form.skills
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+
+    return{
+        onInputChange : () => dispatch({type: actionTypes.INPUT_CHANGED_HANDLER })
+    }
+}
+
+
+export default connect( mapStateToProps, mapDispatchToProps)(FormConatiner);
