@@ -6,7 +6,7 @@ import * as serviceWorker from "./serviceWorker";
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import { createStore, applyMiddleware, compose, combineReducers } from "redux";
-//import createSagaMiddleware from "redux-saga";
+import createSagaMiddleware from "redux-saga";
 import formReducer from "./store/reducers/form";
 
 const composeEnhancers =
@@ -18,10 +18,10 @@ const rootReducer = combineReducers({
   form: formReducer,
 });
 
-// const sagaMiddleware = createSagaMiddleware();
+const sagaMiddleware = createSagaMiddleware();
 const store = createStore(
   rootReducer,
-  composeEnhancers(applyMiddleware())
+  composeEnhancers(applyMiddleware(sagaMiddleware))
 );
 
 ReactDOM.render(
