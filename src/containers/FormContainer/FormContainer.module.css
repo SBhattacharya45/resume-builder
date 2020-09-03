@@ -14,14 +14,14 @@
     /* -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px); */
     box-sizing: border-box;
-    padding: 9px;
+    padding: 8px;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
 
     color: rgb(36, 97, 121);    
     border-radius: 1rem;
-    padding: 1.5rem !important;
+    /* padding: 1.5rem !important; */
 }
 
 .Container h2 {
@@ -67,6 +67,12 @@
     display: flex;
     justify-content: center;
 }
+
+/* .ItemContainer {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+} */
 
 
 @media only screen and (max-width: 600px) {

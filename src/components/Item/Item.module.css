@@ -1,5 +1,5 @@
 .Item {
-    width: 96%;
+    width: 97.5%;
     display: flex;
     justify-content: space-between;
     background-color: white;
@@ -10,7 +10,6 @@
     box-shadow: 2px 2px 7px rgba(143, 143, 143, 0.411), -2px -2px 7px white;
     margin-top: 20px ;
     margin-bottom:20px;
-
 }
 .ItemDataContainer {
     display: flex;
@@ -49,3 +48,9 @@
 .CloseIcon::after {
     transform: rotate(-45deg)
 }
+
+@media only screen and (max-width: 600px) {
+    .Item {
+        width: 96%;
+    }
+  }
