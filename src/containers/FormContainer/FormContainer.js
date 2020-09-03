@@ -95,7 +95,8 @@ class FormConatiner extends Component {
             position: 'Web Developer',
             duration: '2 months'
         }],
-        skills: []
+        skills: [],
+        achivs: []
     }
 
     inputChangedHandler = (event, key) => {
@@ -167,6 +168,22 @@ class FormConatiner extends Component {
         this.setState({skills: updatedSkills});
     }
 
+    achivSubmitHandler = (event) => {
+        event.preventDefault();
+        const data = new FormData(event.target);
+        let updatedAchivs = [...this.state.achivs];
+        updatedAchivs.push({
+            achiv: data.get('achiv')
+        })
+        this.setState({achivs: updatedAchivs});
+    }
+
+    achivDeleteHandler = (key) => {
+        let updatedAchivs = [...this.state.achivs];
+        updatedAchivs.splice(key, 1);
+        this.setState({achivs: updatedAchivs});
+    }
+
     
 
     render() {
@@ -223,6 +240,15 @@ class FormConatiner extends Component {
             <div>
                 {skillsArray.map((skillElement, igKey) => (
                     <Item key={igKey} id={igKey} delete={this.skillDeleteHandler} skill={skillElement.skill}/>
+                ))}
+            </div>
+        )
+
+        const achivsArray = this.state.achivs;
+        let achivs = ( 
+            <div>
+                {achivsArray.map((achivElement, igKey) => (
+                    <Item key={igKey} id={igKey} delete={this.achivDeleteHandler} skill={achivElement.achiv}/>
                 ))}
             </div>
         )
@@ -310,7 +336,7 @@ class FormConatiner extends Component {
                         <form onSubmit={this.skillSubmitHandler}>
                             <div className={classes.InputContainer}>
                                 <input
-                                className={classes.Input} 
+                                className={classes.InputSingle} 
                                 placeholder="Skill"
                                 type="text"
                                 name="skill"/>
@@ -320,6 +346,24 @@ class FormConatiner extends Component {
                             </div>
                         </form>
                         {skills}
+                    </div>
+                </Grid>
+                <Grid item xs={12} sm={2}>
+                    <div className={classes.Container}>
+                        <h2>Achievements</h2>
+                        <form onSubmit={this.achivSubmitHandler}>
+                            <div className={classes.InputContainer}>
+                                <input
+                                className={classes.InputSingle} 
+                                placeholder="Achievement"
+                                type="text"
+                                name="achiv"/>
+                            </div>
+                            <div className={classes.ButtonContainer}>
+                                <Button disableElevation variant="contained" className={classes.Button} type="submit">Add Achievement</Button>
+                            </div>
+                        </form>
+                        {achivs}
                     </div>
                 </Grid>
             </Grid>

@@ -53,6 +53,22 @@
     outline: rgb(179, 179, 179) auto 1px;
 }
 
+.InputSingle {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    border: 1px solid #eee;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: #f5f5f5;
+    box-shadow: inset 1px 1px 3px rgb(207, 207, 207), -1px -1px 3px white;
+}
+ 
+.InputSingle:focus{
+    outline: rgb(179, 179, 179) auto 1px;
+}
+
 .Button {
     background-color: rgb(70, 123, 145);
     border-radius: 5px;
