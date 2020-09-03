@@ -17,62 +17,70 @@ class FormConatiner extends Component {
                 config: {
                     type: 'text', 
                     placeholder: 'First Name',
-                },
-                label: 'First Name'
+                }
             },
             {
                 id: 1,
+                inputType: 'input',
                 value: '',
                 config: {
                     type: 'text', 
                     placeholder: 'Last Name'
-                },
-                label: 'Last Name'
+                }
             },            
             {
                 id: 2,
+                inputType: 'input',
                 value: '',
                 config: {
                     type: 'text', 
                     placeholder: 'City'
-                },
-                label: 'City'
+                }
             },            
             {
                 id: 3,
+                inputType: 'input',
                 value: '',
                 config: {
                     type: 'text', 
                     placeholder: 'State'
-                },
-                label: 'State'
+                }
             },            
             {
                 id: 4,
+                inputType: 'input',
                 value: '',
                 config: {
                     type: 'text', 
                     placeholder: 'Pincode'
-                },
-                label: 'Pincode'
+                }
             },            
             {
                 id: 5,
+                inputType: 'input',
                 value: '',
                 config: {
                     type: 'email', 
                     placeholder: 'Enter your mail'
-                },
-                label: 'E-mail'
+                }
             },            
             {
                 id: 6,
+                inputType: 'input',
                 value: '',
                 config: {
                     type: 'text', 
                     placeholder: 'Enter your phone number'
-                },
-                label: 'Phone'
+                }
+            },
+            {
+                id: 7,
+                inputType: "textarea",
+                value: '',
+                config: {
+                    type: 'text', 
+                    placeholder: 'Enter your statement'
+                }
             }
         ],
         eduDetails: [{
@@ -170,10 +178,9 @@ class FormConatiner extends Component {
                     <Input
                     className="form__input"
                     key={formElement.id}
-                    inputType='input' 
+                    inputType={formElement.inputType} 
                     value={formElement.value}
                     config={formElement.config}
-                    label={formElement.label}
                     changed={(event) => this.inputChangedHandler(event, formElement.id)} />
                 ))}
             </form>
