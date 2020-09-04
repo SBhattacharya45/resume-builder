@@ -1,10 +1,12 @@
 import React,{Component} from 'react';
+import { connect } from 'react-redux';
 
 import Input from '../../components/Input/Input';
 import Item from '../../components/Item/Item';
 import classes from './FormContainer.module.css';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
+import * as actions from '../../store/actions/index';
 
 
 class FormConatiner extends Component {
@@ -368,7 +370,7 @@ class FormConatiner extends Component {
                 </Grid>
                 <Grid>
                     <div className={classes.Container}>
-                        <button className={classes.Button}>Submit</button>
+                        <button onClick={() => {this.props.onFormSubmit(this.state)}} className={classes.Button}>Submit</button>
                     </div>
                 </Grid>
             </Grid>
@@ -377,4 +379,10 @@ class FormConatiner extends Component {
     }
 }
 
-export default FormConatiner;
+const mapDispatchToProps = dispatch => {
+    return {
+        onFormSubmit: (details) => dispatch(actions.updateDetails(details))
+    }
+}
+
+export default connect(null,mapDispatchToProps)(FormConatiner);
