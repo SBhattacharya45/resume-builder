@@ -1,29 +1,30 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 import "./TemplatePage.css";
 
 const TemplatePage = () => {
   return (
-    <div class="row">
-      <div class="column">
-        <div class="card">
-          <h3>Template 1</h3>
+    <div className="row">
+      <div className="column">
+        <div className="card">
+          <Link to='/template1'>Template 1</Link>
         </div>
       </div>
 
-      <div class="column">
-        <div class="card">
+      <div className="column">
+        <div className="card">
           <h3>Template 2</h3>
         </div>
       </div>
 
-      <div class="column">
-        <div class="card">
+      <div className="column">
+        <div className="card">
           <h3>Template 3</h3>
         </div>
       </div>
 
-      <div class="column">
-        <div class="card">
+      <div className="column">
+        <div className="card">
           <h3>Template 4</h3>
         </div>
       </div>

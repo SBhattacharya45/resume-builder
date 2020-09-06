@@ -1,45 +1,63 @@
-import React from "react";
+import React, {Component} from "react";
+import {connect} from 'react-redux'
 import "./Template1.css";
 
 import PersonalDetails from "./TemplateComponents/PersonalDetails";
-import Skills from "./TemplateComponents/Skills";
+import Skill from "./TemplateComponents/Skills";
 import Experience from "./TemplateComponents/Experience";
 import Education from "./TemplateComponents/Education";
 import Organizations from "./TemplateComponents/Organizations";
 import Others from "./TemplateComponents/Others";
+class Template1 extends Component {
 
-function Template1() {
-  return (
-    <div className="main-conatiner">
-      <div className="name">John Doe</div>
-      <div className="left-section">
-        <div className="section-1">
-          <PersonalDetails />
+  render () {
+
+    const skills = (
+      <div>
+        {this.props.userDetails.skills.map((skillObj, igKey) => (
+          <Skill id={igKey} name={skillObj.skill} />
+        ))}
+      </div>
+    )
+
+    return (
+      <div className="main-conatiner">
+        <div className="name">{this.props.userDetails.formValues[0].value + " " + this.props.userDetails.formValues[1].value}</div>
+        <div className="left-section">
+          <div className="section-1">
+            <PersonalDetails />
+          </div>
+          <div className="section-2">
+            {skills}
+          </div>
         </div>
-        <div className="section-2">
-          <Skills />
+        <div className="right-section">
+          <div className="section-header">Work Experience</div>
+          <div className="section-content">
+            <Experience />
+          </div>
+          <div className="section-header">Education</div>
+          <div className="section-content">
+            <Education />
+          </div>
+          <div className="section-header">Organizations</div>
+          <div className="section-content">
+            <Organizations />
+          </div>
+          <div className="section-header">Other Details</div>
+          <div className="section-content">
+            <Others />
+          </div>
         </div>
       </div>
-      <div className="right-section">
-        <div className="section-header">Work Experience</div>
-        <div className="section-content">
-          <Experience />
-        </div>
-        <div className="section-header">Education</div>
-        <div className="section-content">
-          <Education />
-        </div>
-        <div className="section-header">Organizations</div>
-        <div className="section-content">
-          <Organizations />
-        </div>
-        <div className="section-header">Other Details</div>
-        <div className="section-content">
-          <Others />
-        </div>
-      </div>
-    </div>
-  );
+    );
+  }
 }
 
-export default Template1;
+const mapStateToProps = state => {
+  return {
+      userDetails: state.form.details
+  };
+}
+
+export default connect(mapStateToProps, null)(Template1);

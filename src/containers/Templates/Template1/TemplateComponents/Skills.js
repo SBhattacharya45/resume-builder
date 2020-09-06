@@ -1,12 +1,9 @@
 import React from "react";
 
-function Skills() {
+const skill = (props) => {
   return (
-    <div>
-      <div>Skill Name : </div>
-      <div>Progress</div> // basic,intermediate or advanced
-    </div>
+      <div>Skill Name : {props.name}</div>
   );
 }
 
-export default Skills;
+export default skill;
