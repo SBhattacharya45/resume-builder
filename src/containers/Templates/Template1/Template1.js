@@ -1,6 +1,13 @@
 import React from "react";
 import "./Template1.css";
 
+import PersonalDetails from "./TemplateComponents/PersonalDetails";
+import Skills from "./TemplateComponents/Skills";
+import Experience from "./TemplateComponents/Experience";
+import Education from "./TemplateComponents/Education";
+import Organizations from "./TemplateComponents/Organizations";
+import Others from "./TemplateComponents/Others";
+
 function Template1() {
   return (
     <div className="main-conatiner">
