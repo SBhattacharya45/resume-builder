@@ -5,6 +5,7 @@ import MainNavigation from "./components/NavBar/MainNavigation/MainNavigation";
 import Home from "./containers/Home";
 
 import FormContainer from "./containers/FormContainer/FormContainer";
+import TemplatePage from "./containers/Templates/TemplatePage";
 
 function App() {
   return (
@@ -16,8 +17,11 @@ function App() {
           <Route path="/form">
             <FormContainer />
           </Route>
-          <Route path="/">
+          <Route path="/" exact>
             <Home />
+          </Route>
+          <Route path="/templates">
+            <TemplatePage />
           </Route>
         </Switch>
       </main>
