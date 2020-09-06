@@ -89,7 +89,8 @@ class FormConatiner extends Component {
             qualification: "B.Tech",
             institute: 'Heritage Institute of Technology',
             field: 'Electronics',
-            passout: '2022'
+            passout: '2022',
+            grade: '9'
         }],
         expDetails: [{
             type: 'Internship',
@@ -124,7 +125,8 @@ class FormConatiner extends Component {
             qualification: data.get('qualification'),
             institute: data.get('institute'),
             field: data.get('field'),
-            passout: data.get('passout')
+            passout: data.get('passout'),
+            grade: data.get('grade')
         })
         this.setState({eduDetails: updatedEduDetails});
     }
@@ -216,7 +218,8 @@ class FormConatiner extends Component {
                     qualification={eduElement.qualification}
                     institute={eduElement.institute}
                     field={eduElement.field}
-                    passout={eduElement.passout}/>
+                    passout={eduElement.passout}
+                    grade={eduElement.grade}/>
                 ))}
             </div>
         )
@@ -289,6 +292,11 @@ class FormConatiner extends Component {
                                 placeholder="Passout Year"
                                 type="text"
                                 name="passout"/>
+                                <input
+                                className={classes.Input} 
+                                placeholder="Percentage/GPA"
+                                type="text"
+                                name="grade"/>
                             </div>
                             <div className={classes.ButtonContainer}>
                                 <Button disableElevation variant="contained" className={classes.Button} type="submit">Submit</Button>

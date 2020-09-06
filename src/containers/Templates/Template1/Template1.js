@@ -44,7 +44,7 @@ class Template1 extends Component {
           </div>
           <div className="section-header">Education</div>
           <div className="section-content">
-            <Education />
+            <Education education={this.props.userDetails.eduDetails}/>
           </div>
           <div className="section-header">Organizations</div>
           <div className="section-content">
