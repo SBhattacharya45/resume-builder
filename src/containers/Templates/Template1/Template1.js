@@ -25,7 +25,13 @@ class Template1 extends Component {
         <div className="name">{this.props.userDetails.formValues[0].value + " " + this.props.userDetails.formValues[1].value}</div>
         <div className="left-section">
           <div className="section-1">
-            <PersonalDetails />
+            <PersonalDetails 
+              city={this.props.userDetails.formValues[2].value}
+              state={this.props.userDetails.formValues[3].value}
+              pin={this.props.userDetails.formValues[4].value}
+              mail={this.props.userDetails.formValues[5].value}
+              number={this.props.userDetails.formValues[6].value}
+            />
           </div>
           <div className="section-2">
             {skills}
