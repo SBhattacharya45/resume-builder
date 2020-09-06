@@ -1,0 +1,3 @@
+export {
+    updateDetails
+} from './form';

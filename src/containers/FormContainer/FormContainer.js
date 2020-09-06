@@ -1,10 +1,12 @@
 import React,{Component} from 'react';
+import { connect } from 'react-redux';
 
 import Input from '../../components/Input/Input';
 import Item from '../../components/Item/Item';
 import classes from './FormContainer.module.css';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
+import * as actions from '../../store/actions/index';
 
 
 class FormConatiner extends Component {
@@ -17,62 +19,70 @@ class FormConatiner extends Component {
                 config: {
                     type: 'text', 
                     placeholder: 'First Name',
-                },
-                label: 'First Name'
+                }
             },
             {
                 id: 1,
+                inputType: 'input',
                 value: '',
                 config: {
                     type: 'text', 
                     placeholder: 'Last Name'
-                },
-                label: 'Last Name'
+                }
             },            
             {
                 id: 2,
+                inputType: 'input',
                 value: '',
                 config: {
                     type: 'text', 
                     placeholder: 'City'
-                },
-                label: 'City'
+                }
             },            
             {
                 id: 3,
+                inputType: 'input',
                 value: '',
                 config: {
                     type: 'text', 
                     placeholder: 'State'
-                },
-                label: 'State'
+                }
             },            
             {
                 id: 4,
+                inputType: 'input',
                 value: '',
                 config: {
                     type: 'text', 
                     placeholder: 'Pincode'
-                },
-                label: 'Pincode'
+                }
             },            
             {
                 id: 5,
+                inputType: 'input',
                 value: '',
                 config: {
                     type: 'email', 
                     placeholder: 'Enter your mail'
-                },
-                label: 'E-mail'
+                }
             },            
             {
                 id: 6,
+                inputType: 'input',
                 value: '',
                 config: {
                     type: 'text', 
                     placeholder: 'Enter your phone number'
-                },
-                label: 'Phone'
+                }
+            },
+            {
+                id: 7,
+                inputType: "textarea",
+                value: '',
+                config: {
+                    type: 'text', 
+                    placeholder: 'Enter your statement'
+                }
             }
         ],
         eduDetails: [{
@@ -87,7 +97,8 @@ class FormConatiner extends Component {
             position: 'Web Developer',
             duration: '2 months'
         }],
-        skills: []
+        skills: [],
+        achivs: []
     }
 
     inputChangedHandler = (event, key) => {
@@ -159,6 +170,22 @@ class FormConatiner extends Component {
         this.setState({skills: updatedSkills});
     }
 
+    achivSubmitHandler = (event) => {
+        event.preventDefault();
+        const data = new FormData(event.target);
+        let updatedAchivs = [...this.state.achivs];
+        updatedAchivs.push({
+            achiv: data.get('achiv')
+        })
+        this.setState({achivs: updatedAchivs});
+    }
+
+    achivDeleteHandler = (key) => {
+        let updatedAchivs = [...this.state.achivs];
+        updatedAchivs.splice(key, 1);
+        this.setState({achivs: updatedAchivs});
+    }
+
     
 
     render() {
@@ -170,10 +197,9 @@ class FormConatiner extends Component {
                     <Input
                     className="form__input"
                     key={formElement.id}
-                    inputType='input' 
+                    inputType={formElement.inputType} 
                     value={formElement.value}
                     config={formElement.config}
-                    label={formElement.label}
                     changed={(event) => this.inputChangedHandler(event, formElement.id)} />
                 ))}
             </form>
@@ -216,6 +242,15 @@ class FormConatiner extends Component {
             <div>
                 {skillsArray.map((skillElement, igKey) => (
                     <Item key={igKey} id={igKey} delete={this.skillDeleteHandler} skill={skillElement.skill}/>
+                ))}
+            </div>
+        )
+
+        const achivsArray = this.state.achivs;
+        let achivs = ( 
+            <div>
+                {achivsArray.map((achivElement, igKey) => (
+                    <Item key={igKey} id={igKey} delete={this.achivDeleteHandler} skill={achivElement.achiv}/>
                 ))}
             </div>
         )
@@ -303,7 +338,7 @@ class FormConatiner extends Component {
                         <form onSubmit={this.skillSubmitHandler}>
                             <div className={classes.InputContainer}>
                                 <input
-                                className={classes.Input} 
+                                className={classes.InputSingle} 
                                 placeholder="Skill"
                                 type="text"
                                 name="skill"/>
@@ -315,10 +350,39 @@ class FormConatiner extends Component {
                         {skills}
                     </div>
                 </Grid>
+                <Grid item xs={12} sm={2}>
+                    <div className={classes.Container}>
+                        <h2>Achievements</h2>
+                        <form onSubmit={this.achivSubmitHandler}>
+                            <div className={classes.InputContainer}>
+                                <input
+                                className={classes.InputSingle} 
+                                placeholder="Achievement"
+                                type="text"
+                                name="achiv"/>
+                            </div>
+                            <div className={classes.ButtonContainer}>
+                                <Button disableElevation variant="contained" className={classes.Button} type="submit">Add Achievement</Button>
+                            </div>
+                        </form>
+                        {achivs}
+                    </div>
+                </Grid>
+                <Grid>
+                    <div className={classes.Container}>
+                        <button onClick={() => {this.props.onFormSubmit(this.state)}} className={classes.Button}>Submit</button>
+                    </div>
+                </Grid>
             </Grid>
             </div>
         )
     }
 }
 
-export default FormConatiner;
+const mapDispatchToProps = dispatch => {
+    return {
+        onFormSubmit: (details) => dispatch(actions.updateDetails(details))
+    }
+}
+
+export default connect(null,mapDispatchToProps)(FormConatiner);
