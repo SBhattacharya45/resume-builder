@@ -40,7 +40,7 @@ class Template1 extends Component {
         <div className="right-section">
           <div className="section-header">Work Experience</div>
           <div className="section-content">
-            <Experience />
+            <Experience experience={this.props.userDetails.expDetails}/>
           </div>
           <div className="section-header">Education</div>
           <div className="section-content">

@@ -1,11 +1,29 @@
 import React from "react";
 
-function Experience() {
+const experience = (props) => {
+
+  const eduList = props.experience.map((expObject, igKey) => (
+    <tr id={igKey}>
+      <td>{expObject.type}</td>
+      <td>{expObject.organization}</td>
+      <td>{expObject.position}</td>
+      <td>{expObject.duration}</td>
+    </tr>
+  ))
+
   return (
     <div>
-      <p>I have worked as an android developer in OrangeInk for 3 months</p>
+      <table>
+        <tr>
+          <th>Type</th>
+          <th>Oraganization</th>
+          <th>Position</th>
+          <th>Duration</th>
+        </tr>
+        {eduList}
+      </table>
     </div>
   );
 }
 
-export default Experience;
+export default experience;
