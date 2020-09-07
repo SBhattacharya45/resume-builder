@@ -1,16 +1,13 @@
 import React from "react";
 
-function PersonalDetails() {
+const personalDetails = (props) => {
   return (
     <div>
-      <div>Contact : 9454154331</div>
-      <div>Email : abc@gmail.com</div>
-      <div>Address : kljfvnsfnjlsj</div>
-      <div>Age : 50</div>
-      <div>Marital Status : Bachelor</div>
-      <div>Social Links : FB, GitHub</div>
+      <div>Contact : {props.number}</div>
+      <div>Email : {props.mail}</div>
+      <div>Address : {props.city + ", " + props.state + "-" + props.pin}</div>
     </div>
   );
 }
 
-export default PersonalDetails;
+export default personalDetails;

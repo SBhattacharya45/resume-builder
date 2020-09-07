@@ -6,7 +6,10 @@ import Home from "./containers/Home";
 
 import FormContainer from "./containers/FormContainer/FormContainer";
 import TemplatePage from "./containers/Templates/TemplatePage";
+
 import Preview from './containers/Preview/Preview';
+
+import TemplatePage1 from './containers/Templates/Template1/Template1';
 
 
 function App() {
@@ -25,8 +28,12 @@ function App() {
           <Route path="/templates">
             <TemplatePage />
           </Route>
+
           <Route path="/preview">
             <Preview />
+          </Route>
+          <Route path="/template1">
+            <TemplatePage1 />
           </Route>
         </Switch>
       </main>

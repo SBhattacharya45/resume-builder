@@ -11,6 +11,7 @@ const item = (props) => {
                     <span className={classes.ItemData}>{props.field}</span>
                     <span className={classes.ItemData}>{props.institute}</span>
                     <span className={classes.ItemData}>{props.passout}</span>
+                    <span className={classes.ItemData}>{props.grade}</span>
                 </div>
                 <span onClick={() => props.delete(props.id)}><i className={classes.CloseIcon}></i></span>
             </div>
