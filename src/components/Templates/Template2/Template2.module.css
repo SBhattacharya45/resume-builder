@@ -1,0 +1,14 @@
+.mainContainer {
+    display: flex;
+}
+
+.leftContainer{
+    background-color: red;
+    width: 40%;
+    box-sizing: border-box;
+}
+.rightContainer {
+    background-color: turquoise;
+    width: 60%;
+    box-sizing: border-box;
+}

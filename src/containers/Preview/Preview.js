@@ -4,14 +4,14 @@ import './Preview.css';
 
 import Page from '../../components/Page/Page';
 
-import Template1 from '../../components/Templates/Template1/Template1';
-//import Template2 from '../../components/Templates/Template2/Template2';
+//import Template1 from '../../components/Templates/Template1/Template1';
+import Template2 from '../../components/Templates/Template2/Template2';
 
 class Preview extends Component {
 
     render(){
 
-        const templatePreview = <Template1 />;
+        const templatePreview = <Template2 />;
 
         return(
             <div>
