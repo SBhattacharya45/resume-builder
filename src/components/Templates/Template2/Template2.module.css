@@ -1,14 +1,34 @@
 .mainContainer {
     display: flex;
+    height: 100%;
 }
 
 .leftContainer{
     background-color: red;
-    width: 40%;
+    width: 35%;
     box-sizing: border-box;
+    height: 100%;
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
 }
 .rightContainer {
     background-color: turquoise;
-    width: 60%;
+    width: 65%;
     box-sizing: border-box;
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+}
+
+.rightSubSec {
+    height: 330px;
+    background-color: violet;
+    margin-top: 3px;
+}
+
+.leftSubSec {
+    height: 250px;
+    background-color: yellowgreen;
+    margin-top: 3px;
 }

@@ -10,10 +10,23 @@ class Template2 extends Component {
         return(
             <div class={classes.mainContainer}>
                 <div className={classes.leftContainer}>
-                    <h1>Left</h1>
+                    <div className={classes.leftSubSec}>
+                        <h1>Pic</h1>
+                    </div>
+                    <div className={classes.leftSubSec}>
+                        <h1>Skills</h1>
+                    </div>
                 </div>
                 <div className={classes.rightContainer}>
-                    <h1>RIght</h1>
+                    <div className={classes.rightSubSec}>
+                        <h1>Personal details</h1>
+                    </div>
+                    <div className={classes.rightSubSec}>
+                        <h1>Educational details</h1>
+                    </div>
+                    <div className={classes.rightSubSec}>
+                        <h1>Experience</h1>
+                    </div>
                 </div>
             </div>
         )
