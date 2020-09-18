@@ -99,7 +99,8 @@ class FormConatiner extends Component {
             duration: '2 months'
         }],
         skills: [],
-        achivs: []
+        achivs: [],
+        imageUrl: null
     }
 
     inputChangedHandler = (event, key) => {
@@ -188,6 +189,14 @@ class FormConatiner extends Component {
         this.setState({achivs: updatedAchivs});
     }
 
+    handleImageUpload = (event) => {
+        event.preventDefault();
+        const { files } = event.target;
+        const localImageUrl =  window.URL.createObjectURL(files[0]);
+       
+        this.setState({imageUrl: localImageUrl});
+    }
+
     
 
     render() {
@@ -265,6 +274,12 @@ class FormConatiner extends Component {
                     <div className={classes.Container}>
                     <h2>Basic Details</h2>
                         {form}
+                    </div>
+                </Grid>
+                <Grid item xs={12} sm={2}>
+                    <div className={classes.Container}>
+                    <h2>Image</h2>
+                        <input type="file" accept="image/*" onChange={this.handleImageUpload}/>
                     </div>
                 </Grid>
                 <Grid item xs={12} sm={2}>

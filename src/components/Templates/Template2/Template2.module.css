@@ -25,10 +25,25 @@
     height: 330px;
     background-color: violet;
     margin-top: 3px;
+    padding: 6px;
 }
 
 .leftSubSec {
     height: 250px;
     background-color: yellowgreen;
     margin-top: 3px;
+}
+
+.Table {
+    border-collapse: collapse;
+    width: 100%;
+}
+th {
+    background-color: #760f9e;
+    color: white;
+    font-weight: 400;
+}
+
+th, td {
+    text-align: center;
 }
