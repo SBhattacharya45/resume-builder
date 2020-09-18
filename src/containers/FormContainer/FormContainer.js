@@ -19,7 +19,11 @@ class FormConatiner extends Component {
                 config: {
                     type: 'text', 
                     placeholder: 'First Name',
-                }
+                },
+                validation: {
+                    required: true
+                },
+                valid: false
             },
             {
                 id: 1,
@@ -28,7 +32,11 @@ class FormConatiner extends Component {
                 config: {
                     type: 'text', 
                     placeholder: 'Last Name'
-                }
+                },
+                validation: {
+                    required: true
+                },
+                valid: false
             },            
             {
                 id: 2,
@@ -37,7 +45,11 @@ class FormConatiner extends Component {
                 config: {
                     type: 'text', 
                     placeholder: 'City'
-                }
+                },
+                validation: {
+                    required: true
+                },
+                valid: false
             },            
             {
                 id: 3,
@@ -46,7 +58,11 @@ class FormConatiner extends Component {
                 config: {
                     type: 'text', 
                     placeholder: 'State'
-                }
+                },
+                validation: {
+                    required: true
+                },
+                valid: false
             },            
             {
                 id: 4,
@@ -55,7 +71,11 @@ class FormConatiner extends Component {
                 config: {
                     type: 'text', 
                     placeholder: 'Pincode'
-                }
+                },
+                validation: {
+                    required: true
+                },
+                valid: false
             },            
             {
                 id: 5,
@@ -64,7 +84,12 @@ class FormConatiner extends Component {
                 config: {
                     type: 'email', 
                     placeholder: 'Enter your mail'
-                }
+                },
+                validation: {
+                    required: true,
+                    isEmail: true
+                },
+                valid: false
             },            
             {
                 id: 6,
@@ -73,7 +98,12 @@ class FormConatiner extends Component {
                 config: {
                     type: 'text', 
                     placeholder: 'Enter your phone number'
-                }
+                },
+                validation: {
+                    required: true,
+                    isNumeric: true
+                },
+                valid: false
             },
             {
                 id: 7,
@@ -82,7 +112,11 @@ class FormConatiner extends Component {
                 config: {
                     type: 'text', 
                     placeholder: 'Enter your statement'
-                }
+                },
+                validation: {
+                    required: true
+                },
+                valid: false
             }
         ],
         eduDetails: [{
@@ -100,7 +134,39 @@ class FormConatiner extends Component {
         }],
         skills: [],
         achivs: [],
-        imageUrl: null
+        imageUrl: null,
+        formIsValid: false
+    }
+
+    checkValidity(value, rules) {
+        let isValid = true;
+        if (!rules) {
+            return true;
+        }
+        
+        if (rules.required) {
+            isValid = value.trim() !== '' && isValid;
+        }
+
+        if (rules.minLength) {
+            isValid = value.length >= rules.minLength && isValid
+        }
+
+        if (rules.maxLength) {
+            isValid = value.length <= rules.maxLength && isValid
+        }
+
+        if (rules.isEmail) {
+            const pattern = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
+            isValid = pattern.test(value) && isValid
+        }
+
+        if (rules.isNumeric) {
+            const pattern = /^\d+$/;
+            isValid = pattern.test(value) && isValid
+        }
+
+        return isValid;
     }
 
     inputChangedHandler = (event, key) => {
@@ -113,9 +179,15 @@ class FormConatiner extends Component {
         }
 
         updatedElement.value = event.target.value;
+        updatedElement.valid = this.checkValidity(updatedElement.value, updatedElement.validation);
         updatedFormElements[key] = updatedElement;
 
-        this.setState({formValues: updatedFormElements});
+        let formIsValid = true;
+        for (let key in updatedFormElements) {
+            formIsValid = updatedFormElements[key].valid && formIsValid;
+        }
+
+        this.setState({formValues: updatedFormElements, formIsValid: formIsValid});
     }
 
     eduSubmitHandler = (event) => {
@@ -393,7 +465,10 @@ class FormConatiner extends Component {
                 </Grid>
                 <Grid>
                     <div className={classes.Container}>
-                        <button onClick={() => {this.props.onFormSubmit(this.state)}} className={classes.Button}>Submit</button>
+                        <button
+                        disabled={!this.state.formIsValid} 
+                        onClick={() => {this.props.onFormSubmit(this.state)}} 
+                        className={classes.Button}>Submit</button>
                     </div>
                 </Grid>
             </Grid>
