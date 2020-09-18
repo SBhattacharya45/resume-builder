@@ -269,7 +269,18 @@ class FormConatiner extends Component {
         this.setState({imageUrl: localImageUrl});
     }
 
-    
+    formSubmitHandler = () => {
+        if(this.state.formIsValid 
+            && this.state.eduDetails.length > 0
+            && this.state.expDetails.length > 0
+            && this.state.skills.length > 0
+            && this.state.achivs.length > 0) {
+                this.props.onFormSubmit(this.state);
+                alert("form submitted");
+        } else {
+            alert("fill in all details");
+        }
+    }
 
     render() {
 
@@ -465,9 +476,8 @@ class FormConatiner extends Component {
                 </Grid>
                 <Grid>
                     <div className={classes.Container}>
-                        <button
-                        disabled={!this.state.formIsValid} 
-                        onClick={() => {this.props.onFormSubmit(this.state)}} 
+                        <button 
+                        onClick={this.formSubmitHandler} 
                         className={classes.Button}>Submit</button>
                     </div>
                 </Grid>
