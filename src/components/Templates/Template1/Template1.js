@@ -172,3 +172,44 @@ const mapStateToProps = (state) => {
 }
 
 export default connect(mapStateToProps)(Template1);
+
+
+// const mapStateToProps = (state) => {
+//     return{
+//         firstName : 'Rajat',
+//         lastName : 'Chowdhury',
+//         city: 'Kolkata',
+//         state: 'WestBengal',
+//         pincode : '123456',
+//         email : 'crajat2000@gmail.com',
+//         phoneNumber : '8017077130',
+//         statement : 'Non aliqua pariatur aliquip et anim quis enim. Mollit minim labore sunt do duis consectetur labore incididunt qui sit fugiat. Tempor consequat enim culpa id adipisicing est. Sint veniam consectetur magna id reprehenderit tempor. Adipisicing eiusmod in ex dolore pariatur nisi nulla aliquip occaecat. Deserunt proident reprehenderit aute non exercitation id tempor id sint.',
+//         eduDetails: [{
+//             qualification: "B.Tech",
+//             institute: 'Heritage Institute of Technology',
+//             field: 'Electronics',
+//             passout: '2022',
+//             grade: '9'
+//         },
+//         {   qualification: "B.Tech",
+//             institute: 'Heritage Institute of Technology',
+//             field: 'Electronics',
+//             passout: '2022',
+//             grade: '9'}],
+//         expDetails: [{
+//             type: 'Internship',
+//             organization: 'OrangeInk',
+//             position: 'Web Developer',
+//             duration: '2 months'
+//         },
+//         {
+//             type: 'Internship',
+//             organization: 'OrangeInk',
+//             position: 'Web Developer',
+//             duration: '2 months'
+//         }],
+//         skills : ['javascript' , 'css', 'html', 'bootstrap'],
+//         achivs: ['last at everything' , 'rated worst for 3 years']
+
+//     }
+// }
