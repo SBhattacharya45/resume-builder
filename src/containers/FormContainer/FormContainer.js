@@ -23,7 +23,8 @@ class FormConatiner extends Component {
                 validation: {
                     required: true
                 },
-                valid: false
+                valid: false,
+                touched : false
             },
             {
                 id: 1,
@@ -36,7 +37,8 @@ class FormConatiner extends Component {
                 validation: {
                     required: true
                 },
-                valid: false
+                valid: false,
+                touched : false
             },            
             {
                 id: 2,
@@ -49,7 +51,8 @@ class FormConatiner extends Component {
                 validation: {
                     required: true
                 },
-                valid: false
+                valid: false,
+                touched : false
             },            
             {
                 id: 3,
@@ -62,7 +65,8 @@ class FormConatiner extends Component {
                 validation: {
                     required: true
                 },
-                valid: false
+                valid: false,
+                touched : false
             },            
             {
                 id: 4,
@@ -75,7 +79,8 @@ class FormConatiner extends Component {
                 validation: {
                     required: true
                 },
-                valid: false
+                valid: false,
+                touched : false
             },            
             {
                 id: 5,
@@ -89,7 +94,8 @@ class FormConatiner extends Component {
                     required: true,
                     isEmail: true
                 },
-                valid: false
+                valid: false,
+                touched : false
             },            
             {
                 id: 6,
@@ -103,7 +109,8 @@ class FormConatiner extends Component {
                     required: true,
                     isNumeric: true
                 },
-                valid: false
+                valid: false,
+                touched : false
             },
             {
                 id: 7,
@@ -116,7 +123,8 @@ class FormConatiner extends Component {
                 validation: {
                     required: true
                 },
-                valid: false
+                valid: false,
+                touched : false
             }
         ],
         eduDetails: [{
@@ -180,6 +188,7 @@ class FormConatiner extends Component {
 
         updatedElement.value = event.target.value;
         updatedElement.valid = this.checkValidity(updatedElement.value, updatedElement.validation);
+        updatedElement.touched= true;
         updatedFormElements[key] = updatedElement;
 
         let formIsValid = true;
@@ -282,6 +291,8 @@ class FormConatiner extends Component {
         }
     }
 
+
+
     render() {
 
         const formElementArray = this.state.formValues;
@@ -294,6 +305,8 @@ class FormConatiner extends Component {
                     inputType={formElement.inputType} 
                     value={formElement.value}
                     config={formElement.config}
+                    invalid= {!formElement.valid }
+                    touched= {formElement.touched}
                     changed={(event) => this.inputChangedHandler(event, formElement.id)} />
                 ))}
             </form>
@@ -374,11 +387,13 @@ class FormConatiner extends Component {
                                 className={classes.Input} 
                                 placeholder="Qualification"
                                 type="text"
+                                id= "qualification"
                                 name="qualification"/>
                                 <input
                                 className={classes.Input} 
                                 placeholder="Field"
                                 type="text"
+                                id= "field"
                                 name="field"/>
                                 <input
                                 className={classes.Input} 
@@ -400,6 +415,7 @@ class FormConatiner extends Component {
                                 <Button disableElevation variant="contained" className={classes.Button} type="submit">Submit</Button>
                             </div>
                         </form>
+                        <p className={classes.textDisabled}> At least 1 required</p>
                         <div className={classes.ItemContainer}>
                             {eduItems}
                         </div>
@@ -435,6 +451,7 @@ class FormConatiner extends Component {
                                 <Button  disableElevation variant="contained" className={classes.Button} type="submit">Submit</Button>
                             </div>
                         </form>
+                        <p className={classes.textDisabled}> At least 1 required</p>
                         {expItems}
                     </div>
                 </Grid>    
@@ -453,6 +470,7 @@ class FormConatiner extends Component {
                                 <Button disableElevation variant="contained" className={classes.Button} type="submit">Add Skill</Button>
                             </div>
                         </form>
+                        <p className={classes.textDisabled}> At least 1 required</p>
                         {skills}
                     </div>
                 </Grid>
@@ -471,6 +489,7 @@ class FormConatiner extends Component {
                                 <Button disableElevation variant="contained" className={classes.Button} type="submit">Add Achievement</Button>
                             </div>
                         </form>
+                        <p className={classes.textDisabled}> At least 1 required</p>
                         {achivs}
                     </div>
                 </Grid>

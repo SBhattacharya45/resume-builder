@@ -90,6 +90,10 @@
     justify-content: center;
 } */
 
+.textDisabled{
+    color: grey !important;
+    font-size: 0.8rem;
+}
 
 @media only screen and (max-width: 600px) {
     .Container {
