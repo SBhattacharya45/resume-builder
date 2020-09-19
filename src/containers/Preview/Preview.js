@@ -5,6 +5,11 @@ import './Preview.css';
 
 import Page from '../../components/Page/Page';
 
+import EditIcon from '@material-ui/icons/Edit';
+import PrintIcon from '@material-ui/icons/Print';
+import ViewCompactIcon from '@material-ui/icons/ViewCompact';
+
+
 import Template1 from '../../components/Templates/Template1/Template1';
 //import Template2 from '../../components/Templates/Template2/Template2';
 
@@ -21,12 +26,15 @@ class Preview extends Component {
                 <div className="buttons">
                     <Button variant="contained" color="primary">
                         <ReactToPrint
-                        trigger={() => <span>Print</span>}
+                        trigger={() => <span className="print"> <PrintIcon/> Print</span>}
                         content={() => this.componentRef}
                         />
                     </Button>
-                    <Button variant="outlined" color="primary">
-                        Choose another Template
+                    <Button variant="outlined" color="primary" hred="/templates">
+                       <ViewCompactIcon/> Choose another Template
+                    </Button>
+                    <Button variant="outlined" color="primary" href="/form">
+                       <EditIcon/> Edit
                     </Button>
                 </div>
                 <div>

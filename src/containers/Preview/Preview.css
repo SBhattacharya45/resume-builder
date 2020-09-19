@@ -6,3 +6,11 @@
 .MuiButton-outlined, .MuiButton-contained {
     margin: 10px !important;
 }
+
+.print{
+    display: flex;
+}
+
+.MuiSvgIcon-root{
+    margin-right: 10px;
+}

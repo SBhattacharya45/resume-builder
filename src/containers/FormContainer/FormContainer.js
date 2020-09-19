@@ -1,12 +1,12 @@
 import React,{Component} from 'react';
 import { connect } from 'react-redux';
-
 import Input from '../../components/Input/Input';
 import Item from '../../components/Item/Item';
 import classes from './FormContainer.module.css';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import * as actions from '../../store/actions/index';
+
 
 
 class FormConatiner extends Component {
@@ -286,6 +286,7 @@ class FormConatiner extends Component {
             && this.state.achivs.length > 0) {
                 this.props.onFormSubmit(this.state);
                 alert("form submitted");
+                
         } else {
             alert("fill in all details");
         }

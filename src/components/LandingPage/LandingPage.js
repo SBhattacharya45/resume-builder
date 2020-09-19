@@ -3,6 +3,7 @@ import GitHubIcon from '@material-ui/icons/GitHub';
 import ShareIcon from '@material-ui/icons/Share';
 import FacebookIcon from '@material-ui/icons/Facebook';
 
+
 import './LandingPage.css';
 import { IconButton, Button } from '@material-ui/core';
 
@@ -18,7 +19,7 @@ const LandingPage = () => {
                     Fill the form. Print the resume
                 </p>
                 <p className="landingPage__text">It's that easy</p>
-                <Button>GET STARTED</Button>
+                <Button href= "/form" > GET STARTED </Button>
 
             </div>
             <div className="landingPage__icons">
