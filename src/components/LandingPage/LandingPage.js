@@ -2,6 +2,7 @@ import React from 'react';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import ShareIcon from '@material-ui/icons/Share';
 import FacebookIcon from '@material-ui/icons/Facebook';
+import { NavLink } from "react-router-dom";
 
 
 import './LandingPage.css';
@@ -19,7 +20,7 @@ const LandingPage = () => {
                     Fill the form. Print the resume
                 </p>
                 <p className="landingPage__text">It's that easy</p>
-                <Button href= "/form" > GET STARTED </Button>
+                <NavLink to="/form"><Button> GET STARTED </Button></NavLink>
 
             </div>
             <div className="landingPage__icons">

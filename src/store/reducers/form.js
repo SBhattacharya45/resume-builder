@@ -1,110 +1,138 @@
 
 const initialState = {
     details: {
-        formValues: [
-          {
+      formValues: [
+        {
             id: 0,
-            value: 'Soumya',
+            value: '',
             config: {
-              type: 'text',
-              placeholder: 'First Name'
-            }
-          },
-          {
+                type: 'text', 
+                placeholder: 'First Name',
+            },
+            validation: {
+                required: true
+            },
+            valid: false,
+            touched : false
+        },
+        {
             id: 1,
             inputType: 'input',
-            value: 'Bhattachraya',
+            value: '',
             config: {
-              type: 'text',
-              placeholder: 'Last Name'
-            }
-          },
-          {
+                type: 'text', 
+                placeholder: 'Last Name'
+            },
+            validation: {
+                required: true
+            },
+            valid: false,
+            touched : false
+        },            
+        {
             id: 2,
             inputType: 'input',
-            value: 'Kolkata',
+            value: '',
             config: {
-              type: 'text',
-              placeholder: 'City'
-            }
-          },
-          {
+                type: 'text', 
+                placeholder: 'City'
+            },
+            validation: {
+                required: true
+            },
+            valid: false,
+            touched : false
+        },            
+        {
             id: 3,
             inputType: 'input',
-            value: 'West Bengal',
+            value: '',
             config: {
-              type: 'text',
-              placeholder: 'State'
-            }
-          },
-          {
+                type: 'text', 
+                placeholder: 'State'
+            },
+            validation: {
+                required: true
+            },
+            valid: false,
+            touched : false
+        },            
+        {
             id: 4,
             inputType: 'input',
-            value: '700149',
+            value: '',
             config: {
-              type: 'text',
-              placeholder: 'Pincode'
-            }
-          },
-          {
+                type: 'text', 
+                placeholder: 'Pincode'
+            },
+            validation: {
+                required: true
+            },
+            valid: false,
+            touched : false
+        },            
+        {
             id: 5,
             inputType: 'input',
-            value: 'test@test.mail.com',
+            value: '',
             config: {
-              type: 'email',
-              placeholder: 'Enter your mail'
-            }
-          },
-          {
+                type: 'email', 
+                placeholder: 'Enter your mail'
+            },
+            validation: {
+                required: true,
+                isEmail: true
+            },
+            valid: false,
+            touched : false
+        },            
+        {
             id: 6,
             inputType: 'input',
-            value: '99999999',
+            value: '',
             config: {
-              type: 'text',
-              placeholder: 'Enter your phone number'
-            }
-          },
-          {
+                type: 'text', 
+                placeholder: 'Enter your phone number'
+            },
+            validation: {
+                required: true,
+                isNumeric: true
+            },
+            valid: false,
+            touched : false
+        },
+        {
             id: 7,
-            inputType: 'textarea',
-            value: 'i am iron man',
+            inputType: "textarea",
+            value: '',
             config: {
-              type: 'text',
-              placeholder: 'Enter your statement'
-            }
-          }
-        ],
-        eduDetails: [
-          {
-            qualification: 'B.Tech',
-            institute: 'Heritage Institute of Technology',
-            field: 'Electronics',
-            passout: '2022',
-            grade: '9'
-          }
-        ],
-        expDetails: [
-          {
-            type: 'Internship',
-            organization: 'OrangeInk',
-            position: 'Web Developer',
-            duration: '2 months'
-          }
-        ],
-        skills: [
-          {
-            skill: 'python'
-          },
-          {
-            skill: 'python'
-          }
-        ],
-        achivs: [
-          {
-            achiv: 'Topped in 3rd sem'
-          }
-        ],
-        imageUrl: 'blob:http://localhost:3000/09349018-13e3-4756-9ec4-759cefa29e83'
+                type: 'text', 
+                placeholder: 'Enter your statement'
+            },
+            validation: {
+                required: true
+            },
+            valid: false,
+            touched : false
+        }
+    ],
+    eduDetails: [{
+        qualification: "B.Tech",
+        institute: 'Heritage Institute of Technology',
+        field: 'Electronics',
+        passout: '2022',
+        grade: '9'
+    }],
+    expDetails: [{
+        type: 'Internship',
+        organization: 'OrangeInk',
+        position: 'Web Developer',
+        duration: '2 months'
+    }],
+    skills: [],
+    achivs: [],
+    imageUrl: null,
+    formIsValid: false
       }
 }
 

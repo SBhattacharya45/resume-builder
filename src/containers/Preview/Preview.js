@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Button from '@material-ui/core/Button';
+import { NavLink } from "react-router-dom";
 import ReactToPrint from "react-to-print";
 import './Preview.css';
 
@@ -33,9 +34,11 @@ class Preview extends Component {
                     <Button variant="outlined" color="primary" hred="/templates">
                        <ViewCompactIcon/> Choose another Template
                     </Button>
-                    <Button variant="outlined" color="primary" href="/form">
-                       <EditIcon/> Edit
-                    </Button>
+                    <NavLink to='/form'>
+                        <Button variant="outlined" color="primary">
+                        <EditIcon/> Edit
+                        </Button>
+                    </NavLink>
                 </div>
                 <div>
 
