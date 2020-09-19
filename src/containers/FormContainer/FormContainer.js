@@ -5,6 +5,8 @@ import Item from '../../components/Item/Item';
 import classes from './FormContainer.module.css';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import * as actions from '../../store/actions/index';
 
 
@@ -285,10 +287,26 @@ class FormConatiner extends Component {
             && this.state.skills.length > 0
             && this.state.achivs.length > 0) {
                 this.props.onFormSubmit(this.state);
-                alert("form submitted");
+                toast.success("Form submitted", {
+                    position: "top-center",
+                    autoClose: 2000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                });
                 
         } else {
-            alert("fill in all details");
+            toast.error("Please fill in all required fields",{
+                position: "top-center",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
         }
     }
 
@@ -366,6 +384,17 @@ class FormConatiner extends Component {
 
         return(
             <div className={classes.MainContainer}>
+            <ToastContainer
+                position="top-center"
+                autoClose={2000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+            />
             <Grid container-fluid>
                 <Grid item xs={12} sm={2}>
                     <div className={classes.Container}>
