@@ -132,7 +132,8 @@ const initialState = {
     skills: [],
     achivs: [],
     imageUrl: null,
-    formIsValid: false
+    formIsValid: false,
+    isInputValid: false
       }
 }
 

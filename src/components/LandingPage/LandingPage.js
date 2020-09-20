@@ -1,15 +1,22 @@
 import React from 'react';
 import GitHubIcon from '@material-ui/icons/GitHub';
-import ShareIcon from '@material-ui/icons/Share';
+
 import FacebookIcon from '@material-ui/icons/Facebook';
 import { NavLink } from "react-router-dom";
+import SimpleModal from '../Modal/Modal';
 
 
 import './LandingPage.css';
 import { IconButton, Button } from '@material-ui/core';
 
 
+
+
+
 const LandingPage = () => {
+
+    
+
     return(
         <div className="landingPage">
             <div className="landingPage__controls">
@@ -20,19 +27,17 @@ const LandingPage = () => {
                     Fill the form. Print the resume
                 </p>
                 <p className="landingPage__text">It's that easy</p>
-                <NavLink to="/form"><Button> GET STARTED </Button></NavLink>
+               <Button >  <NavLink to="/form"  style={{ textDecoration: 'none' }}> GET STARTED</NavLink> </Button>
 
             </div>
             <div className="landingPage__icons">
-                <IconButton  >
+                <IconButton href="https://www.facebook.com/orangeink1221" >
                     <FacebookIcon />
                 </IconButton>
-                <IconButton >
+                <IconButton href="https://github.com/Rajat-Chowdhury/resume-builder" >
                     <GitHubIcon />
                 </IconButton>
-                <IconButton >
-                    <ShareIcon />
-                </IconButton >
+                <SimpleModal />
             </div>
         </div>
     )
