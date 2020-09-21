@@ -4,7 +4,7 @@ const initialState = {
       formValues: [
         {
             id: 0,
-            value: '',
+            value: 'Soumyadeep',
             config: {
                 type: 'text', 
                 placeholder: 'First Name',
@@ -19,7 +19,7 @@ const initialState = {
         {
             id: 1,
             inputType: 'input',
-            value: '',
+            value: 'Bhattacharya',
             config: {
                 type: 'text', 
                 placeholder: 'Last Name',
@@ -34,7 +34,7 @@ const initialState = {
         {
             id: 2,
             inputType: 'input',
-            value: '',
+            value: 'Kolkata',
             config: {
                 type: 'text', 
                 placeholder: 'City',
@@ -49,7 +49,7 @@ const initialState = {
         {
             id: 3,
             inputType: 'input',
-            value: '',
+            value: 'West Bengal',
             config: {
                 type: 'text', 
                 placeholder: 'State',
@@ -64,7 +64,7 @@ const initialState = {
         {
             id: 4,
             inputType: 'input',
-            value: '',
+            value: '700149',
             config: {
                 type: 'text', 
                 placeholder: 'Pincode',
@@ -79,7 +79,7 @@ const initialState = {
         {
             id: 5,
             inputType: 'input',
-            value: '',
+            value: 'test@mail.com',
             config: {
                 type: 'email', 
                 placeholder: 'Enter your mail',
@@ -95,7 +95,7 @@ const initialState = {
         {
             id: 6,
             inputType: 'input',
-            value: '',
+            value: '9898989898',
             config: {
                 type: 'text', 
                 placeholder: 'Enter your phone number',
@@ -111,7 +111,7 @@ const initialState = {
         {
             id: 7,
             inputType: "textarea",
-            value: '',
+            value: 'I am Iron Man',
             config: {
                 type: 'text', 
                 placeholder: 'Enter your statement',
@@ -137,8 +137,16 @@ const initialState = {
         position: 'Web Developer',
         duration: '2 months'
     }],
-    skills: [],
-    achivs: [],
+    skills: [{
+        skill: 'HTML'
+    },{
+        skill: 'CSS'
+    }],
+    achivs: [{
+        achiv: "Major weeb guy"
+    }, {
+        achiv: "200+ anime completed"
+    }],
     imageUrl: null,
     formIsValid: false,
       }
