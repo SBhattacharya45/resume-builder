@@ -285,28 +285,28 @@ class FormConatiner extends Component {
                                 placeholder="Qualification"
                                 type="text"
                                 id= "qualification"
-                                name="qualification"/>
+                                name="qualification" required/>
                                 <input
                                 className={classes.Input} 
                                 placeholder="Field"
                                 type="text"
                                 id= "field"
-                                name="field"/>
+                                name="field" required/>
                                 <input
                                 className={classes.Input} 
                                 placeholder="Institute"
                                 type="text"
-                                name="institute"/>
+                                name="institute" required/>
                                 <input
                                 className={classes.Input} 
                                 placeholder="Passout Year"
                                 type="text"
-                                name="passout"/>
+                                name="passout" required/>
                                 <input
                                 className={classes.Input} 
                                 placeholder="Percentage/GPA"
                                 type="text"
-                                name="grade"/>
+                                name="grade" required/>
                             </div>
                             <div className={classes.ButtonContainer}>
                                 <Button disableElevation variant="contained" className={classes.Button} type="submit">Submit</Button>
@@ -327,22 +327,22 @@ class FormConatiner extends Component {
                                 className={classes.Input} 
                                 placeholder="Type"
                                 type="text"
-                                name="type"/>
+                                name="type" required/>
                                 <input
                                 className={classes.Input} 
                                 placeholder="Organization"
                                 type="text"
-                                name="organization"/>
+                                name="organization" required/>
                                 <input
                                 className={classes.Input} 
                                 placeholder="Position"
                                 type="text"
-                                name="position"/>
+                                name="position" required/>
                                 <input
                                 className={classes.Input} 
                                 placeholder="Duration"
                                 type="text"
-                                name="duration"/>
+                                name="duration" required/>
                             </div>
                             <div className={classes.ButtonContainer}>
                                 <Button  disableElevation variant="contained" className={classes.Button} type="submit">Submit</Button>
@@ -361,7 +361,7 @@ class FormConatiner extends Component {
                                 className={classes.InputSingle} 
                                 placeholder="Skill"
                                 type="text"
-                                name="skill"/>
+                                name="skill" required/>
                             </div>
                             <div className={classes.ButtonContainer}>
                                 <Button disableElevation variant="contained" className={classes.Button} type="submit">Add Skill</Button>
@@ -380,7 +380,7 @@ class FormConatiner extends Component {
                                 className={classes.InputSingle} 
                                 placeholder="Achievement"
                                 type="text"
-                                name="achiv"/>
+                                name="achiv" required/>
                             </div>
                             <div className={classes.ButtonContainer}>
                                 <Button disableElevation variant="contained" className={classes.Button} type="submit">Add Achievement</Button>
