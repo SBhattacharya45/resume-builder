@@ -53,6 +53,8 @@
     outline: rgb(179, 179, 179) auto 1px;
 }
 
+
+
 .InputSingle {
     width: 100%;
     padding: 10px;
@@ -67,6 +69,12 @@
  
 .InputSingle:focus{
     outline: rgb(179, 179, 179) auto 1px;
+}
+
+.inputBox{
+    display: flex;
+    flex-direction: column;
+    margin-top: 15px;
 }
 
 .Button {

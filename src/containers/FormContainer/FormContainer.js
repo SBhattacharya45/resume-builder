@@ -163,6 +163,7 @@ class FormConatiner extends Component {
                     draggable: true,
                     progress: undefined,
                 });
+              
                 
         } else {
             toast.error("Please fill in all required fields",{
@@ -185,15 +186,15 @@ class FormConatiner extends Component {
         let form = (
             <form>
                 {formElementArray.map(formElement => (
-                    <Input
-                    className="form__input"
-                    key={formElement.id}
-                    inputType={formElement.inputType} 
-                    value={formElement.value}
-                    config={formElement.config}
-                    invalid= {!formElement.valid }
-                    touched= {formElement.touched}
-                    changed={(event) => this.inputChangedHandler(event, formElement.id)} />
+                     <Input
+                     className={classes.form__input}
+                     key={formElement.id}
+                     inputType={formElement.inputType} 
+                     value={formElement.value}
+                     config={formElement.config}
+                     invalid= {!formElement.valid }
+                     touched= {formElement.touched}
+                     changed={(event) => this.inputChangedHandler(event, formElement.id)} />
                 ))}
             </form>
         )
@@ -280,33 +281,49 @@ class FormConatiner extends Component {
                         <h2>Educational Details</h2>
                         <form onSubmit={this.eduSubmitHandler}>
                             <div className={classes.InputContainer}>
-                                <input
-                                className={classes.Input} 
-                                placeholder="Qualification"
-                                type="text"
-                                id= "qualification"
-                                name="qualification" required/>
-                                <input
-                                className={classes.Input} 
-                                placeholder="Field"
-                                type="text"
-                                id= "field"
-                                name="field" required/>
-                                <input
-                                className={classes.Input} 
-                                placeholder="Institute"
-                                type="text"
-                                name="institute" required/>
-                                <input
-                                className={classes.Input} 
-                                placeholder="Passout Year"
-                                type="text"
-                                name="passout" required/>
-                                <input
-                                className={classes.Input} 
-                                placeholder="Percentage/GPA"
-                                type="text"
-                                name="grade" required/>
+                                <div className= {classes.inputBox}>
+                                    <label>Qualification</label>
+                                    <input
+                                    className={classes.Input} 
+                                    placeholder="Qualification"
+                                    type="text"
+                                    id= "qualification"
+                                    name="qualification" required/>
+                                </div>
+                                <div className= {classes.inputBox}>
+                                    <label>Field</label>
+                                    <input
+                                    className={classes.Input} 
+                                    placeholder="Field"
+                                    type="text"
+                                    id= "field"
+                                    name="field" required/>
+                                </div>
+                                <div className= {classes.inputBox}>
+                                    <label>Institution</label>
+                                    <input
+                                    className={classes.Input} 
+                                    placeholder="Institute"
+                                    type="text"
+                                    name="institute" required/>
+                                </div>
+                                
+                                <div className= {classes.inputBox}>
+                                    <label>Passout Year</label>
+                                    <input
+                                    className={classes.Input} 
+                                    placeholder="Passout Year"
+                                    type="text"
+                                    name="passout" required/>
+                                </div>
+                                <div  className= {classes.inputBox}>
+                                    <label>Percentage</label>
+                                    <input
+                                    className={classes.Input} 
+                                    placeholder="Percentage/GPA"
+                                    type="text"
+                                    name="grade" required/>
+                                </div>
                             </div>
                             <div className={classes.ButtonContainer}>
                                 <Button disableElevation variant="contained" className={classes.Button} type="submit">Submit</Button>
@@ -323,26 +340,38 @@ class FormConatiner extends Component {
                         <h2>Experience</h2>
                         <form onSubmit={this.expSubmitHandler}>
                             <div className={classes.InputContainer}>
-                                <input
-                                className={classes.Input} 
-                                placeholder="Type"
-                                type="text"
-                                name="type" required/>
-                                <input
-                                className={classes.Input} 
-                                placeholder="Organization"
-                                type="text"
-                                name="organization" required/>
-                                <input
-                                className={classes.Input} 
-                                placeholder="Position"
-                                type="text"
-                                name="position" required/>
-                                <input
-                                className={classes.Input} 
-                                placeholder="Duration"
-                                type="text"
-                                name="duration" required/>
+                                <div className={classes.inputBox}>
+                                    <label>Type</label>
+                                    <input
+                                    className={classes.Input} 
+                                    placeholder="Type"
+                                    type="text"
+                                    name="type" required/>
+                                </div>
+                                <div className={classes.inputBox}>
+                                    <label>Organization</label>
+                                    <input
+                                    className={classes.Input} 
+                                    placeholder="Organization"
+                                    type="text"
+                                    name="organization" required/>
+                                </div>
+                                <div className={classes.inputBox}>
+                                    <label>Position</label>
+                                    <input
+                                    className={classes.Input} 
+                                    placeholder="Position"
+                                    type="text"
+                                    name="position" required/>
+                                </div>
+                                <div className={classes.inputBox}>
+                                    <label>Duration</label>
+                                    <input
+                                    className={classes.Input} 
+                                    placeholder="Duration"
+                                    type="text"
+                                    name="duration" required/>
+                                </div>
                             </div>
                             <div className={classes.ButtonContainer}>
                                 <Button  disableElevation variant="contained" className={classes.Button} type="submit">Submit</Button>

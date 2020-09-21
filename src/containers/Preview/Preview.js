@@ -34,7 +34,7 @@ class Preview extends Component {
                     <Button variant="outlined" color="primary" hred="/templates">
                        <ViewCompactIcon/> Choose another Template
                     </Button>
-                    <NavLink to='/form'>
+                    <NavLink to='/form' style={{ textDecoration: 'none' }}>
                         <Button variant="outlined" color="primary">
                         <EditIcon/> Edit
                         </Button>

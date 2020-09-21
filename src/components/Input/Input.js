@@ -13,25 +13,34 @@ const input = (props) => {
 
     switch(props.inputType) {
         case "input":
-            inputElement = <input
+    inputElement =<div className={classes.inputDiv}> 
+            <label>{props.config.label}</label> 
+            <input
             className={inputClasses.join(' ')}
             {...props.config}
             value={props.value}
-            onChange={props.changed} />;
+            onChange={props.changed} />
+            </div>;
         break;
         case "textarea":
-            inputElement = <textarea
+            inputElement = <div className={classes.inputDiv}>
+            <label>{props.config.label}</label> 
+            <textarea
             className={inputClasses.join(' ')}
             {...props.config}
             value={props.value}
-            onChange={props.changed} />;
+            onChange={props.changed} />
+            </div>;
         break;
         default:
-            inputElement = <input
+            inputElement = <div className={classes.inputDiv}>
+            <label>{props.config.label}</label> 
+            <input
             className={inputClasses.join(' ')}
             {...props.config}
             value={props.value}
-            onChange={props.changed} />;
+            onChange={props.changed} />
+            </div>;
     }
 
     return (

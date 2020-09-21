@@ -9,6 +9,9 @@
     box-shadow: inset 1px 1px 3px rgb(207, 207, 207), -1px -1px 3px white;
 }
 
+.inputDiv{
+    margin-top: 20px;
+}
 
 .Input:focus{
     outline: none;
