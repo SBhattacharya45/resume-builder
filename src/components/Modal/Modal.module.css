@@ -31,3 +31,12 @@
     font-size: 0.8rem;
     margin-top: 20px;
 }
+
+.share__icon{
+    margin: 10px;
+    border-radius: 999px;
+}
+
+.share__icon svg{
+    border-radius: 999px;
+}

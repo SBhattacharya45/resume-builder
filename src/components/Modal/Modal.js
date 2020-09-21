@@ -3,17 +3,18 @@ import Modal from '@material-ui/core/Modal';
 import { IconButton } from '@material-ui/core';
 import ShareIcon from '@material-ui/icons/Share';
 import classes from './Modal.module.css';
-import { Twitter, Facebook, Whatsapp, Linkedin } from 'react-social-sharing';
-import {FacebookShareButton, FacebookIcon} from 'react-share';
-// import {
-//     EmailShareButton,
-//     FacebookShareButton,
+import {
+    FacebookShareButton,
+    FacebookIcon,
 
-//     LinkedinShareButton,
-//     TelegramShareButton,
-//     TwitterShareButton,
-//     WhatsappShareButton,
-//   } from "react-share";
+
+    LinkedinShareButton,
+    TwitterShareButton,
+    WhatsappShareButton,
+    TwitterIcon,
+    WhatsappIcon,
+    LinkedinIcon
+  } from "react-share";
 
 const SimpleModal = () => {
 
@@ -32,22 +33,22 @@ const SimpleModal = () => {
     <div className={classes.paper} >
         <h2 id="simple-modal-title" className={classes.heading}>Share with your friends</h2>
         <p id="simple-modal-description" className={classes.desc}>
-        Share if you liked out application. And as alwasys thank you for your support
+        Share if you liked out application and show your support
         </p>
-        {/* <EmailShareButton url="https://www.npmjs.com/package/react-share"  />
-        <FacebookShareButton url="https://www.npmjs.com/package/react-share"  />
-        <TelegramShareButton url="https://www.npmjs.com/package/react-share"  />
-        <WhatsappShareButton url="https://www.npmjs.com/package/react-share"  />
-        <TwitterShareButton url="https://www.npmjs.com/package/react-share"  />
-        <LinkedinShareButton url="https://www.npmjs.com/package/react-share"  /> */}
+       
         <div className={classes.shareLinks}>
-            <Twitter link="https://github.com" />
-            <Facebook link="https://github.com" />
-            <Whatsapp link="https://github.com" />
-            <Linkedin link="https://github.com" />
-            <FacebookShareButton url="https://github.com">
+            <FacebookShareButton url="https://github.com"  className={classes.share__icon}>
               <FacebookIcon logoFillColor="white" />
             </FacebookShareButton>
+            <TwitterShareButton url="https://github.com" className={classes.share__icon}>
+              <TwitterIcon logoFillColor="white" />
+            </TwitterShareButton>
+            <WhatsappShareButton url="https://github.com" className={classes.share__icon}>
+              <WhatsappIcon logoFillColor="white" />
+            </WhatsappShareButton>
+            <LinkedinShareButton url="https://github.com" className={classes.share__icon}>
+              <LinkedinIcon logoFillColor="white" />
+            </LinkedinShareButton>
             {/* replace these links with proper links after hosting */}
         
         </div>
