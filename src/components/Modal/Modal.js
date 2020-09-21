@@ -3,7 +3,8 @@ import Modal from '@material-ui/core/Modal';
 import { IconButton } from '@material-ui/core';
 import ShareIcon from '@material-ui/icons/Share';
 import classes from './Modal.module.css';
-import { Twitter, Facebook, Whatsapp, Linkedin } from 'react-social-sharing'
+import { Twitter, Facebook, Whatsapp, Linkedin } from 'react-social-sharing';
+import {FacebookShareButton, FacebookIcon} from 'react-share';
 // import {
 //     EmailShareButton,
 //     FacebookShareButton,
@@ -44,6 +45,9 @@ const SimpleModal = () => {
             <Facebook link="https://github.com" />
             <Whatsapp link="https://github.com" />
             <Linkedin link="https://github.com" />
+            <FacebookShareButton url="https://github.com">
+              <FacebookIcon logoFillColor="white" />
+            </FacebookShareButton>
             {/* replace these links with proper links after hosting */}
         
         </div>
