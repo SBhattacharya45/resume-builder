@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Button from '@material-ui/core/Button';
-import { NavLink } from "react-router-dom";
 import ReactToPrint from "react-to-print";
 import './Preview.css';
 
@@ -9,16 +8,26 @@ import Page from '../../components/Page/Page';
 import EditIcon from '@material-ui/icons/Edit';
 import PrintIcon from '@material-ui/icons/Print';
 import ViewCompactIcon from '@material-ui/icons/ViewCompact';
+import {withRouter} from 'react-router';
+
 
 
 import Template1 from '../../components/Templates/Template1/Template1';
 //import Template2 from '../../components/Templates/Template2/Template2';
 
 class Preview extends Component {
+    
+    editClickedHandler = (event) => {
+        event.preventDefault();
+        this.props.history.push('/form');
+    }
 
     render(){
 
         const templatePreview = <Template1 />;
+
+
+        
 
         return(
             <div>
@@ -34,11 +43,10 @@ class Preview extends Component {
                     <Button variant="outlined" color="primary" hred="/templates">
                        <ViewCompactIcon/> Choose another Template
                     </Button>
-                    <NavLink to='/form' style={{ textDecoration: 'none' }}>
-                        <Button variant="outlined" color="primary">
-                        <EditIcon/> Edit
-                        </Button>
-                    </NavLink>
+
+                    <Button variant="outlined" color="primary" onClick={this.editClickedHandler} >
+                    <EditIcon/> Edit
+                    </Button>
                 </div>
                 <div>
 
@@ -50,4 +58,4 @@ class Preview extends Component {
     }
 }
 
-export default Preview;
+export default withRouter(Preview);
