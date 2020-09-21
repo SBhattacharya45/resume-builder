@@ -11,7 +11,7 @@
 
 
 .Input:focus{
-    outline: rgb(179, 179, 179) auto 1px;
+    outline: none;
 }
 
 .Invalid{
