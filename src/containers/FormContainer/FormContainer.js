@@ -1,5 +1,6 @@
 import React,{Component} from 'react';
 import { connect } from 'react-redux';
+import {withRouter} from 'react-router';
 import Input from '../../components/Input/Input';
 import Item from '../../components/Item/Item';
 import classes from './FormContainer.module.css';
@@ -163,6 +164,7 @@ class FormConatiner extends Component {
                     draggable: true,
                     progress: undefined,
                 });
+                this.props.history.push('/preview');
               
                 
         } else {
@@ -444,4 +446,4 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(FormConatiner);
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(FormConatiner));
