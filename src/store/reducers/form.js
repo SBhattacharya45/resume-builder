@@ -141,6 +141,12 @@ const initialState = {
         skill: 'HTML'
     },{
         skill: 'CSS'
+    },{
+        skill : 'bootstrap'
+    },{
+        skill : 'bootstrap'
+    },{
+        skill : 'bootstrap'
     }],
     achivs: [{
         achiv: "Major weeb guy"

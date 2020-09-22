@@ -46,8 +46,10 @@ class Template1 extends Component {
 
         const skillsArray = this.props.skills;
         let skills = skillsArray.map((skillElement, igKey) => (
-            <li key={igKey}>{skillElement.skill}</li>
+            <li key={igKey} >{skillElement.skill}</li>
         ))
+
+        
 
         const achievementArray = this.props.achivs;
         let achievementItems = achievementArray.map((achivsElement, igKey) => (
@@ -58,7 +60,7 @@ class Template1 extends Component {
     
         return(
 
-            <div>
+            <div className={classes.Template1}>
                 <h3 className={classes.Name}>
                     {this.props.firstName} {this.props.lastName}
                 </h3>
@@ -109,9 +111,10 @@ class Template1 extends Component {
                         <h4>Skills</h4>
                     </div>
                     <div className={`${classes.data}  ${classes.skills }`}>
-                        <ul>
+                        <ul className={classes.List}>
                             {skills}
                         </ul>
+                        
                     </div>
                 </section>
                 <section className={classes.section}>

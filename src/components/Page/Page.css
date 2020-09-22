@@ -3,8 +3,17 @@
     width: 62rem;
     margin-left: auto;
     margin-right: auto;
-    border: 1px solid rgb(190, 190, 190);
+    
     margin-top: 1rem;
     margin-bottom: 1rem;
-    
+    background-color: white;
+    outline: none;
+    border: 0px solid transparent;
+        
+}
+
+@media only screen and (max-width: 600px){
+    .page{
+        width: 100vw;
+    }
 }

@@ -34,6 +34,22 @@
     margin-right: 10px !important;
 }
 
-.skills{
-    padding-left: 20px;
+.List{
+    column-count: 3;
+    -moz-column-fill: balance;
+    column-fill: balance;
+    
+}
+
+.sideBar{
+    width: 30px;
+    height: auto;
+    background-color: skyblue;
+}
+
+.Template1{
+    -webkit-box-shadow:inset 30px 0 0  skyblue;
+    -moz-box-shadow:inset 30px 0 0  skyblue;
+    box-shadow:inset 30px 0 0  skyblue;
+    padding-left: 40px;
 }

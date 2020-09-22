@@ -31,13 +31,18 @@ class Preview extends Component {
 
         return(
             <div>
+                
                 <h1> This is Preview Container</h1>
-                <Page ref={el => (this.componentRef = el)} templatePreview= {templatePreview} />
+                <section  className="Preview">
+                    <Page   ref={el => (this.componentRef = el)} templatePreview= {templatePreview} />
+
+                </section>
                 <div className="buttons">
                     <Button variant="contained" color="primary">
                         <ReactToPrint
                         trigger={() => <span className="print"> <PrintIcon/> Print</span>}
                         content={() => this.componentRef}
+                        pageStyle='@page { size: auto; margin: 0mm; } @media print { body { -webkit-print-color-adjust: exact; margin-top: -15px !important; border: 0px solid transparent !important; outline: none !important;} }'
                         />
                     </Button>
                     <Button variant="outlined" color="primary" hred="/templates">
