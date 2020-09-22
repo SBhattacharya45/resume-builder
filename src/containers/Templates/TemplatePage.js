@@ -1,35 +1,94 @@
 import React from "react";
-import { Link } from 'react-router-dom';
-import "./TemplatePage.css";
+import "./TemplatePage.css"
+import Grid from '@material-ui/core/Grid';
+import Card from '../../components/Card/Card';
+
+
 
 const TemplatePage = () => {
+
+
   return (
-    <div className="row">
-      <div className="column">
-        <div className="card">
-          <Link to='/template1'>Template 1</Link>
-        </div>
-      </div>
+    <div>
+      <Grid container spacing={1}>
+        <Grid item xs={12} sm={6} md={6} lg={4} >
+          <Card 
+          templateLink="/preview"
+          imageLink="https://img.freepik.com/free-vector/young-people-jumping-together-illustration_52683-27019.jpg?size=626&ext=jpg"
+          title="Template 1"
+          cardTitle="Template 1"
+          description="This is a card element"/>
+        </Grid>
+        <Grid item xs={12} sm={6} md={6} lg={4} >
+          <Card 
+          templateLink="/preview"
+          imageLink="https://img.freepik.com/free-vector/young-people-jumping-together-illustration_52683-27019.jpg?size=626&ext=jpg"
+          title="Template 1"
+          cardTitle="Template 1"
+          description="This is a card element"/>
+        </Grid>
+        <Grid item xs={12} sm={6} md={6} lg={4} >
+          <Card 
+          templateLink="/preview"
+          imageLink="https://img.freepik.com/free-vector/young-people-jumping-together-illustration_52683-27019.jpg?size=626&ext=jpg"
+          title="Template 1"
+          cardTitle="Template 1"
+          description="This is a card element"/>
+        </Grid>
+        <Grid item xs={12} sm={6} md={6} lg={4} >
+          <Card 
+          templateLink="/preview"
+          imageLink="https://img.freepik.com/free-vector/young-people-jumping-together-illustration_52683-27019.jpg?size=626&ext=jpg"
+          title="Template 1"
+          cardTitle="Template 1"
+          description="This is a card element"/>
+        </Grid>
+        <Grid item xs={12} sm={6} md={6} lg={4} >
+          <Card 
+          templateLink="/preview"
+          imageLink="https://img.freepik.com/free-vector/young-people-jumping-together-illustration_52683-27019.jpg?size=626&ext=jpg"
+          title="Template 1"
+          cardTitle="Template 1"
+          description="This is a card element"/>
+        </Grid>
+        <Grid item xs={12} sm={6} md={6} lg={4} >
+          <Card 
+          templateLink="/preview"
+          imageLink="https://img.freepik.com/free-vector/young-people-jumping-together-illustration_52683-27019.jpg?size=626&ext=jpg"
+          title="Template 1"
+          cardTitle="Template 1"
+          description="This is a card element"/>
+        </Grid>
+        <Grid item xs={12} sm={6} md={6} lg={4} >
+          <Card 
+          templateLink="/preview"
+          imageLink="https://img.freepik.com/free-vector/young-people-jumping-together-illustration_52683-27019.jpg?size=626&ext=jpg"
+          title="Template 1"
+          cardTitle="Template 1"
+          description="This is a card element"/>
+        </Grid>
+        <Grid item xs={12} sm={6} md={6} lg={4} >
+          <Card 
+          templateLink="/preview"
+          imageLink="https://img.freepik.com/free-vector/young-people-jumping-together-illustration_52683-27019.jpg?size=626&ext=jpg"
+          title="Template 1"
+          cardTitle="Template 1"
+          description="This is a card element"/>
+        </Grid>
+        <Grid item xs={12} sm={6} md={6} lg={4} >
+          <Card 
+          templateLink="/preview"
+          imageLink="https://img.freepik.com/free-vector/young-people-jumping-together-illustration_52683-27019.jpg?size=626&ext=jpg"
+          title="Template 1"
+          cardTitle="Template 1"
+          description="This is a card element"/>
+        </Grid>
 
-      <div className="column">
-        <div className="card">
-          <h3>Template 2</h3>
-        </div>
-      </div>
 
-      <div className="column">
-        <div className="card">
-          <h3>Template 3</h3>
-        </div>
-      </div>
-
-      <div className="column">
-        <div className="card">
-          <h3>Template 4</h3>
-        </div>
-      </div>
+      </Grid>
     </div>
-  );
+  );    
+  
 };
 
 export default TemplatePage;
