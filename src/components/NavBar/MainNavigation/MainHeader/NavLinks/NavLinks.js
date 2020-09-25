@@ -14,9 +14,6 @@ const NavLinks = (props) => {
       <li className="nav-item">
         <NavLink to="/templates">Templates</NavLink>
       </li>
-      <li className="nav-item">
-        <NavLink to="/preview">Preview</NavLink>
-      </li>
     </ul>
   );
 };
