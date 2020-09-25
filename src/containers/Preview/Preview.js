@@ -23,6 +23,11 @@ class Preview extends Component {
         this.props.history.push('/form');
     }
 
+    chooseAnotherTemplate = (event) => {
+        event.preventDefault();
+        this.props.history.push('/templates')
+    }
+
     render(){
 
         let templatePreview = null;
@@ -50,7 +55,7 @@ class Preview extends Component {
                         pageStyle='@page { size: auto; margin: 0mm; } @media print { body { -webkit-print-color-adjust: exact; margin-top: -15px !important; border: 0px solid transparent !important; outline: none !important;} }'
                         />
                     </Button>
-                    <Button variant="outlined" color="primary" hred="/templates">
+                    <Button variant="outlined" color="primary"  onClick={this.chooseAnotherTemplate}>
                        <ViewCompactIcon/> Choose another Template
                     </Button>
 

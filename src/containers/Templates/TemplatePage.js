@@ -17,7 +17,7 @@ const TemplatePage = (props) => {
   return (
     <div>
       <Grid container spacing={1}>
-        <Grid item xs={12} sm={6} md={6} lg={4} >
+        <Grid item xs={12} sm={6} md={6} lg={4} className="gridController" >
           <Card
           templateId={1}
           clicked={templateSelectHandler} 
@@ -27,7 +27,7 @@ const TemplatePage = (props) => {
           cardTitle="Template 1"
           description="This is a card element"/>
         </Grid>
-        <Grid item xs={12} sm={6} md={6} lg={4} >
+        <Grid item xs={12} sm={6} md={6} lg={4} className="gridController" >
           <Card 
           templateId={2}
           clicked={templateSelectHandler} 
