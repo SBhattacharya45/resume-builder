@@ -299,18 +299,11 @@ class FormConatiner extends Component {
                 />
                 
                 <Grid container-fluid>
-                    <Button onClick={this.changeChosenCaseHandler} > Change Chosen case </Button>
+                    <Button variant="contained" color="primary" onClick={this.changeChosenCaseHandler} >Education</Button>
+                    {/* have other buttons here to change case at will  */}
                     {componentToBeLoaded}
-                    <BasicDetails
-                        details={this.state.formValues}
-                        input={this.inputChangedHandler} />
-
-                    <Grid item xs={12} sm={2}>
-                        <div className={classes.Container}>
-                            <h2>Image</h2>
-                            <input type="file" accept="image/*" onChange={this.handleImageUpload} />
-                        </div>
-                    </Grid>
+                    <Button variant="contained" color="primary" onClick={() => console.log('need to increment chosen state state by 1')}>NEXT</Button>
+                    <Button variant="contained" color="primary" onClick={() => console.log('need to decrement chosen state state by 1')}>previous</Button>
 
                     <Education
                         onSubmit={this.eduSubmitHandler}
