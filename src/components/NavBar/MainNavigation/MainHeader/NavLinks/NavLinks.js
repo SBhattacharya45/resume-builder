@@ -14,6 +14,10 @@ const NavLinks = (props) => {
       <li className="nav-item">
         <NavLink to="/templates">Templates</NavLink>
       </li>
+<<<<<<< HEAD
+      
+=======
+>>>>>>> cbb3ecb833b0130f8119bb11c105188fdb4fe5a6
     </ul>
   );
 };

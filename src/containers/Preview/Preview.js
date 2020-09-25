@@ -42,7 +42,6 @@ class Preview extends Component {
         return(
             <div>
                 
-                <h1> This is Preview Container</h1>
                 <section  className="Preview">
                     <Page   ref={el => (this.componentRef = el)} templatePreview= {templatePreview} />
 
