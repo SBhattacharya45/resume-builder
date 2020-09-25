@@ -41,7 +41,7 @@ const CardElement = (props) => {
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button size="small" color="primary">
+        <Button size="small" color="primary" onClick={() => {props.clicked(props.templateId)}}>
             <NavLink to={props.templateLink}  style={{ textDecoration: 'none' }}> Choose </NavLink>
         </Button>
         

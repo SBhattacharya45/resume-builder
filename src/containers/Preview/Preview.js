@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import {withRouter, Redirect} from 'react-router';
 import Button from '@material-ui/core/Button';
 import ReactToPrint from "react-to-print";
 import './Preview.css';
@@ -8,12 +10,11 @@ import Page from '../../components/Page/Page';
 import EditIcon from '@material-ui/icons/Edit';
 import PrintIcon from '@material-ui/icons/Print';
 import ViewCompactIcon from '@material-ui/icons/ViewCompact';
-import {withRouter} from 'react-router';
 
 
 
 import Template1 from '../../components/Templates/Template1/Template1';
-//import Template2 from '../../components/Templates/Template2/Template2';
+import Template2 from '../../components/Templates/Template2/Template2';
 
 class Preview extends Component {
     
@@ -24,10 +25,14 @@ class Preview extends Component {
 
     render(){
 
-        const templatePreview = <Template1 />;
-
-
-        
+        let templatePreview = null;
+        switch(this.props.chosenTemplate) {
+            case 1: templatePreview = <Template1 />
+            break;
+            case 2: templatePreview = <Template2 />
+            break;
+            default: templatePreview = <Redirect to="/templates"/>
+        }
 
         return(
             <div>
@@ -63,4 +68,10 @@ class Preview extends Component {
     }
 }
 
-export default withRouter(Preview);
+const mapStateToProps = state => {
+    return {
+        chosenTemplate: state.template.templateId
+    };
+  }
+
+export default connect(mapStateToProps, null)(withRouter(Preview));

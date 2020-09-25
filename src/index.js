@@ -8,6 +8,7 @@ import { Provider } from "react-redux";
 import { createStore, applyMiddleware, compose, combineReducers } from "redux";
 import createSagaMiddleware from "redux-saga";
 import formReducer from "./store/reducers/form";
+import templateReducer from './store/reducers/templateSelector';
 
 const composeEnhancers =
   process.env.NODE_ENV === "development"
@@ -16,6 +17,7 @@ const composeEnhancers =
 
 const rootReducer = combineReducers({
   form: formReducer,
+  template: templateReducer
 });
 
 const sagaMiddleware = createSagaMiddleware();
