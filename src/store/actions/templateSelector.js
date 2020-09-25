@@ -4,3 +4,10 @@ export const changeTemplate = (templateId) => {
         id: templateId
     };
 };
+
+export const changeCase = (chosenCase) => {
+    return {
+        type: 'CHANGE_CASE',
+        chosenCase: chosenCase
+    };
+};

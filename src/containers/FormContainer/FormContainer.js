@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
-import Input from '../../components/Input/Input';
 import classes from './FormContainer.module.css';
 import Grid from '@material-ui/core/Grid';
 import { ToastContainer, toast } from 'react-toastify';
@@ -202,9 +201,9 @@ class FormConatiner extends Component {
         }
     };
 
-    // changeChosenCaseHandler = () => {
-    //     this.setState({chosenCase : 2});
-    // }
+    changeChosenCaseHandler = (id) => {
+        this.props.onChangeCase(id);
+    }
 
     render() {
 
@@ -222,7 +221,7 @@ class FormConatiner extends Component {
             </Grid>
         </>);
 
-        switch (this.state.choosenCase) {
+        switch (this.props.Case) {
             case 1: componentToBeLoaded = (<>
                 <BasicDetails
                     details={this.state.formValues}
@@ -266,23 +265,17 @@ class FormConatiner extends Component {
                 input={this.inputChangedHandler} />)
         }
 
-        const formElementArray = this.state.formValues;
-        let form = (
-            <form>
-                {formElementArray.map(formElement => (
-                    <Input
-                        className={classes.form__input}
-                        key={formElement.id}
-                        inputType={formElement.inputType}
-                        value={formElement.value}
-                        config={formElement.config}
-                        invalid={!formElement.valid}
-                        touched={formElement.touched}
-                        changed={(event) => this.inputChangedHandler(event, formElement.id)} />
-                ))}
-            </form>
-        )
-
+        let navButtons = null
+        if(this.props.Case === 1) {
+            navButtons = <Button variant="contained" color="primary" onClick={() => this.changeChosenCaseHandler(this.props.Case + 1)}>Next</Button>
+        } else if(this.props.Case === 6) {
+            navButtons = <Button variant="contained" color="primary" onClick={() => this.changeChosenCaseHandler(this.props.Case - 1)}>Previous</Button>
+        } else {
+            navButtons = (<>
+                <Button variant="contained" color="primary" onClick={() => this.changeChosenCaseHandler(this.props.Case + 1)}>Next</Button>
+                <Button variant="contained" color="primary" onClick={() => this.changeChosenCaseHandler(this.props.Case - 1)}>Previous</Button>
+            </>);
+        }
 
         return (
             <div className={classes.MainContainer}>
@@ -299,13 +292,18 @@ class FormConatiner extends Component {
                 />
                 
                 <Grid container-fluid>
-                    <Button variant="contained" color="primary" onClick={this.changeChosenCaseHandler} >Education</Button>
+                    <Button variant="contained" color="primary" onClick={() => {this.changeChosenCaseHandler(1)}} >Basic Details</Button>
+                    <Button variant="contained" color="primary" onClick={() => {this.changeChosenCaseHandler(2)}} >Education</Button>
+                    <Button variant="contained" color="primary" onClick={() => {this.changeChosenCaseHandler(3)}} >Experience</Button>
+                    <Button variant="contained" color="primary" onClick={() => {this.changeChosenCaseHandler(4)}} >Projects</Button>
+                    <Button variant="contained" color="primary" onClick={() => {this.changeChosenCaseHandler(5)}} >Skills</Button>
+                    <Button variant="contained" color="primary" onClick={() => {this.changeChosenCaseHandler(6)}} >Achievements</Button>
+
                     {/* have other buttons here to change case at will  */}
                     {componentToBeLoaded}
-                    <Button variant="contained" color="primary" onClick={() => console.log('need to increment chosen state state by 1')}>NEXT</Button>
-                    <Button variant="contained" color="primary" onClick={() => console.log('need to decrement chosen state state by 1')}>previous</Button>
+                    {navButtons}
 
-                    <Education
+                    {/* <Education
                         onSubmit={this.eduSubmitHandler}
                         details={this.state.eduDetails}
                         onDelete={this.eduDeleteHandler} />
@@ -328,7 +326,7 @@ class FormConatiner extends Component {
                     <Achievements
                         onSubmit={this.achivSubmitHandler}
                         details={this.state.achivs}
-                        onDelete={this.achivDeleteHandler} />
+                        onDelete={this.achivDeleteHandler} /> */}
 
                     <Grid>
                         <div className={classes.formButtons}>
@@ -348,13 +346,15 @@ class FormConatiner extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        details: state.form.details
+        details: state.form.details,
+        Case: state.template.chosenCase
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
-        onFormSubmit: (details) => dispatch(actions.updateDetails(details))
+        onFormSubmit: (details) => dispatch(actions.updateDetails(details)),
+        onChangeCase: (chosenCase) => dispatch(actions.changeCase(chosenCase))
     }
 }
 

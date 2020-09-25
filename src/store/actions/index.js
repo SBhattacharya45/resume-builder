@@ -3,5 +3,6 @@ export {
 } from './form';
 
 export {
-    changeTemplate
+    changeTemplate,
+    changeCase
 } from './templateSelector'
