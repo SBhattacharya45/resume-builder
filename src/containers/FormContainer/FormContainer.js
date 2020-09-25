@@ -10,6 +10,8 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import * as actions from '../../store/actions/index';
 
+import Education from '../../components/FormElements/Education';
+
 
 
 class FormConatiner extends Component {
@@ -100,6 +102,25 @@ class FormConatiner extends Component {
             duration: data.get('duration')
         })
         this.setState({expDetails: updatedExpDetails});
+    }
+
+    proSubmitHandler = (event) => {
+        event.preventDefault();
+        const data = new FormData(event.target);
+        let updatedProDetails = [...this.state.proDetails];
+        updatedProDetails.push({
+            type: data.get('type'),
+            organization: data.get('organization'),
+            position: data.get('position'),
+            duration: data.get('duration')
+        })
+        this.setState({proDetails: updatedProDetails});
+    }
+
+    proDeleteHandler = (key) => {
+        let updatedProDetails = [...this.state.proDetails];
+        updatedProDetails.splice(key, 1);
+        this.setState({proDetails: updatedProDetails});
     }
 
     expDeleteHandler = (key) => {
@@ -201,23 +222,6 @@ class FormConatiner extends Component {
             </form>
         )
 
-        const eduItemsArray = this.state.eduDetails;
-        let eduItems = ( 
-            <div>
-                {eduItemsArray.map((eduElement, igKey) => (
-                    <Item 
-                    key={igKey} 
-                    id={igKey} 
-                    delete={this.eduDeleteHandler} 
-                    qualification={eduElement.qualification}
-                    institute={eduElement.institute}
-                    field={eduElement.field}
-                    passout={eduElement.passout}
-                    grade={eduElement.grade}/>
-                ))}
-            </div>
-        )
-
         const expItemsArray = this.state.expDetails;
         let expItems = ( 
             <div>
@@ -230,6 +234,22 @@ class FormConatiner extends Component {
                     position={expElement.position}
                     organization={expElement.organization}
                     duration={expElement.duration}/>
+                ))}
+            </div>
+        )
+
+        const proItemsArray = this.state.proDetails;
+        let proItems = ( 
+            <div>
+                {proItemsArray.map((proElement, igKey) => (
+                    <Item 
+                    key={igKey} 
+                    id={igKey} 
+                    delete={this.proDeleteHandler} 
+                    type={proElement.type}
+                    position={proElement.position}
+                    organization={proElement.organization}
+                    duration={proElement.duration}/>
                 ))}
             </div>
         )
@@ -278,65 +298,10 @@ class FormConatiner extends Component {
                         <input type="file" accept="image/*" onChange={this.handleImageUpload}/>
                     </div>
                 </Grid>
-                <Grid item xs={12} sm={2}>
-                    <div className={classes.Container}>
-                        <h2>Educational Details</h2>
-                        <form onSubmit={this.eduSubmitHandler}>
-                            <div className={classes.InputContainer}>
-                                <div className= {classes.inputBox}>
-                                    <label>Qualification</label>
-                                    <input
-                                    className={classes.Input} 
-                                    placeholder="Qualification"
-                                    type="text"
-                                    id= "qualification"
-                                    name="qualification" required/>
-                                </div>
-                                <div className= {classes.inputBox}>
-                                    <label>Field</label>
-                                    <input
-                                    className={classes.Input} 
-                                    placeholder="Field"
-                                    type="text"
-                                    id= "field"
-                                    name="field" required/>
-                                </div>
-                                <div className= {classes.inputBox}>
-                                    <label>Institution</label>
-                                    <input
-                                    className={classes.Input} 
-                                    placeholder="Institute"
-                                    type="text"
-                                    name="institute" required/>
-                                </div>
-                                
-                                <div className= {classes.inputBox}>
-                                    <label>Passout Year</label>
-                                    <input
-                                    className={classes.Input} 
-                                    placeholder="Passout Year"
-                                    type="text"
-                                    name="passout" required/>
-                                </div>
-                                <div  className= {classes.inputBox}>
-                                    <label>Percentage</label>
-                                    <input
-                                    className={classes.Input} 
-                                    placeholder="Percentage/GPA"
-                                    type="text"
-                                    name="grade" required/>
-                                </div>
-                            </div>
-                            <div className={classes.ButtonContainer}>
-                                <Button disableElevation variant="contained" className={classes.Button} type="submit">Submit</Button>
-                            </div>
-                        </form>
-                        <p className={classes.textDisabled}> At least 1 required</p>
-                        <div className={classes.ItemContainer}>
-                            {eduItems}
-                        </div>
-                    </div>
-                </Grid>
+                <Education 
+                onSubmit={this.eduSubmitHandler}
+                details={this.state.eduDetails}
+                onDelete={this.eduDeleteHandler}/> 
                 <Grid item xs={12} sm={2}>
                     <div className={classes.Container}>
                         <h2>Experience</h2>
@@ -382,7 +347,53 @@ class FormConatiner extends Component {
                         <p className={classes.textDisabled}> At least 1 required</p>
                         {expItems}
                     </div>
-                </Grid>    
+                </Grid>
+                <Grid item xs={12} sm={2}>
+                    <div className={classes.Container}>
+                        <h2>Projects and Trainings</h2>
+                        <form onSubmit={this.proSubmitHandler}>
+                            <div className={classes.InputContainer}>
+                                <div className={classes.inputBox}>
+                                    <label>Type</label>
+                                    <input
+                                    className={classes.Input} 
+                                    placeholder="Type"
+                                    type="text"
+                                    name="type" required/>
+                                </div>
+                                <div className={classes.inputBox}>
+                                    <label>Organization</label>
+                                    <input
+                                    className={classes.Input} 
+                                    placeholder="Organization"
+                                    type="text"
+                                    name="organization" required/>
+                                </div>
+                                <div className={classes.inputBox}>
+                                    <label>Position</label>
+                                    <input
+                                    className={classes.Input} 
+                                    placeholder="Position"
+                                    type="text"
+                                    name="position" required/>
+                                </div>
+                                <div className={classes.inputBox}>
+                                    <label>Duration</label>
+                                    <input
+                                    className={classes.Input} 
+                                    placeholder="Duration"
+                                    type="text"
+                                    name="duration" required/>
+                                </div>
+                            </div>
+                            <div className={classes.ButtonContainer}>
+                                <Button  disableElevation variant="contained" className={classes.Button} type="submit">Submit</Button>
+                            </div>
+                        </form>
+                        <p className={classes.textDisabled}> At least 1 required</p>
+                        {proItems}
+                    </div>
+                </Grid>      
                 <Grid item xs={12} sm={2}>
                     <div className={classes.Container}>
                         <h2>Skills</h2>
