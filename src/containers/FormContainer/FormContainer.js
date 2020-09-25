@@ -1,27 +1,32 @@
-import React,{Component} from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import {withRouter} from 'react-router';
+import { withRouter } from 'react-router';
 import Input from '../../components/Input/Input';
-import Item from '../../components/Item/Item';
 import classes from './FormContainer.module.css';
 import Grid from '@material-ui/core/Grid';
-import Button from '@material-ui/core/Button';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import * as actions from '../../store/actions/index';
 
-
+import Education from '../../components/FormElements/Education';
+import Experience from '../../components/FormElements/Experience';
+import Projects from '../../components/FormElements/Projects';
+import Skills from '../../components/FormElements/Skills';
+import Achievements from '../../components/FormElements/Achievements';
+import BasicDetails from '../../components/FormElements/BasicDetails';
+import { Button } from '@material-ui/core';
 
 class FormConatiner extends Component {
 
-    state = this.props.details
+    state = this.props.details;
+    // state = {chosenCase : 1};
 
     checkValidity(value, rules) {
         let isValid = true;
         if (!rules) {
             return true;
         }
-        
+
         if (rules.required) {
             isValid = value.trim() !== '' && isValid;
         }
@@ -52,13 +57,13 @@ class FormConatiner extends Component {
             ...this.state.formValues
         ];
 
-        const updatedElement = { 
+        const updatedElement = {
             ...updatedFormElements[key]
         }
 
         updatedElement.value = event.target.value;
         updatedElement.valid = this.checkValidity(updatedElement.value, updatedElement.validation);
-        updatedElement.touched= true;
+        updatedElement.touched = true;
         updatedFormElements[key] = updatedElement;
 
         let formIsValid = true;
@@ -66,7 +71,7 @@ class FormConatiner extends Component {
             formIsValid = updatedFormElements[key].valid && formIsValid;
         }
 
-        this.setState({formValues: updatedFormElements, formIsValid: formIsValid});
+        this.setState({ formValues: updatedFormElements, formIsValid: formIsValid });
     }
 
     eduSubmitHandler = (event) => {
@@ -80,13 +85,13 @@ class FormConatiner extends Component {
             passout: data.get('passout'),
             grade: data.get('grade')
         })
-        this.setState({eduDetails: updatedEduDetails});
+        this.setState({ eduDetails: updatedEduDetails });
     }
 
     eduDeleteHandler = (key) => {
         let updatedEduDetails = [...this.state.eduDetails];
         updatedEduDetails.splice(key, 1);
-        this.setState({eduDetails: updatedEduDetails});
+        this.setState({ eduDetails: updatedEduDetails });
     }
 
     expSubmitHandler = (event) => {
@@ -99,13 +104,32 @@ class FormConatiner extends Component {
             position: data.get('position'),
             duration: data.get('duration')
         })
-        this.setState({expDetails: updatedExpDetails});
+        this.setState({ expDetails: updatedExpDetails });
+    }
+
+    proSubmitHandler = (event) => {
+        event.preventDefault();
+        const data = new FormData(event.target);
+        let updatedProDetails = [...this.state.proDetails];
+        updatedProDetails.push({
+            type: data.get('type'),
+            organization: data.get('organization'),
+            position: data.get('position'),
+            duration: data.get('duration')
+        })
+        this.setState({ proDetails: updatedProDetails });
+    }
+
+    proDeleteHandler = (key) => {
+        let updatedProDetails = [...this.state.proDetails];
+        updatedProDetails.splice(key, 1);
+        this.setState({ proDetails: updatedProDetails });
     }
 
     expDeleteHandler = (key) => {
         let updatedExpDetails = [...this.state.expDetails];
         updatedExpDetails.splice(key, 1);
-        this.setState({expDetails: updatedExpDetails});
+        this.setState({ expDetails: updatedExpDetails });
     }
 
     skillSubmitHandler = (event) => {
@@ -115,13 +139,13 @@ class FormConatiner extends Component {
         updatedSkills.push({
             skill: data.get('skill')
         })
-        this.setState({skills: updatedSkills});
+        this.setState({ skills: updatedSkills });
     }
 
     skillDeleteHandler = (key) => {
         let updatedSkills = [...this.state.skills];
         updatedSkills.splice(key, 1);
-        this.setState({skills: updatedSkills});
+        this.setState({ skills: updatedSkills });
     }
 
     achivSubmitHandler = (event) => {
@@ -131,44 +155,42 @@ class FormConatiner extends Component {
         updatedAchivs.push({
             achiv: data.get('achiv')
         })
-        this.setState({achivs: updatedAchivs});
+        this.setState({ achivs: updatedAchivs });
     }
 
     achivDeleteHandler = (key) => {
         let updatedAchivs = [...this.state.achivs];
         updatedAchivs.splice(key, 1);
-        this.setState({achivs: updatedAchivs});
+        this.setState({ achivs: updatedAchivs });
     }
 
     handleImageUpload = (event) => {
         event.preventDefault();
         const { files } = event.target;
-        const localImageUrl =  window.URL.createObjectURL(files[0]);
-       
-        this.setState({imageUrl: localImageUrl});
+        const localImageUrl = window.URL.createObjectURL(files[0]);
+
+        this.setState({ imageUrl: localImageUrl });
     }
 
     formSubmitHandler = () => {
-        if(this.state.formIsValid 
+        if (this.state.formIsValid
             && this.state.eduDetails.length > 0
             && this.state.expDetails.length > 0
             && this.state.skills.length > 0
             && this.state.achivs.length > 0) {
-                this.props.onFormSubmit(this.state);
-                toast.success("Form submitted", {
-                    position: "top-center",
-                    autoClose: 2000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                });
-                this.props.history.push('/preview');
-              
-                
+            this.props.onFormSubmit(this.state);
+            toast.success("Form submitted", {
+                position: "top-center",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+            this.props.history.push('/preview');
         } else {
-            toast.error("Please fill in all required fields",{
+            toast.error("Please fill in all required fields", {
                 position: "top-center",
                 autoClose: 2000,
                 hideProgressBar: false,
@@ -178,264 +200,161 @@ class FormConatiner extends Component {
                 progress: undefined,
             });
         }
-    }
+    };
 
-
+    // changeChosenCaseHandler = () => {
+    //     this.setState({chosenCase : 2});
+    // }
 
     render() {
+
+        
+
+        let componentToBeLoaded = (<>
+            <BasicDetails
+                details={this.state.formValues}
+                input={this.inputChangedHandler} />
+            <Grid item xs={12} sm={2}>
+                <div className={classes.Container}>
+                    <h2>Image</h2>
+                    <input type="file" accept="image/*" onChange={this.handleImageUpload} />
+                </div>
+            </Grid>
+        </>);
+
+        switch (this.state.choosenCase) {
+            case 1: componentToBeLoaded = (<>
+                <BasicDetails
+                    details={this.state.formValues}
+                    input={this.inputChangedHandler} />
+                <Grid item xs={12} sm={2}>
+                    <div className={classes.Container}>
+                        <h2>Image</h2>
+                        <input type="file" accept="image/*" onChange={this.handleImageUpload} />
+                    </div>
+                </Grid>
+            </>)
+                break;
+            case 2: componentToBeLoaded = (<Education
+                onSubmit={this.eduSubmitHandler}
+                details={this.state.eduDetails}
+                onDelete={this.eduDeleteHandler} />)
+                break;
+            case 3: componentToBeLoaded = (<Experience
+                onSubmit={this.expSubmitHandler}
+                details={this.state.expDetails}
+                onDelete={this.expDeleteHandler} />)
+                break;
+            case 4: componentToBeLoaded = (<Projects
+                onSubmit={this.proSubmitHandler}
+                details={this.state.proDetails}
+                onDelete={this.proDeleteHandler} />)
+                break;
+            case 5: componentToBeLoaded = (<Skills
+                onSubmit={this.skillSubmitHandler}
+                details={this.state.skills}
+                onDelete={this.skillDeleteHandler} />)
+                break;
+            case 6: componentToBeLoaded = (<Achievements
+                onSubmit={this.achivSubmitHandler}
+                details={this.state.achivs}
+                onDelete={this.achivDeleteHandler} />)
+                break;
+            
+            default: componentToBeLoaded = (<BasicDetails
+                details={this.state.formValues}
+                input={this.inputChangedHandler} />)
+        }
 
         const formElementArray = this.state.formValues;
         let form = (
             <form>
                 {formElementArray.map(formElement => (
-                     <Input
-                     className={classes.form__input}
-                     key={formElement.id}
-                     inputType={formElement.inputType} 
-                     value={formElement.value}
-                     config={formElement.config}
-                     invalid= {!formElement.valid }
-                     touched= {formElement.touched}
-                     changed={(event) => this.inputChangedHandler(event, formElement.id)} />
+                    <Input
+                        className={classes.form__input}
+                        key={formElement.id}
+                        inputType={formElement.inputType}
+                        value={formElement.value}
+                        config={formElement.config}
+                        invalid={!formElement.valid}
+                        touched={formElement.touched}
+                        changed={(event) => this.inputChangedHandler(event, formElement.id)} />
                 ))}
             </form>
         )
 
-        const eduItemsArray = this.state.eduDetails;
-        let eduItems = ( 
-            <div>
-                {eduItemsArray.map((eduElement, igKey) => (
-                    <Item 
-                    key={igKey} 
-                    id={igKey} 
-                    delete={this.eduDeleteHandler} 
-                    qualification={eduElement.qualification}
-                    institute={eduElement.institute}
-                    field={eduElement.field}
-                    passout={eduElement.passout}
-                    grade={eduElement.grade}/>
-                ))}
-            </div>
-        )
 
-        const expItemsArray = this.state.expDetails;
-        let expItems = ( 
-            <div>
-                {expItemsArray.map((expElement, igKey) => (
-                    <Item 
-                    key={igKey} 
-                    id={igKey} 
-                    delete={this.expDeleteHandler} 
-                    type={expElement.type}
-                    position={expElement.position}
-                    organization={expElement.organization}
-                    duration={expElement.duration}/>
-                ))}
-            </div>
-        )
-
-        const skillsArray = this.state.skills;
-        let skills = ( 
-            <div>
-                {skillsArray.map((skillElement, igKey) => (
-                    <Item key={igKey} id={igKey} delete={this.skillDeleteHandler} skill={skillElement.skill}/>
-                ))}
-            </div>
-        )
-
-        const achivsArray = this.state.achivs;
-        let achivs = ( 
-            <div>
-                {achivsArray.map((achivElement, igKey) => (
-                    <Item key={igKey} id={igKey} delete={this.achivDeleteHandler} skill={achivElement.achiv}/>
-                ))}
-            </div>
-        )
-
-        return(
+        return (
             <div className={classes.MainContainer}>
-            <ToastContainer
-                position="top-center"
-                autoClose={2000}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-            />
-            <Grid container-fluid>
-                <Grid item xs={12} sm={2}>
-                    <div className={classes.Container}>
-                    <h2>Basic Details</h2>
-                        {form}
-                    </div>
-                </Grid>
-                <Grid item xs={12} sm={2}>
-                    <div className={classes.Container}>
-                    <h2>Image</h2>
-                        <input type="file" accept="image/*" onChange={this.handleImageUpload}/>
-                    </div>
-                </Grid>
-                <Grid item xs={12} sm={2}>
-                    <div className={classes.Container}>
-                        <h2>Educational Details</h2>
-                        <form onSubmit={this.eduSubmitHandler}>
-                            <div className={classes.InputContainer}>
-                                <div className= {classes.inputBox}>
-                                    <label>Qualification</label>
-                                    <input
-                                    className={classes.Input} 
-                                    placeholder="Qualification"
-                                    type="text"
-                                    id= "qualification"
-                                    name="qualification" required/>
-                                </div>
-                                <div className= {classes.inputBox}>
-                                    <label>Field</label>
-                                    <input
-                                    className={classes.Input} 
-                                    placeholder="Field"
-                                    type="text"
-                                    id= "field"
-                                    name="field" required/>
-                                </div>
-                                <div className= {classes.inputBox}>
-                                    <label>Institution</label>
-                                    <input
-                                    className={classes.Input} 
-                                    placeholder="Institute"
-                                    type="text"
-                                    name="institute" required/>
-                                </div>
-                                
-                                <div className= {classes.inputBox}>
-                                    <label>Passout Year</label>
-                                    <input
-                                    className={classes.Input} 
-                                    placeholder="Passout Year"
-                                    type="text"
-                                    name="passout" required/>
-                                </div>
-                                <div  className= {classes.inputBox}>
-                                    <label>Percentage</label>
-                                    <input
-                                    className={classes.Input} 
-                                    placeholder="Percentage/GPA"
-                                    type="text"
-                                    name="grade" required/>
-                                </div>
-                            </div>
-                            <div className={classes.ButtonContainer}>
-                                <Button disableElevation variant="contained" className={classes.Button} type="submit">Submit</Button>
-                            </div>
-                        </form>
-                        <p className={classes.textDisabled}> At least 1 required</p>
-                        <div className={classes.ItemContainer}>
-                            {eduItems}
+                <ToastContainer
+                    position="top-center"
+                    autoClose={2000}
+                    hideProgressBar={false}
+                    newestOnTop={false}
+                    closeOnClick
+                    rtl={false}
+                    pauseOnFocusLoss
+                    draggable
+                    pauseOnHover
+                />
+                
+                <Grid container-fluid>
+                    <Button onClick={this.changeChosenCaseHandler} > Change Chosen case </Button>
+                    {componentToBeLoaded}
+                    <BasicDetails
+                        details={this.state.formValues}
+                        input={this.inputChangedHandler} />
+
+                    <Grid item xs={12} sm={2}>
+                        <div className={classes.Container}>
+                            <h2>Image</h2>
+                            <input type="file" accept="image/*" onChange={this.handleImageUpload} />
                         </div>
-                    </div>
+                    </Grid>
+
+                    <Education
+                        onSubmit={this.eduSubmitHandler}
+                        details={this.state.eduDetails}
+                        onDelete={this.eduDeleteHandler} />
+
+                    <Experience
+                        onSubmit={this.expSubmitHandler}
+                        details={this.state.expDetails}
+                        onDelete={this.expDeleteHandler} />
+
+                    <Projects
+                        onSubmit={this.proSubmitHandler}
+                        details={this.state.proDetails}
+                        onDelete={this.proDeleteHandler} />
+
+                    <Skills
+                        onSubmit={this.skillSubmitHandler}
+                        details={this.state.skills}
+                        onDelete={this.skillDeleteHandler} />
+
+                    <Achievements
+                        onSubmit={this.achivSubmitHandler}
+                        details={this.state.achivs}
+                        onDelete={this.achivDeleteHandler} />
+
+                    <Grid>
+                        <div className={classes.formButtons}>
+                            <button
+                                onClick={this.formSubmitHandler}
+                                className={classes.Button}>SUBMIT FULL FORM</button>
+                            <button
+                                onClick={this.formSubmitHandler}
+                                className={classes.Button}>CLEAR FORM</button>
+                        </div>
+                    </Grid>
                 </Grid>
-                <Grid item xs={12} sm={2}>
-                    <div className={classes.Container}>
-                        <h2>Experience</h2>
-                        <form onSubmit={this.expSubmitHandler}>
-                            <div className={classes.InputContainer}>
-                                <div className={classes.inputBox}>
-                                    <label>Type</label>
-                                    <input
-                                    className={classes.Input} 
-                                    placeholder="Type"
-                                    type="text"
-                                    name="type" required/>
-                                </div>
-                                <div className={classes.inputBox}>
-                                    <label>Organization</label>
-                                    <input
-                                    className={classes.Input} 
-                                    placeholder="Organization"
-                                    type="text"
-                                    name="organization" required/>
-                                </div>
-                                <div className={classes.inputBox}>
-                                    <label>Position</label>
-                                    <input
-                                    className={classes.Input} 
-                                    placeholder="Position"
-                                    type="text"
-                                    name="position" required/>
-                                </div>
-                                <div className={classes.inputBox}>
-                                    <label>Duration</label>
-                                    <input
-                                    className={classes.Input} 
-                                    placeholder="Duration"
-                                    type="text"
-                                    name="duration" required/>
-                                </div>
-                            </div>
-                            <div className={classes.ButtonContainer}>
-                                <Button  disableElevation variant="contained" className={classes.Button} type="submit">Submit</Button>
-                            </div>
-                        </form>
-                        <p className={classes.textDisabled}> At least 1 required</p>
-                        {expItems}
-                    </div>
-                </Grid>    
-                <Grid item xs={12} sm={2}>
-                    <div className={classes.Container}>
-                        <h2>Skills</h2>
-                        <form onSubmit={this.skillSubmitHandler}>
-                            <div className={classes.InputContainer}>
-                                <input
-                                className={classes.InputSingle} 
-                                placeholder="Skill"
-                                type="text"
-                                name="skill" required/>
-                            </div>
-                            <div className={classes.ButtonContainer}>
-                                <Button disableElevation variant="contained" className={classes.Button} type="submit">Add Skill</Button>
-                            </div>
-                        </form>
-                        <p className={classes.textDisabled}> At least 1 required</p>
-                        {skills}
-                    </div>
-                </Grid>
-                <Grid item xs={12} sm={2}>
-                    <div className={classes.Container}>
-                        <h2>Achievements</h2>
-                        <form onSubmit={this.achivSubmitHandler}>
-                            <div className={classes.InputContainer}>
-                                <input
-                                className={classes.InputSingle} 
-                                placeholder="Achievement"
-                                type="text"
-                                name="achiv" required/>
-                            </div>
-                            <div className={classes.ButtonContainer}>
-                                <Button disableElevation variant="contained" className={classes.Button} type="submit">Add Achievement</Button>
-                            </div>
-                        </form>
-                        <p className={classes.textDisabled}> At least 1 required</p>
-                        {achivs}
-                    </div>
-                </Grid>
-                <Grid>
-                    <div className={classes.Container}>
-                        <button 
-                        onClick={this.formSubmitHandler} 
-                        className={classes.Button}>Submit</button>
-                    </div>
-                </Grid>
-            </Grid>
             </div>
         )
     }
 }
 
 const mapStateToProps = (state) => {
-    return{
+    return {
         details: state.form.details
     }
 }

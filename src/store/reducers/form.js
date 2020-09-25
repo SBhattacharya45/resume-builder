@@ -110,6 +110,34 @@ const initialState = {
         },
         {
             id: 7,
+            inputType: 'input',
+            value: '',
+            config: {
+                type: 'text', 
+                placeholder: 'Enter your github link',
+                label : 'GitHub'
+            },
+            validation: {
+            },
+            valid: false,
+            touched : false
+        },
+        {
+            id: 8,
+            inputType: 'input',
+            value: '',
+            config: {
+                type: 'text', 
+                placeholder: 'Enter your linkedin link',
+                label : 'LinkedIn'
+            },
+            validation: {
+            },
+            valid: false,
+            touched : false
+        },
+        {
+            id: 9,
             inputType: "textarea",
             value: 'I am Iron Man',
             config: {
@@ -153,6 +181,7 @@ const initialState = {
     }, {
         achiv: "200+ anime completed"
     }],
+    proDetails: [],
     imageUrl: null,
     formIsValid: false,
       }
