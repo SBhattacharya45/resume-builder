@@ -24,6 +24,8 @@ const Projects = props => {
     )
 
     return (
+        <>
+        <h1 className={classes.heading}>Projects </h1>
         <Grid item xs={12} sm={2}>
             <div className={classes.Container}>
                 <h2>Projects and Trainings</h2>
@@ -70,7 +72,9 @@ const Projects = props => {
                 {proItems}
             </div>
         </Grid>
+        </>
     )
+
 }
 
 export default Projects;

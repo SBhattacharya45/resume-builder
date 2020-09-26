@@ -17,25 +17,29 @@ const Achievements = props => {
     )
 
     return (
-        <Grid item xs={12} sm={2}>
-            <div className={classes.Container}>
-                <h2>Achievements</h2>
-                <form onSubmit={props.onSubmit}>
-                    <div className={classes.InputContainer}>
-                        <input
-                            className={classes.InputSingle}
-                            placeholder="Achievement"
-                            type="text"
-                            name="achiv" required />
-                    </div>
-                    <div className={classes.ButtonContainer}>
-                        <Button disableElevation variant="contained" className={classes.Button} type="submit">Add Achievement</Button>
-                    </div>
-                </form>
-                <p className={classes.textDisabled}> At least 1 required</p>
-                {achivs}
-            </div>
-        </Grid>
+        <React.Fragment>
+            <h1 className={classes.heading}>Achievements</h1>
+
+            <Grid item xs={12} sm={2}>
+                <div className={classes.Container}>
+                    <h2>Achievements</h2>
+                    <form onSubmit={props.onSubmit}>
+                        <div className={classes.InputContainer}>
+                            <input
+                                className={classes.InputSingle}
+                                placeholder="Achievement"
+                                type="text"
+                                name="achiv" required />
+                        </div>
+                        <div className={classes.ButtonContainer}>
+                            <Button disableElevation variant="contained" className={classes.Button} type="submit">Add Achievement</Button>
+                        </div>
+                    </form>
+                    <p className={classes.textDisabled}> At least 1 required</p>
+                    {achivs}
+                </div>
+            </Grid>
+        </React.Fragment>
     );
 }
 

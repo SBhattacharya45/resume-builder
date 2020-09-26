@@ -17,6 +17,8 @@ const Skills = props => {
     )
 
     return (
+        <>
+        <h1 className={classes.heading}>Skills & Knowledge</h1>
         <Grid item xs={12} sm={2}>
             <div className={classes.Container}>
                 <h2>Skills</h2>
@@ -36,6 +38,7 @@ const Skills = props => {
                 {skills}
             </div>
         </Grid>
+        </>
     );
 }
 

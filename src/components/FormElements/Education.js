@@ -25,6 +25,8 @@ const Education = props => {
     )
 
     return (
+        <>
+        <h1 className={classes.heading}>Education Background</h1>
         <Grid item xs={12} sm={2}>
                     <div className={classes.Container}>
                         <h2>Educational Details</h2>
@@ -84,6 +86,7 @@ const Education = props => {
                         </div>
                     </div>
                 </Grid>
+                </>
     )
 }
 

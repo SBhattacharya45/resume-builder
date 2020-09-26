@@ -14,7 +14,7 @@ const input = (props) => {
     switch(props.inputType) {
         case "input":
     inputElement =<div className={classes.inputDiv}> 
-            <label>{props.config.label}</label> 
+            <label  className={classes.label}>{props.config.label}</label> 
             <input
             className={inputClasses.join(' ')}
             {...props.config}
@@ -24,7 +24,7 @@ const input = (props) => {
         break;
         case "textarea":
             inputElement = <div className={classes.inputDiv}>
-            <label>{props.config.label}</label> 
+            <label className={classes.label}>{props.config.label}</label> 
             <textarea
             className={inputClasses.join(' ')}
             {...props.config}
@@ -34,7 +34,7 @@ const input = (props) => {
         break;
         default:
             inputElement = <div className={classes.inputDiv}>
-            <label>{props.config.label}</label> 
+            <label className={classes.label}>{props.config.label}</label> 
             <input
             className={inputClasses.join(' ')}
             {...props.config}

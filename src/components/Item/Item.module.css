@@ -2,12 +2,12 @@
     width: 97.5%;
     display: flex;
     justify-content: space-between;
-    background-color: white;
-    color: rgb(39, 39, 39);
+    background-color:  #0f9d5810;
+    color:#0F9D58;
     padding: 7px;
     margin: 5px 0px;
     border-radius: 5px;
-    box-shadow: 2px 2px 7px rgba(143, 143, 143, 0.411), -2px -2px 7px white;
+    border: 1px solid #0F9D58;
     margin-top: 20px ;
     margin-bottom:20px;
 }
