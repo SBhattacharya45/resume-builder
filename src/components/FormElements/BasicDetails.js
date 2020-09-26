@@ -26,9 +26,8 @@ const BasicDetails = props => {
     return (
         <React.Fragment>
             <h1 className= {classes.heading}>Personal Details</h1>
-            <Grid item xs={12} sm={2}>
+            <Grid item xs={12} sm={2} classsName={classes.gridController}>
                 <div className={classes.Container}>
-                    <h2 className={classes.formHeading}>Basic Details</h2>
                     {form}
                 </div>
             </Grid>

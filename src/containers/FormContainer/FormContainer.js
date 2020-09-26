@@ -234,7 +234,7 @@ class FormConatiner extends Component {
                         <h2>Image</h2>
                         <label className={classes.uploadImage}>
                             Upload Image
-                            <input style={{display:'none'}} className={classes.imageLoader} size="100" type="file" accept="image/*" onChange={this.handleImageUpload} />
+                            <input style={{ display: 'none' }} className={classes.imageLoader} type="file" accept="image/*" onChange={this.handleImageUpload} />
                         </label>
                     </div>
                 </Grid>
@@ -297,14 +297,15 @@ class FormConatiner extends Component {
                     pauseOnHover
                 />
 
-                <Grid container-fluid>
-                    <Button variant="contained" color="primary" onClick={() => { this.changeChosenCaseHandler(1) }} >Basic Details</Button>
-                    <Button variant="contained" color="primary" onClick={() => { this.changeChosenCaseHandler(2) }} >Education</Button>
-                    <Button variant="contained" color="primary" onClick={() => { this.changeChosenCaseHandler(3) }} >Skills</Button>
-                    <Button variant="contained" color="primary" onClick={() => { this.changeChosenCaseHandler(4) }} >Projects</Button>
-                    <Button variant="contained" color="primary" onClick={() => { this.changeChosenCaseHandler(5) }} >Experience</Button>
-                    <Button variant="contained" color="primary" onClick={() => { this.changeChosenCaseHandler(6) }} >Achievements</Button>
-
+                <Grid container-fluid >
+                    <div style={{textAlign:'center'}}>
+                        <Button variant="contained" color="primary" onClick={() => { this.changeChosenCaseHandler(1) }} >Basic Details</Button>
+                        <Button variant="contained" color="primary" onClick={() => { this.changeChosenCaseHandler(2) }} >Education</Button>
+                        <Button variant="contained" color="primary" onClick={() => { this.changeChosenCaseHandler(3) }} >Skills</Button>
+                        <Button variant="contained" color="primary" onClick={() => { this.changeChosenCaseHandler(4) }} >Projects</Button>
+                        <Button variant="contained" color="primary" onClick={() => { this.changeChosenCaseHandler(5) }} >Experience</Button>
+                        <Button variant="contained" color="primary" onClick={() => { this.changeChosenCaseHandler(6) }} >Achievements</Button>
+                    </div>
                     {/* have other buttons here to change case at will  */}
                     {componentToBeLoaded}
                     <div className={classes.bottomNavigationButtons}>

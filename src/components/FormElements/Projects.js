@@ -25,10 +25,9 @@ const Projects = props => {
 
     return (
         <>
-        <h1 className={classes.heading}>Projects </h1>
+        <h1 className={classes.heading}>Projects & Training </h1>
         <Grid item xs={12} sm={2}>
             <div className={classes.Container}>
-                <h2>Projects and Trainings</h2>
                 <form onSubmit={props.onSubmit}>
                     <div className={classes.InputContainer}>
                         <div className={classes.inputBox}>

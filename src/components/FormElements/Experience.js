@@ -25,10 +25,9 @@ const Experience = props => {
 
     return (
         <>
-            <h1 className={classes.heading}>Experience & Training</h1>
+            <h1 className={classes.heading}>Experience </h1>
             <Grid item xs={12} sm={2}>
                 <div className={classes.Container}>
-                    <h2>Experience</h2>
                     <form onSubmit={props.onSubmit}>
                         <div className={classes.InputContainer}>
                             <div className={classes.inputBox}>

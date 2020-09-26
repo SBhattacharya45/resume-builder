@@ -17,12 +17,11 @@ const Achievements = props => {
     )
 
     return (
-        <React.Fragment>
+        <>
             <h1 className={classes.heading}>Achievements</h1>
 
-            <Grid item xs={12} sm={2}>
+            <Grid justify="center"  item xs={12} sm={2}>
                 <div className={classes.Container}>
-                    <h2>Achievements</h2>
                     <form onSubmit={props.onSubmit}>
                         <div className={classes.InputContainer}>
                             <input
@@ -39,7 +38,7 @@ const Achievements = props => {
                     {achivs}
                 </div>
             </Grid>
-        </React.Fragment>
+        </>
     );
 }
 
