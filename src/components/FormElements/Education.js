@@ -13,7 +13,8 @@ const Education = props => {
             {eduItemsArray.map((eduElement, igKey) => (
                 <Item 
                 key={igKey} 
-                id={igKey} 
+                id={igKey}
+                config="edu" 
                 delete={props.onDelete} 
                 qualification={eduElement.qualification}
                 institute={eduElement.institute}

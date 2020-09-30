@@ -14,11 +14,11 @@ const Projects = props => {
                 <Item 
                 key={igKey} 
                 id={igKey} 
-                delete={props.onDelete} 
+                delete={props.onDelete}
+                config="pro" 
                 type={proElement.type}
-                position={proElement.position}
-                organization={proElement.organization}
-                duration={proElement.duration}/>
+                description={proElement.description}
+                link={proElement.link}/>
             ))}
         </div>
     )
@@ -39,28 +39,19 @@ const Projects = props => {
                                 name="type" required />
                         </div>
                         <div className={classes.inputBox}>
-                            <label>Organization</label>
-                            <input
+                            <label>Description</label>
+                            <textarea
                                 className={classes.Input}
-                                placeholder="Organization"
-                                type="text"
-                                name="organization" required />
+                                placeholder="Description"
+                                name="description" required />
                         </div>
                         <div className={classes.inputBox}>
-                            <label>Position</label>
+                            <label>Link</label>
                             <input
                                 className={classes.Input}
-                                placeholder="Position"
+                                placeholder="Link"
                                 type="text"
-                                name="position" required />
-                        </div>
-                        <div className={classes.inputBox}>
-                            <label>Duration</label>
-                            <input
-                                className={classes.Input}
-                                placeholder="Duration"
-                                type="text"
-                                name="duration" required />
+                                name="link" required />
                         </div>
                     </div>
                     <div className={classes.ButtonContainer}>

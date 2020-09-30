@@ -11,7 +11,12 @@ const Achievements = props => {
     let achivs = (
         <div>
             {achivsArray.map((achivElement, igKey) => (
-                <Item key={igKey} id={igKey} delete={props.onDelete} skill={achivElement.achiv} />
+                <Item
+                    key={igKey}
+                    id={igKey}
+                    delete={props.onDelete}
+                    config="achiv"
+                    achiv={achivElement.achiv} />
             ))}
         </div>
     )
@@ -20,7 +25,7 @@ const Achievements = props => {
         <>
             <h1 className={classes.heading}>Achievements</h1>
 
-            <Grid justify="center"  item xs={12} sm={2}>
+            <Grid justify="center" item xs={12} sm={2}>
                 <div className={classes.Container}>
                     <form onSubmit={props.onSubmit}>
                         <div className={classes.InputContainer}>

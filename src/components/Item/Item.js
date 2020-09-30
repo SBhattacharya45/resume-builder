@@ -3,7 +3,7 @@ import React from 'react';
 import classes from './Item.module.css';
 
 const item = (props) => {
-    if(props.qualification) {
+    if(props.config === 'edu') {
         return (
             <div className={classes.Item}>
                 <div className={classes.ItemDataContainer}>
@@ -16,7 +16,7 @@ const item = (props) => {
                 <span onClick={() => props.delete(props.id)}><i className={classes.CloseIcon}></i></span>
             </div>
         )
-    } else if(props.type) {
+    } else if(props.config === 'exp') {
         return (
             <div className={classes.Item}>
                 <div className={classes.ItemDataContainer}>
@@ -28,10 +28,28 @@ const item = (props) => {
                 <span onClick={() => props.delete(props.id)}><i className={classes.CloseIcon}></i></span>
             </div>
         )
-    } else if(props.skill) {
+    } else if(props.config === 'skill') {
         return (
             <div className={classes.Item}>
                 <span>{props.skill}</span>
+                <span onClick={() => props.delete(props.id)}><i className={classes.CloseIcon}></i></span>
+            </div>
+        )
+    }else if(props.config === 'achiv') {
+        return (
+            <div className={classes.Item}>
+                <span>{props.achiv}</span>
+                <span onClick={() => props.delete(props.id)}><i className={classes.CloseIcon}></i></span>
+            </div>
+        )
+    } else if(props.config === 'pro') {
+        return (
+            <div className={classes.Item}>
+                <div className={classes.ItemDataContainer}>
+                    <span className={classes.ItemData}>{props.type}</span>
+                    <span className={classes.ItemData}>{props.description}</span>
+                    <span className={classes.ItemData}>{props.link}</span>
+                </div>
                 <span onClick={() => props.delete(props.id)}><i className={classes.CloseIcon}></i></span>
             </div>
         )

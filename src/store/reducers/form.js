@@ -181,7 +181,11 @@ const initialState = {
     }, {
         achiv: "200+ anime completed"
     }],
-    proDetails: [],
+    proDetails: [{
+        type: 'discount',
+        description: 'hello',
+        link: 'link'
+    }],
     imageUrl: null,
     formIsValid: false,
       }

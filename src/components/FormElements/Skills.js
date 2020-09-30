@@ -11,32 +11,37 @@ const Skills = props => {
     let skills = (
         <div>
             {skillsArray.map((skillElement, igKey) => (
-                <Item key={igKey} id={igKey} delete={props.onDelete} skill={skillElement.skill} />
+                <Item
+                    key={igKey}
+                    id={igKey}
+                    delete={props.onDelete}
+                    config="skill"
+                    skill={skillElement.skill} />
             ))}
         </div>
     )
 
     return (
         <>
-        <h1 className={classes.heading}>Skills</h1>
-        <Grid item xs={12} sm={2}>
-            <div className={classes.Container}>
-                <form onSubmit={props.onSubmit}>
-                    <div className={classes.InputContainer}>
-                        <input
-                            className={classes.InputSingle}
-                            placeholder="Skill"
-                            type="text"
-                            name="skill" required />
-                    </div>
-                    <div className={classes.ButtonContainer}>
-                        <Button disableElevation variant="contained" className={classes.Button} type="submit">Add Skill</Button>
-                    </div>
-                </form>
-                <p className={classes.textDisabled}> At least 1 required</p>
-                {skills}
-            </div>
-        </Grid>
+            <h1 className={classes.heading}>Skills</h1>
+            <Grid item xs={12} sm={2}>
+                <div className={classes.Container}>
+                    <form onSubmit={props.onSubmit}>
+                        <div className={classes.InputContainer}>
+                            <input
+                                className={classes.InputSingle}
+                                placeholder="Skill"
+                                type="text"
+                                name="skill" required />
+                        </div>
+                        <div className={classes.ButtonContainer}>
+                            <Button disableElevation variant="contained" className={classes.Button} type="submit">Add Skill</Button>
+                        </div>
+                    </form>
+                    <p className={classes.textDisabled}> At least 1 required</p>
+                    {skills}
+                </div>
+            </Grid>
         </>
     );
 }

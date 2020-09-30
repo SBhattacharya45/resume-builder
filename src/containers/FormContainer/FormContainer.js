@@ -115,9 +115,8 @@ class FormConatiner extends Component {
         let updatedProDetails = [...this.state.proDetails];
         updatedProDetails.push({
             type: data.get('type'),
-            organization: data.get('organization'),
-            position: data.get('position'),
-            duration: data.get('duration')
+            description: data.get('description'),
+            link: data.get('link')
         })
         this.setState({ proDetails: updatedProDetails });
     }

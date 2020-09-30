@@ -15,6 +15,7 @@ const Experience = props => {
                     key={igKey}
                     id={igKey}
                     delete={props.onDelete}
+                    config="exp"
                     type={expElement.type}
                     position={expElement.position}
                     organization={expElement.organization}
