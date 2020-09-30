@@ -10,6 +10,7 @@ import * as actions from '../../store/actions/index';
 import Education from '../../components/FormElements/Education';
 import Experience from '../../components/FormElements/Experience';
 import Projects from '../../components/FormElements/Projects';
+import Training from '../../components/FormElements/Training';
 import Skills from '../../components/FormElements/Skills';
 import Achievements from '../../components/FormElements/Achievements';
 import BasicDetails from '../../components/FormElements/BasicDetails';
@@ -125,6 +126,25 @@ class FormConatiner extends Component {
         let updatedProDetails = [...this.state.proDetails];
         updatedProDetails.splice(key, 1);
         this.setState({ proDetails: updatedProDetails });
+    }
+
+    trainSubmitHandler = (event) => {
+        event.preventDefault();
+        const data = new FormData(event.target);
+        let updatedTrainDetails = [...this.state.trainDetails];
+        updatedTrainDetails.push({
+            type: data.get('type'),
+            description: data.get('description'),
+            from: data.get('from'),
+            to: data.get('to')
+        })
+        this.setState({ trainDetails: updatedTrainDetails });
+    }
+
+    trainDeleteHandler = (key) => {
+        let updatedTrainDetails = [...this.state.trainDetails];
+        updatedTrainDetails.splice(key, 1);
+        this.setState({ trainDetails: updatedTrainDetails });
     }
 
     expDeleteHandler = (key) => {
@@ -264,6 +284,11 @@ class FormConatiner extends Component {
                 details={this.state.achivs}
                 onDelete={this.achivDeleteHandler} />)
                 break;
+            case 7: componentToBeLoaded = (<Training
+                onSubmit={this.trainSubmitHandler}
+                details={this.state.trainDetails}
+                onDelete={this.trainDeleteHandler} />)
+                break;
 
             default: componentToBeLoaded = (<BasicDetails
                 details={this.state.formValues}
@@ -302,6 +327,7 @@ class FormConatiner extends Component {
                         <Button variant="contained" color="primary" onClick={() => { this.changeChosenCaseHandler(2) }} >Education</Button>
                         <Button variant="contained" color="primary" onClick={() => { this.changeChosenCaseHandler(3) }} >Skills</Button>
                         <Button variant="contained" color="primary" onClick={() => { this.changeChosenCaseHandler(4) }} >Projects</Button>
+                        <Button variant="contained" color="primary" onClick={() => { this.changeChosenCaseHandler(7) }} >Training</Button>
                         <Button variant="contained" color="primary" onClick={() => { this.changeChosenCaseHandler(5) }} >Experience</Button>
                         <Button variant="contained" color="primary" onClick={() => { this.changeChosenCaseHandler(6) }} >Achievements</Button>
                     </div>

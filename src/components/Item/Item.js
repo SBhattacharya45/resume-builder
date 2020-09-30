@@ -53,6 +53,18 @@ const item = (props) => {
                 <span onClick={() => props.delete(props.id)}><i className={classes.CloseIcon}></i></span>
             </div>
         )
+    } else if(props.config === 'train') {
+        return (
+            <div className={classes.Item}>
+                <div className={classes.ItemDataContainer}>
+                    <span className={classes.ItemData}>{props.type}</span>
+                    <span className={classes.ItemData}>{props.description}</span>
+                    <span className={classes.ItemData}>{props.from}</span>
+                    <span className={classes.ItemData}>{props.to}</span>
+                </div>
+                <span onClick={() => props.delete(props.id)}><i className={classes.CloseIcon}></i></span>
+            </div>
+        )
     }
 
 }

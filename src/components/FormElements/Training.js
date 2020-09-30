@@ -5,27 +5,28 @@ import Button from '@material-ui/core/Button';
 import Item from '../Item/Item';
 import classes from './FormElements.module.css';
 
-const Projects = props => {
+const Training = props => {
 
-    const proItemsArray = props.details;
-    let proItems = ( 
+    const trainItemsArray = props.details;
+    let trainItems = ( 
         <div>
-            {proItemsArray.map((proElement, igKey) => (
+            {trainItemsArray.map((trainElement, igKey) => (
                 <Item 
                 key={igKey} 
                 id={igKey} 
                 delete={props.onDelete}
-                config="pro" 
-                type={proElement.type}
-                description={proElement.description}
-                link={proElement.link}/>
+                config="train" 
+                type={trainElement.type}
+                description={trainElement.description}
+                from={trainElement.from}
+                to={trainElement.to}/>
             ))}
         </div>
     )
 
     return (
         <>
-        <h1 className={classes.heading}>Projects</h1>
+        <h1 className={classes.heading}>Training</h1>
         <Grid item xs={12} sm={2}>
             <div className={classes.Container}>
                 <form onSubmit={props.onSubmit}>
@@ -46,12 +47,20 @@ const Projects = props => {
                                 name="description" required />
                         </div>
                         <div className={classes.inputBox}>
-                            <label>Link</label>
+                            <label>From</label>
                             <input
                                 className={classes.Input}
-                                placeholder="Link"
+                                placeholder="From"
                                 type="text"
-                                name="link" required />
+                                name="from" required />
+                        </div>
+                        <div className={classes.inputBox}>
+                            <label>To</label>
+                            <input
+                                className={classes.Input}
+                                placeholder="To"
+                                type="text"
+                                name="to" required />
                         </div>
                     </div>
                     <div className={classes.ButtonContainer}>
@@ -59,7 +68,7 @@ const Projects = props => {
                     </div>
                 </form>
                 <p className={classes.textDisabled}> At least 1 required</p>
-                {proItems}
+                {trainItems}
             </div>
         </Grid>
         </>
@@ -67,4 +76,4 @@ const Projects = props => {
 
 }
 
-export default Projects;
+export default Training;

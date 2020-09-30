@@ -186,6 +186,7 @@ const initialState = {
         description: 'hello',
         link: 'link'
     }],
+    trainDetails: [],
     imageUrl: null,
     formIsValid: false,
       }
