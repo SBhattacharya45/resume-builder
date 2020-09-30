@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 
@@ -6,6 +6,10 @@ import Item from '../Item/Item';
 import classes from './FormElements.module.css';
 
 const Education = props => {
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+      }, []);
 
     const eduItemsArray = props.details;
     let eduItems = ( 

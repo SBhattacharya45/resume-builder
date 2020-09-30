@@ -9,7 +9,25 @@
 
 .Container {
     margin: 30px auto;
-    width: 52.5rem;
+    width: 60rem;
+    background-color: rgb(252, 252, 252);
+    border: 1px solid lightgray;
+    /* -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px); */
+    box-sizing: border-box;
+    padding: 15px;
+    padding-left: 20px;
+    padding-right: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    color: rgb(36, 97, 121);
+    border-radius: 1rem;
+    /* padding: 1.5rem !important; */
+}
+
+.imageContainer {
     background-color: rgb(252, 252, 252);
     border: 1px solid lightgray;
     /* -webkit-backdrop-filter: blur(10px);
@@ -122,22 +140,31 @@
     width: 800 !important;
 }
 
+.trainingForm {
+    display: flex;
+    justify-content: space-between;
+}
+
 @media only screen and (max-width: 600px) {
     .Container {
         width: 94%;
     }
 
-    .Input {
-        width: 100%;
-        padding: 10px;
-        box-sizing: border-box;
-        margin: 10px 1px;
-        border-radius: 10px;
-        border: 1px solid #eee;
-    }
 
     .InputContainer {
         display: flex;
         flex-wrap: wrap;
     }
+
+    .trainingForm{
+        flex-direction: column;
+    }
+}
+
+@media only screen and (max-width: 452px){
+
+    .inputBox{
+        width: 100% !important;
+    }
+
 }
