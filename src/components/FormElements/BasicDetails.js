@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import Grid from '@material-ui/core/Grid';
 
 import Input from '../Input/Input'
@@ -6,12 +6,15 @@ import classes from './FormElements.module.css';
 
 const BasicDetails = props => {
 
+    useEffect(() => {
+        window.scrollTo(0, 0)
+      }, []);
     const formElementArray = props.details;
     let form = (
         <form>
             {formElementArray.map(formElement => (
                 <Input
-                    className={classes.form__input}
+                    
                     key={formElement.id}
                     inputType={formElement.inputType}
                     value={formElement.value}

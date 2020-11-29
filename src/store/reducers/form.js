@@ -183,6 +183,7 @@ const initialState = {
     }],
     proDetails: [{
         type: 'discount',
+        name:'resume maker',
         description: 'hello',
         link: 'link'
     }],
