@@ -52,4 +52,6 @@
     -moz-box-shadow:inset 30px 0 0  skyblue;
     box-shadow:inset 30px 0 0  skyblue;
     padding-left: 40px;
+    width: 595px;
+    height: 842px;
 }

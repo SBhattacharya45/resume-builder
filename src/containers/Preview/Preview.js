@@ -44,8 +44,8 @@ class Preview extends Component {
                 
                 <section  className="Preview">
                     <Page   ref={el => (this.componentRef = el)} templatePreview= {templatePreview} />
-
                 </section>
+                
                 <div className="buttons">
                     <Button variant="contained" color="primary">
                         <ReactToPrint
