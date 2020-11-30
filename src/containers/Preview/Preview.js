@@ -43,7 +43,10 @@ class Preview extends Component {
             <div>
                 
                 <section  className="Preview">
-                    <Page   ref={el => (this.componentRef = el)} templatePreview= {templatePreview} />
+                    {/* <Page   ref={el => (this.componentRef = el)} templatePreview= {templatePreview} /> */}
+                    <div ref={el => (this.componentRef = el)}>
+                        {templatePreview}
+                    </div>
                 </section>
                 
                 <div className="buttons">

@@ -19,7 +19,7 @@ class Template1 extends Component {
         let eduItems = ( 
             <div>
                 {eduItemsArray.map((eduElement, igKey) => (
-                    <li>
+                    <li key={igKey}>
                         <h3 className={classes.eduElementQualification}>{eduElement.qualification}</h3>
                         <h4 className={classes.eduElementField}>{eduElement.field}</h4>
                         <h5 className={classes.eduElementInstitute}>{eduElement.institute}</h5>
@@ -34,7 +34,7 @@ class Template1 extends Component {
         let expItems = ( 
             <div>
                 {expItemsArray.map((expElement, igKey) => (
-                    <li>
+                    <li key={igKey}>
                         <h3 className={classes.expElementType}>{expElement.type}</h3>
                         <h4 className={classes.expElementOrganization}>{expElement.organization}</h4>
                         <h5 className={classes.expElementPosition}>{expElement.position}</h5>
