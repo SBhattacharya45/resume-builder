@@ -53,7 +53,7 @@
     box-shadow:inset 30px 0 0  skyblue;
     padding-left: 40px;
     width: 595px;
-    height: 842px;
+    min-height: 842px;
     background-color: rebeccapurple;
 }
 
@@ -64,7 +64,7 @@
         -moz-box-shadow:inset 30px 0 0  skyblue;
         box-shadow:inset 30px 0 0  skyblue;
         width: 755px;
-        height: 1120px;
+        height: auto;
         background-color: rebeccapurple;
         padding-top: 20px;
     }
