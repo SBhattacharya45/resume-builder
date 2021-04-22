@@ -19,3 +19,8 @@
     justify-content: center;
 }
 
+.viewer {
+    height: 550px;
+    width: 90%;
+  }
+

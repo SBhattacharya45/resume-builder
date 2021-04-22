@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import {withRouter, Redirect} from 'react-router';
 import Button from '@material-ui/core/Button';
 import ReactToPrint from "react-to-print";
+import { PDFViewer } from '@react-pdf/renderer';
 import './Preview.css';
 
 import Page from '../../components/Page/Page';
@@ -10,6 +11,7 @@ import Page from '../../components/Page/Page';
 import EditIcon from '@material-ui/icons/Edit';
 import PrintIcon from '@material-ui/icons/Print';
 import ViewCompactIcon from '@material-ui/icons/ViewCompact';
+import MyDocument from '../Templates/testTemplate/test';
 
 
 
@@ -41,13 +43,17 @@ class Preview extends Component {
 
         return(
             <div>
-                
-                <section  className="Preview">
-                    {/* <Page   ref={el => (this.componentRef = el)} templatePreview= {templatePreview} /> */}
+                <section className="Preview">
+                    <PDFViewer className="viewer">
+                        <MyDocument userDetails={this.props.userDetails}/>
+                    </PDFViewer>    
+                </section>            
+                {/* <section  className="Preview">
+                    <Page   ref={el => (this.componentRef = el)} templatePreview= {templatePreview} />
                     <div ref={el => (this.componentRef = el)}>
                         {templatePreview}
                     </div>
-                </section>
+                </section>*/}
                 
                 <div className="buttons">
                     <Button variant="contained" color="primary">
@@ -65,11 +71,6 @@ class Preview extends Component {
                     <EditIcon/> Edit
                     </Button>
                 </div>
-                <div>
-
-                </div>
-                
-                    
             </div>
         )
     }
@@ -77,7 +78,8 @@ class Preview extends Component {
 
 const mapStateToProps = state => {
     return {
-        chosenTemplate: state.template.templateId
+        chosenTemplate: state.template.templateId,
+        userDetails: state.form.details
     };
   }
 
