@@ -60,7 +60,7 @@ class Preview extends Component {
                         <ReactToPrint
                         trigger={() => <span className="print"> <PrintIcon/> Print</span>}
                         content={() => this.componentRef}
-                        pageStyle='@page { size: auto; margin: 0mm; } @media print { body { -webkit-print-color-adjust: exact; margin-top: -15px !important; border: 0px solid transparent !important; outline: none !important;} }'
+                        pageStyle='@page {  margin: 0mm;  } @media print { body { -webkit-print-color-adjust: exact;margin-bottom:0px !important; margin-top: -15px !important; border: 0px solid transparent !important; outline: none !important;} }'
                         />
                     </Button>
                     <Button variant="outlined" color="primary"  onClick={this.chooseAnotherTemplate}>
