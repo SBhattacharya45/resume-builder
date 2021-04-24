@@ -24,6 +24,7 @@ import IconButton from '@material-ui/core/IconButton';
 class FormConatiner extends Component {
 
     state = this.props.details;
+    imgName = null;
     // state = {chosenCase : 1};
 
     checkValidity(value, rules) {
@@ -216,7 +217,8 @@ class FormConatiner extends Component {
           // gets the download url then sets the image from firebase as the value for the imgUrl key:
           storage.ref('images').child(files[0].name).getDownloadURL()
            .then(fireBaseUrl => {
-               console.log(fireBaseUrl);
+            console.log(fireBaseUrl);
+            this.imgName = files[0].name;
             this.setState({ imageUrl: fireBaseUrl });
            })
         })
@@ -285,6 +287,8 @@ class FormConatiner extends Component {
                         <h2>Image</h2>
                         <label className={classes.uploadImage}>
                             Upload Image
+                            &nbsp;
+                            {this.imgName ? this.imgName : null}
                             <input style={{ display: 'none' }} className={classes.imageLoader} type="file" accept="image/*" onChange={this.handleImageUpload} />
                         </label>
                     </div>
