@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
+import {storage} from "../../firebase/firebase";
+import axios from 'axios';
 import classes from './FormContainer.module.css';
 import Grid from '@material-ui/core/Grid';
 import { ToastContainer, toast } from 'react-toastify';
@@ -188,10 +190,36 @@ class FormConatiner extends Component {
 
     handleImageUpload = (event) => {
         event.preventDefault();
-        const { files } = event.target;
-        const localImageUrl = window.URL.createObjectURL(files[0]);
 
-        this.setState({ imageUrl: localImageUrl });
+// axios.get('https://firebasestorage.googleapis.com/v0/b/resume-builder-d8c46.appspot.com/o/images%2Fcover_pic.jpg?alt=media&token=53a000f0-8dc4-4c3d-acb4-3a0fda1bc1e4')
+//   .then(function (response) {
+//     // handle success
+//     console.log(response);
+//   })
+//   .catch(function (error) {
+//     // handle error
+//     console.log(error);
+//   })
+
+        const { files } = event.target;
+        const uploadTask = storage.ref(`/images/${files[0].name}`).put(files[0])
+        //initiates the firebase side uploading 
+        uploadTask.on('state_changed', 
+        (snapShot) => {
+          //takes a snap shot of the process as it is happening
+          console.log(snapShot)
+        }, (err) => {
+          //catches the errors
+          console.log(err)
+        }, () => {
+          // gets the functions from storage refences the image storage in firebase by the children
+          // gets the download url then sets the image from firebase as the value for the imgUrl key:
+          storage.ref('images').child(files[0].name).getDownloadURL()
+           .then(fireBaseUrl => {
+               console.log(fireBaseUrl);
+            this.setState({ imageUrl: fireBaseUrl });
+           })
+        })
     }
 
     formSubmitHandler = () => {

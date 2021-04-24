@@ -6,15 +6,12 @@ import './test.css'
 // Create styles
 const styles = StyleSheet.create({
   page: {
-    flexDirection: 'row',
     backgroundColor: 'whitesmoke',
     fontSize: 12,
-
   },
   section: {
     margin: 10,
-    padding: 10,
-    flexGrow: 1
+    padding: 10
   },
   table: {
     display: "table",
@@ -90,9 +87,7 @@ const styles = StyleSheet.create({
   tableHeaders: {
     backgroundColor:'#4285f4',
     color: ' white',
-    padding: 5,
-    
-    
+    padding: 5,        
     
   },
   tableContents : {
@@ -103,6 +98,9 @@ const styles = StyleSheet.create({
     fontSize: 10,
     paddingBottom: 5
 
+  },
+  image: {
+    width: 100
   }
 });
 
@@ -190,27 +188,34 @@ const MyDocument = (props) => {
     <Document>
       <Page size="A4" style={styles.page}>
         <View style={styles.section}>
-          <View style={{ display: 'flex' }}>
-            <View>
-              <Text style={[styles.userCard, styles.heading]}>
-                {props.userDetails.formValues[0].value + " " + props.userDetails.formValues[1].value}
-              </Text>
-              <Text style={styles.userCard}>
-                {props.userDetails.formValues[2].value}, {props.userDetails.formValues[3].value}
-              </Text>
-              <Text style={styles.userCard}>{props.userDetails.formValues[4].value}</Text>
-              <Text style={styles.userCard}>
-                Mobile: {props.userDetails.formValues[6].value}
-              </Text>
-              <Text style={styles.userCard}>
-                Email: {props.userDetails.formValues[5].value}
-              </Text>
+
+
+          <View style={{display: "flex", flexDirection: "row", justifyContent: "space-between"}}>
+            <View style={{ display: 'flex' }}>
+              <View>
+                <Text style={[styles.userCard, styles.heading]}>
+                  {props.userDetails.formValues[0].value + " " + props.userDetails.formValues[1].value}
+                </Text>
+                <Text style={styles.userCard}>
+                  {props.userDetails.formValues[2].value}, {props.userDetails.formValues[3].value}
+                </Text>
+                <Text style={styles.userCard}>{props.userDetails.formValues[4].value}</Text>
+                <Text style={styles.userCard}>
+                  Mobile: {props.userDetails.formValues[6].value}
+                </Text>
+                <Text style={styles.userCard}>
+                  Email: {props.userDetails.formValues[5].value}
+                </Text>
+              </View>
+              <View>
+                {/* <Image src={props.imageUrl} /> */}
+              </View>
             </View>
+  
             <View>
-              {/* <Image src={props.imageUrl} /> */}
+              <Image style={styles.image} src={props.userDetails.imageUrl} />
             </View>
           </View>
-
 
           <Text>&nbsp;</Text>
           <View>
