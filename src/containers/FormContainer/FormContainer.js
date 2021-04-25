@@ -192,16 +192,6 @@ class FormConatiner extends Component {
     handleImageUpload = (event) => {
         event.preventDefault();
 
-// axios.get('https://firebasestorage.googleapis.com/v0/b/resume-builder-d8c46.appspot.com/o/images%2Fcover_pic.jpg?alt=media&token=53a000f0-8dc4-4c3d-acb4-3a0fda1bc1e4')
-//   .then(function (response) {
-//     // handle success
-//     console.log(response);
-//   })
-//   .catch(function (error) {
-//     // handle error
-//     console.log(error);
-//   })
-
         const { files } = event.target;
         const uploadTask = storage.ref(`/images/${files[0].name}`).put(files[0])
         //initiates the firebase side uploading 
