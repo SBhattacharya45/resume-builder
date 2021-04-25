@@ -119,7 +119,7 @@ const initialState = {
             },
             validation: {
             },
-            valid: false,
+            valid: true,
             touched : false
         },
         {
@@ -133,7 +133,7 @@ const initialState = {
             },
             validation: {
             },
-            valid: false,
+            valid: true,
             touched : false
         },
         {
