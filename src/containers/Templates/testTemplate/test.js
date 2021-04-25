@@ -1,6 +1,12 @@
 import React from 'react';
 import { Page, Text, View, Document, StyleSheet, Link, Image } from '@react-pdf/renderer';
-import './test.css'
+import './test.css';
+//import locationIcon from '../../../assets/icons/location.svg';
+import emailIcon from '../../../assets/icons/email.svg';
+import linkedInIcon from '../../../assets/icons/linkedin.svg';
+import githubIcon from '../../../assets/icons/github.svg';
+
+
 
 
 // Create styles
@@ -20,7 +26,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRightWidth: 0,
     borderBottomWidth: 0,
-    
+
   },
   tableRow: {
     margin: "auto",
@@ -32,7 +38,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderLeftWidth: 0,
     borderTopWidth: 0,
-    
+
   },
   tableCol2: {
     width: "25%",
@@ -40,12 +46,12 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderLeftWidth: 0,
     borderTopWidth: 0,
-   
-    
+
+
   },
   tableCell: {
     margin: "auto",
- 
+
     fontSize: 10
   },
   userCard: {
@@ -57,7 +63,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: 'bold',
     marginVertical: 10,
-    
+
   },
   projectCard: {
     backgroundColor: 'white',
@@ -85,22 +91,32 @@ const styles = StyleSheet.create({
 
   },
   tableHeaders: {
-    backgroundColor:'#4285f4',
+    backgroundColor: '#4285f4',
     color: ' white',
-    padding: 5,        
-    
-  },
-  tableContents : {
     padding: 5,
-    backgroundColor:'white'
+
   },
-  bulletPoints:{
+  tableContents: {
+    padding: 5,
+    backgroundColor: 'white'
+  },
+  bulletPoints: {
     fontSize: 10,
     paddingBottom: 5
 
   },
   image: {
-    width: 100
+    width: 110,
+    height: 110,
+    objectFit: 'cover',
+    marginVertical: 10,
+    borderRadius: 9999
+  },
+  link: {
+    fontSize: 10,
+    paddingRight: 10,
+    color: '#4285f4',
+    textDecoration: 'none',
   }
 });
 
@@ -109,19 +125,19 @@ const MyDocument = (props) => {
 
   const eduList = props.userDetails.eduDetails.map((eduObject, igKey) => (
     <View id={igKey} style={styles.tableRow}>
-      <View style={[styles.tableCol,styles.tableContents]}>
+      <View style={[styles.tableCol, styles.tableContents]}>
         <Text style={styles.tableCell}>{eduObject.qualification}</Text>
       </View>
-      <View style={[styles.tableCol,styles.tableContents]}>
+      <View style={[styles.tableCol, styles.tableContents]}>
         <Text style={styles.tableCell}>{eduObject.field}</Text>
       </View>
-      <View style={[styles.tableCol,styles.tableContents]}>
+      <View style={[styles.tableCol, styles.tableContents]}>
         <Text style={styles.tableCell}>{eduObject.institute}</Text>
       </View>
-      <View style={[styles.tableCol,styles.tableContents]}>
+      <View style={[styles.tableCol, styles.tableContents]}>
         <Text style={styles.tableCell}>{eduObject.passout}</Text>
       </View>
-      <View style={[styles.tableCol,styles.tableContents]}>
+      <View style={[styles.tableCol, styles.tableContents]}>
         <Text style={styles.tableCell}>{eduObject.grade}</Text>
       </View>
     </View>
@@ -154,7 +170,7 @@ const MyDocument = (props) => {
 
   const projectDetails = props.userDetails.proDetails.map((projectObj, igKey) => (
     <View style={styles.projectCard}>
-      <Text id={igKey} style={{ fontSize: 12, marginLeft: 10, marginTop: 10, marginBottom : 5 }}> {projectObj.name} </Text>
+      <Text id={igKey} style={{ fontSize: 12, marginLeft: 10, marginTop: 10, marginBottom: 5 }}> {projectObj.name} </Text>
       <Text id={igKey} style={{ fontSize: 10, color: 'grey', marginLeft: 10, marginVertical: 5 }}> {projectObj.type} </Text>
       <Text id={igKey} style={{ fontSize: 12, marginLeft: 10, marginVertical: 5 }}> {projectObj.description} </Text>
       <View style={{ height: ' 1px', backgroundColor: 'lightgrey' }} />
@@ -164,6 +180,38 @@ const MyDocument = (props) => {
 
 
   ))
+
+  const trainingValidity = (props) => {
+    if (props.userDetails.trainDetails) {
+      return (
+        <View>
+
+          <Text style={styles.heading}>Training</Text>
+          <View style={styles.table}>
+            <View style={styles.tableRow}>
+              <View style={[styles.tableCol2, styles.tableHeaders]}>
+                <Text style={styles.tableCell}>Type</Text>
+              </View>
+
+              <View style={[styles.tableCol2, styles.tableHeaders]}>
+                <Text style={styles.tableCell}>From</Text>
+              </View>
+              <View style={[styles.tableCol2, styles.tableHeaders]}>
+                <Text style={styles.tableCell}>To</Text>
+              </View>
+              <View style={[styles.tableCol2, styles.tableHeaders]}>
+                <Text style={styles.tableCell}>Description</Text>
+              </View>
+            </View>
+            {training}
+          </View>
+        </View>
+      )
+    }
+    else {
+      return null
+    }
+  }
 
   const training = props.userDetails.trainDetails.map((trainObj, igKey) => (
     <View id={igKey} style={styles.tableRow}>
@@ -184,39 +232,57 @@ const MyDocument = (props) => {
 
   ))
 
+
+
   return (
     <Document>
       <Page size="A4" style={styles.page}>
         <View style={styles.section}>
 
 
-          <View style={{display: "flex", flexDirection: "row", justifyContent: "space-between"}}>
-            <View style={{ display: 'flex' }}>
-              <View>
-                <Text style={[styles.userCard, styles.heading]}>
-                  {props.userDetails.formValues[0].value + " " + props.userDetails.formValues[1].value}
-                </Text>
-                <Text style={styles.userCard}>
-                  {props.userDetails.formValues[2].value}, {props.userDetails.formValues[3].value}
-                </Text>
-                <Text style={styles.userCard}>{props.userDetails.formValues[4].value}</Text>
-                <Text style={styles.userCard}>
-                  Mobile: {props.userDetails.formValues[6].value}
-                </Text>
-                <Text style={styles.userCard}>
-                  Email: {props.userDetails.formValues[5].value}
-                </Text>
-              </View>
-              <View>
-                {/* <Image src={props.imageUrl} /> */}
-              </View>
-            </View>
-  
+          <View style={{ display: "flex", flexDirection: "row", justifyContent: "space-between" }}>
             <View>
-              <Image style={styles.image} src={props.userDetails.imageUrl} />
-            </View>
-          </View>
+              <Text style={[styles.userCard, styles.heading]}>
+                {props.userDetails.formValues[0].value + " " + props.userDetails.formValues[1].value}
+              </Text>
 
+              <Text style={styles.userCard}>
+                {props.userDetails.formValues[2].value}, {props.userDetails.formValues[3].value}
+              </Text>
+              <Text style={styles.userCard}>{props.userDetails.formValues[4].value}</Text>
+              <Text style={styles.userCard}>
+                Mobile: {props.userDetails.formValues[6].value}
+              </Text>
+              <Text style={styles.userCard}>
+                Email: {props.userDetails.formValues[5].value}
+              </Text>
+              <View  style={{display:"flex",  flexDirection: "row"}}>
+                {props.userDetails.formValues[7].value ? <Link src={props.userDetails.formValues[7].value} style={styles.link}>
+                  {props.userDetails.formValues[7].config.label}
+
+                </Link> : null}
+
+                {props.userDetails.formValues[8].value ? <Link src={props.userDetails.formValues[8].value} style={styles.link}>
+
+                  {props.userDetails.formValues[8].config.label}
+
+                </Link> : null}
+              </View>
+
+
+            </View>
+
+            <Image style={styles.image} src={props.userDetails.imageUrl} />
+
+          </View>
+          <Image src={process.env.PUBLIC_URL + '/location.png'} style alt="location" />
+
+          <Text>&nbsp;</Text>
+          <View>
+            <Text style={styles.heading}>Bio</Text>
+            <Text> {props.userDetails.formValues[9].value} </Text>
+
+          </View>
           <Text>&nbsp;</Text>
           <View>
             <Text style={styles.heading}>Educational Details</Text>
@@ -278,25 +344,8 @@ const MyDocument = (props) => {
             {projectDetails}
           </View>
           <Text>&nbsp;</Text>
-          <Text style={styles.heading}>Training</Text>
-          <View style={styles.table}>
-            <View style={styles.tableRow}>
-              <View style={[styles.tableCol2, styles.tableHeaders]}>
-                <Text style={styles.tableCell}>Type</Text>
-              </View>
 
-              <View style={[styles.tableCol2, styles.tableHeaders]}>
-                <Text style={styles.tableCell}>From</Text>
-              </View>
-              <View style={[styles.tableCol2, styles.tableHeaders]}>
-                <Text style={styles.tableCell}>To</Text>
-              </View>
-              <View style={[styles.tableCol2, styles.tableHeaders]}>
-                <Text style={styles.tableCell}>Description</Text>
-              </View>
-            </View>
-            {training}
-          </View>
+          {trainingValidity}
 
         </View>
       </Page>
