@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import {withRouter, Redirect} from 'react-router';
 import Button from '@material-ui/core/Button';
 import ReactToPrint from "react-to-print";
-import { PDFViewer } from '@react-pdf/renderer';
+import { PDFViewer, PDFDownloadLink } from '@react-pdf/renderer';
 import './Preview.css';
 
 import Page from '../../components/Page/Page';
@@ -56,20 +56,17 @@ class Preview extends Component {
                 </section>*/}
                 
                 <div className="buttons">
-                    <Button variant="contained" color="primary">
-                        <ReactToPrint
-                        trigger={() => <span className="print"> <PrintIcon/> Print</span>}
-                        content={() => this.componentRef}
-                        pageStyle='@page {  margin: 0mm;  } @media print { body { -webkit-print-color-adjust: exact;margin-bottom:0px !important; margin-top: -15px !important; border: 0px solid transparent !important; outline: none !important;} }'
-                        />
+                <PDFDownloadLink document={<MyDocument userDetails={this.props.userDetails}/>} fileName="resume.pdf">
+                {({ blob, url, error }) =>
+                    <Button variant="outlined" color="primary" >
+                    Download
                     </Button>
-                    <Button variant="outlined" color="primary"  onClick={this.chooseAnotherTemplate}>
-                       <ViewCompactIcon/> Choose another Template
-                    </Button>
+                }
+                </PDFDownloadLink>
 
-                    <Button variant="outlined" color="primary" onClick={this.editClickedHandler} >
-                    <EditIcon/> Edit
-                    </Button>
+                <Button variant="outlined" color="primary" onClick={this.editClickedHandler} >
+                <EditIcon/> Edit
+                </Button>
                 </div>
             </div>
         )

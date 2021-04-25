@@ -275,7 +275,6 @@ const MyDocument = (props) => {
             <Image style={styles.image} src={props.userDetails.imageUrl} />
 
           </View>
-          <Image src={process.env.PUBLIC_URL + '/location.png'} style alt="location" />
 
           <Text>&nbsp;</Text>
           <View>

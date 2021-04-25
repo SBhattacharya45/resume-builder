@@ -10,10 +10,12 @@ import createSagaMiddleware from "redux-saga";
 import formReducer from "./store/reducers/form";
 import templateReducer from './store/reducers/templateSelector';
 
-const composeEnhancers =
-  process.env.NODE_ENV === "development"
-    ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
-    : null || compose;
+let composeEnhancers = null;
+if (process.env.NODE_ENV === 'development') {
+    composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+} else {
+    composeEnhancers = compose;
+}
 
 const rootReducer = combineReducers({
   form: formReducer,
