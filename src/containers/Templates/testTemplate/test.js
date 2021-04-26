@@ -204,7 +204,7 @@ const MyDocument = (props) => {
   ))
 
   const trainingValidity = (props) => {
-    if (props.userDetails.trainDetails.length === 0  ) {
+    if (props.userDetails.trainDetails.length() === 0  ) {
      console.log('array empty');
    }
    else {
