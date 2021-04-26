@@ -30,14 +30,7 @@ const TemplatePage = (props) => {
             description="This is a card element" />
         </Grid>
         <Grid item xs={12} sm={6} md={6} lg={4} className="gridController" >
-          <Card
-            templateId={2}
-            clicked={templateSelectHandler}
-            templateLink="/preview"
-            imageLink="https://img.freepik.com/free-vector/young-people-jumping-together-illustration_52683-27019.jpg?size=626&ext=jpg"
-            title="Template 2"
-            cardTitle="Template 2"
-            description="This is a card element" />
+          More Templates coming soon...
         </Grid>
       </Grid>
     </div>
