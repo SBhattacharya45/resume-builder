@@ -8,7 +8,7 @@ const initialState = {
             config: {
                 type: 'text', 
                 placeholder: 'First Name',
-                label: 'First Name'
+                label: 'First Name *'
             },
             validation: {
                 required: true
@@ -23,7 +23,7 @@ const initialState = {
             config: {
                 type: 'text', 
                 placeholder: 'Last Name',
-                label: 'Last Name'
+                label: 'Last Name *'
             },
             validation: {
                 required: true
@@ -38,7 +38,7 @@ const initialState = {
             config: {
                 type: 'text', 
                 placeholder: 'City',
-                label : 'City'
+                label : 'City *'
             },
             validation: {
                 required: true
@@ -53,7 +53,7 @@ const initialState = {
             config: {
                 type: 'text', 
                 placeholder: 'State',
-                label : 'State'
+                label : 'State *'
             },
             validation: {
                 required: true
@@ -68,7 +68,7 @@ const initialState = {
             config: {
                 type: 'text', 
                 placeholder: 'Pincode',
-                label: 'Pincode'
+                label: 'Pincode *'
             },
             validation: {
                 required: true
@@ -82,8 +82,8 @@ const initialState = {
             value: 'test@mail.com',
             config: {
                 type: 'email', 
-                placeholder: 'Enter your mail',
-                label : 'Email ID'
+                placeholder: 'Enter your mail ',
+                label : 'Email ID *'
             },
             validation: {
                 required: true,
@@ -98,8 +98,8 @@ const initialState = {
             value: '9898989898',
             config: {
                 type: 'text', 
-                placeholder: 'Enter your phone number',
-                label : 'Phone Number'
+                placeholder: 'Enter your phone number *',
+                label : 'Phone Number *'
             },
             validation: {
                 required: true,
@@ -143,7 +143,7 @@ const initialState = {
             config: {
                 type: 'text', 
                 placeholder: 'Enter your statement',
-                label : 'About you'
+                label : 'About you *'
             },
             validation: {
                 required: true

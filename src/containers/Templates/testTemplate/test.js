@@ -1,10 +1,10 @@
 import React from 'react';
 import { Page, Text, View, Document, StyleSheet, Link, Image } from '@react-pdf/renderer';
 import './test.css';
-//import locationIcon from '../../../assets/icons/location.svg';
-import emailIcon from '../../../assets/icons/email.svg';
-import linkedInIcon from '../../../assets/icons/linkedin.svg';
-import githubIcon from '../../../assets/icons/github.svg';
+// import locationIcon from '../../../assets/icons/location.svg';
+// import emailIcon from '../../../assets/icons/email.svg';
+// import linkedInIcon from '../../../assets/icons/linkedin.svg';
+// import githubIcon from '../../../assets/icons/github.svg';
 
 
 
@@ -256,7 +256,7 @@ const MyDocument = (props) => {
               <Text style={styles.userCard}>
                 Email: {props.userDetails.formValues[5].value}
               </Text>
-              <View  style={{display:"flex",  flexDirection: "row"}}>
+              <View style={{ display: "flex", flexDirection: "row" }}>
                 {props.userDetails.formValues[7].value ? <Link src={props.userDetails.formValues[7].value} style={styles.link}>
                   {props.userDetails.formValues[7].config.label}
 

@@ -9,7 +9,7 @@ import TemplatePage from "./containers/Templates/TemplatePage";
 
 import Preview from './containers/Preview/Preview';
 
-import TemplatePage1 from './containers/Templates/Template1/Template1';
+//import TemplatePage1 from './containers/Templates/Template1/Template1';
 
 
 function App() {
@@ -32,9 +32,9 @@ function App() {
           <Route path="/preview">
             <Preview />
           </Route>
-          <Route path="/template1">
+          {/* <Route path="/template1">
             <TemplatePage1 />
-          </Route>
+          </Route> */}
         </Switch>
       </main>
     </div>
