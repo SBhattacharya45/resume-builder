@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 import {storage} from "../../firebase/firebase";
-import axios from 'axios';
 import classes from './FormContainer.module.css';
 import Grid from '@material-ui/core/Grid';
 import { ToastContainer, toast } from 'react-toastify';
@@ -207,7 +206,6 @@ class FormConatiner extends Component {
           // gets the download url then sets the image from firebase as the value for the imgUrl key:
           storage.ref('images').child(files[0].name).getDownloadURL()
            .then(fireBaseUrl => {
-            console.log(fireBaseUrl);
             this.imgName = files[0].name;
             this.setState({ imageUrl: fireBaseUrl });
            })
