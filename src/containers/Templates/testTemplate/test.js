@@ -203,37 +203,60 @@ const MyDocument = (props) => {
 
   ))
 
-  const trainingValidity = (props) => {
-    if (props.userDetails.trainDetails.length === 0  ) {
-     console.log('array empty');
-   }
-   else {
-     return (
-       <View>
+  let trainingComponent = null;
+  if (props.userDetails.trainDetails.length === 0  ) {
+    trainingComponent = null;
+  } else {
+    trainingComponent = (
+      <View>
 
-         <Text style={styles.heading}>Training</Text>
-         <View style={styles.table}>
-           <View style={styles.tableRow}>
-             <View style={[styles.tableCol2, styles.tableHeaders]}>
-               <Text style={styles.tableCell}>Type</Text>
-             </View>
+        <Text style={styles.heading}>Training</Text>
+        <View style={styles.table}>
+          <View style={styles.tableRow}>
+            <View style={[styles.tableCol2, styles.tableHeaders]}>
+              <Text style={styles.tableCell}>Type</Text>
+            </View>
 
-             <View style={[styles.tableCol2, styles.tableHeaders]}>
-               <Text style={styles.tableCell}>From</Text>
-             </View>
-             <View style={[styles.tableCol2, styles.tableHeaders]}>
-               <Text style={styles.tableCell}>To</Text>
-             </View>
-             <View style={[styles.tableCol2, styles.tableHeaders]}>
-               <Text style={styles.tableCell}>Description</Text>
-             </View>
-           </View>
-           {training}
-         </View>
-       </View>
-     )
-   }
- }
+            <View style={[styles.tableCol2, styles.tableHeaders]}>
+              <Text style={styles.tableCell}>From</Text>
+            </View>
+            <View style={[styles.tableCol2, styles.tableHeaders]}>
+              <Text style={styles.tableCell}>To</Text>
+            </View>
+            <View style={[styles.tableCol2, styles.tableHeaders]}>
+              <Text style={styles.tableCell}>Description</Text>
+            </View>
+          </View>
+          {training}
+        </View>
+      </View>
+    )
+  }
+
+  let achivComponent = null;
+  if (props.userDetails.achivs.length === 0  ) {
+    achivComponent = null;
+  } else {
+    achivComponent = (
+      <View>
+        <Text style={styles.heading}>Achievements</Text>
+        {achievements}
+      </View>
+    )
+  }
+
+  let projectComponent = null;
+  if (props.userDetails.proDetails.length === 0  ) {
+    projectComponent = null;
+  } else {
+    projectComponent = (
+      <View>
+      <Text style={styles.heading}>Projects</Text>
+      {projectDetails}
+      </View>
+    )
+  }
+
 
 
   return (
@@ -335,20 +358,11 @@ const MyDocument = (props) => {
             {skills}
           </View>
           <Text>&nbsp;</Text>
-          <View>
-            <Text style={styles.heading}>Achievements</Text>
-            {achievements}
-          </View>
+            {achivComponent}
           <Text>&nbsp;</Text>
-          <View>
-            <Text style={styles.heading}>Projects</Text>
-            {projectDetails}
-          </View>
+            {projectComponent}
           <Text>&nbsp;</Text>
-
-
-          {trainingValidity}
-          
+          {trainingComponent}         
         </View>
       </Page>
     </Document>

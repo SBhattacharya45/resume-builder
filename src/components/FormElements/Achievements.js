@@ -42,7 +42,6 @@ const Achievements = props => {
                             <Button disableElevation variant="contained" className={classes.Button} type="submit">Add Achievement</Button>
                         </div>
                     </form>
-                    <p className={classes.textNote}> At least 1 required</p>
                     {achivs}
                 </div>
             </Grid>

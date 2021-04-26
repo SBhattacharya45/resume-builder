@@ -218,8 +218,7 @@ class FormConatiner extends Component {
         if (this.state.formIsValid
             && this.state.eduDetails.length > 0
             && this.state.expDetails.length > 0
-            && this.state.skills.length > 0
-            && this.state.achivs.length > 0) {
+            && this.state.skills.length > 0) {
             this.props.onFormSubmit(this.state);
             toast.success("Form submitted", {
                 position: "top-center",

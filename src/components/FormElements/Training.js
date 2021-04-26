@@ -76,7 +76,6 @@ const Training = props => {
                             <Button disableElevation variant="contained" className={classes.Button} type="submit">Submit</Button>
                         </div>
                     </form>
-                    <p className={classes.textNote}> At least 1 required</p>
                     {trainItems}
                 </div>
             </Grid>

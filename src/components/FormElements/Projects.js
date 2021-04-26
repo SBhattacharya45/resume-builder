@@ -75,7 +75,6 @@ const Projects = props => {
                             <Button disableElevation variant="contained" className={classes.Button} type="submit">Submit</Button>
                         </div>
                     </form>
-                    <p className={classes.textNote}> At least 1 required</p>
                     {proItems}
                 </div>
             </Grid>
