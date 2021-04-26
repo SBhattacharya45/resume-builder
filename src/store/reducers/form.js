@@ -4,7 +4,7 @@ const initialState = {
       formValues: [
         {
             id: 0,
-            value: 'Soumyadeep',
+            value: '',
             config: {
                 type: 'text', 
                 placeholder: 'First Name',
@@ -19,7 +19,7 @@ const initialState = {
         {
             id: 1,
             inputType: 'input',
-            value: 'Bhattacharya',
+            value: '',
             config: {
                 type: 'text', 
                 placeholder: 'Last Name',
@@ -34,7 +34,7 @@ const initialState = {
         {
             id: 2,
             inputType: 'input',
-            value: 'Kolkata',
+            value: '',
             config: {
                 type: 'text', 
                 placeholder: 'City',
@@ -49,7 +49,7 @@ const initialState = {
         {
             id: 3,
             inputType: 'input',
-            value: 'West Bengal',
+            value: '',
             config: {
                 type: 'text', 
                 placeholder: 'State',
@@ -64,7 +64,7 @@ const initialState = {
         {
             id: 4,
             inputType: 'input',
-            value: '700149',
+            value: '',
             config: {
                 type: 'text', 
                 placeholder: 'Pincode',
@@ -79,7 +79,7 @@ const initialState = {
         {
             id: 5,
             inputType: 'input',
-            value: 'test@mail.com',
+            value: '',
             config: {
                 type: 'email', 
                 placeholder: 'Enter your mail ',
@@ -95,7 +95,7 @@ const initialState = {
         {
             id: 6,
             inputType: 'input',
-            value: '9898989898',
+            value: '',
             config: {
                 type: 'text', 
                 placeholder: 'Enter your phone number *',
@@ -139,7 +139,7 @@ const initialState = {
         {
             id: 9,
             inputType: "textarea",
-            value: 'I am Iron Man',
+            value: '',
             config: {
                 type: 'text', 
                 placeholder: 'Enter your statement',
@@ -152,41 +152,11 @@ const initialState = {
             touched : false
         }
     ],
-    eduDetails: [{
-        qualification: "B.Tech",
-        institute: 'Heritage Institute of Technology',
-        field: 'Electronics',
-        passout: '2022',
-        grade: '9'
-    }],
-    expDetails: [{
-        type: 'Internship',
-        organization: 'OrangeInk',
-        position: 'Web Developer',
-        duration: '2 months'
-    }],
-    skills: [{
-        skill: 'HTML'
-    },{
-        skill: 'CSS'
-    },{
-        skill : 'bootstrap'
-    },{
-        skill : 'bootstrap'
-    },{
-        skill : 'bootstrap'
-    }],
-    achivs: [{
-        achiv: "Major weeb guy"
-    }, {
-        achiv: "200+ anime completed"
-    }],
-    proDetails: [{
-        type: 'discount',
-        name:'resume maker',
-        description: 'hello',
-        link: 'link'
-    }],
+    eduDetails: [],
+    expDetails: [],
+    skills: [],
+    achivs: [],
+    proDetails: [],
     trainDetails: [],
     imageUrl: "https://firebasestorage.googleapis.com/v0/b/resume-builder-d8c46.appspot.com/o/images%2FSample-1---right.jpg?alt=media&token=fea84def-1533-4fec-97b5-d94fc1219a10",
     formIsValid: false,

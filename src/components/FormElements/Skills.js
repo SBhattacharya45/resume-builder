@@ -42,7 +42,7 @@ const Skills = props => {
                             <Button disableElevation variant="contained" className={classes.Button} type="submit">Add Skill</Button>
                         </div>
                     </form>
-                    <p className={classes.textDisabled}> At least 1 required</p>
+                    <p className={classes.textNote}> At least 1 required</p>
                     {skills}
                 </div>
             </Grid>
