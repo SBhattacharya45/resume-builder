@@ -71,6 +71,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     borderWidth: '5px',
     borderStyle: 'solid',
+    marginBottom: 20
 
 
 
@@ -181,37 +182,7 @@ const MyDocument = (props) => {
 
   ))
 
-  const trainingValidity = (props) => {
-    if (props.userDetails.trainDetails) {
-      return (
-        <View>
-
-          <Text style={styles.heading}>Training</Text>
-          <View style={styles.table}>
-            <View style={styles.tableRow}>
-              <View style={[styles.tableCol2, styles.tableHeaders]}>
-                <Text style={styles.tableCell}>Type</Text>
-              </View>
-
-              <View style={[styles.tableCol2, styles.tableHeaders]}>
-                <Text style={styles.tableCell}>From</Text>
-              </View>
-              <View style={[styles.tableCol2, styles.tableHeaders]}>
-                <Text style={styles.tableCell}>To</Text>
-              </View>
-              <View style={[styles.tableCol2, styles.tableHeaders]}>
-                <Text style={styles.tableCell}>Description</Text>
-              </View>
-            </View>
-            {training}
-          </View>
-        </View>
-      )
-    }
-    else {
-      return null
-    }
-  }
+ 
 
   const training = props.userDetails.trainDetails.map((trainObj, igKey) => (
     <View id={igKey} style={styles.tableRow}>
@@ -232,6 +203,37 @@ const MyDocument = (props) => {
 
   ))
 
+  const trainingValidity = (props) => {
+    if (props.userDetails.trainDetails.length === 0  ) {
+     console.log('array empty');
+   }
+   else {
+     return (
+       <View>
+
+         <Text style={styles.heading}>Training</Text>
+         <View style={styles.table}>
+           <View style={styles.tableRow}>
+             <View style={[styles.tableCol2, styles.tableHeaders]}>
+               <Text style={styles.tableCell}>Type</Text>
+             </View>
+
+             <View style={[styles.tableCol2, styles.tableHeaders]}>
+               <Text style={styles.tableCell}>From</Text>
+             </View>
+             <View style={[styles.tableCol2, styles.tableHeaders]}>
+               <Text style={styles.tableCell}>To</Text>
+             </View>
+             <View style={[styles.tableCol2, styles.tableHeaders]}>
+               <Text style={styles.tableCell}>Description</Text>
+             </View>
+           </View>
+           {training}
+         </View>
+       </View>
+     )
+   }
+ }
 
 
   return (
@@ -344,8 +346,9 @@ const MyDocument = (props) => {
           </View>
           <Text>&nbsp;</Text>
 
-          {trainingValidity}
 
+          {trainingValidity}
+          
         </View>
       </Page>
     </Document>
