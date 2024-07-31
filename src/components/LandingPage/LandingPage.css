@@ -41,6 +41,9 @@
   border-radius: 10px;
 }
 
+.landingPage__controls .MuiButton-root a {
+  width: 100%;
+}
 .landingPage__controls .MuiButton-root:hover a {
   color: #fff !important;
 }
