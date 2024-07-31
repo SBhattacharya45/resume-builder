@@ -159,6 +159,10 @@
         width: 97%;
     }
 
+    .heading {
+        font-size: 1.5rem;
+    }
+
 
     .InputContainer {
         display: flex;
