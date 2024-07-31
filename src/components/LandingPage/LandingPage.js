@@ -1,7 +1,6 @@
 import React from 'react';
 import GitHubIcon from '@material-ui/icons/GitHub';
-
-import FacebookIcon from '@material-ui/icons/Facebook';
+import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import { NavLink } from "react-router-dom";
 import SimpleModal from '../Modal/Modal';
 
@@ -31,13 +30,15 @@ const LandingPage = () => {
 
             </div>
             <div className="landingPage__icons">
-                <IconButton href="https://www.facebook.com/orangeink1221" >
-                    <FacebookIcon />
-                </IconButton>
-                <IconButton href="https://github.com/SBhattacharya45/resume-builder" >
+
+                <IconButton href="https://github.com/SBhattacharya45/resume-builder" target="_blank" >
                     <GitHubIcon />
                 </IconButton>
-                <SimpleModal />
+
+                <IconButton href="https://www.linkedin.com/in/soumyadeep-bhattacharya-65b74b170/" target="_blank">
+                    <LinkedInIcon />
+                </IconButton>
+                
             </div>
         </div>
     )
