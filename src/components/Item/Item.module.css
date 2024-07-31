@@ -2,12 +2,12 @@
     width: 97.5%;
     display: flex;
     justify-content: space-between;
-    background-color:  #0f9d5810;
-    color:#0F9D58;
+    background-color:  #f0f0f0;
+    color:var(--primary-btn-color);
     padding: 7px;
     margin: 5px 0px;
-    border-radius: 5px;
-    border: 1px solid #0F9D58;
+    border-radius: 10px;
+    border: 1px solid lightgray;
     margin-top: 20px ;
     margin-bottom:20px;
 }

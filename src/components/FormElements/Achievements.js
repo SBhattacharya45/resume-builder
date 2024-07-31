@@ -28,7 +28,7 @@ const Achievements = props => {
         <>
             <h1 className={classes.heading}>Achievements</h1>
 
-            <Grid justify="center" item xs={12} sm={2}>
+            <div>
                 <div className={classes.Container}>
                     <form onSubmit={props.onSubmit}>
                         <div className={classes.InputContainer}>
@@ -44,7 +44,7 @@ const Achievements = props => {
                     </form>
                     {achivs}
                 </div>
-            </Grid>
+            </div>
         </>
     );
 }

@@ -31,7 +31,7 @@ const Experience = props => {
     return (
         <>
             <h1 className={classes.heading}>Experience </h1>
-            <Grid item xs={12} sm={2}>
+            <div>
                 <div className={classes.Container}>
                     <form onSubmit={props.onSubmit}>
                         <div className={classes.InputContainer}>
@@ -72,10 +72,10 @@ const Experience = props => {
                             <Button disableElevation variant="contained" className={classes.Button} type="submit">Submit</Button>
                         </div>
                     </form>
-                    <p className={classes.textNote}> At least 1 required</p>
+                    {/* <p className={classes.textNote}> At least 1 required</p> */}
                     {expItems}
                 </div>
-            </Grid>
+            </div>
         </>
     )
 }

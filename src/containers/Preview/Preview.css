@@ -19,10 +19,11 @@
     align-items: center;
     
     flex-direction: column;
+    height: 80vh;
 }
 
 .viewer {
-    height: 550px;
+    height: 100%;
     width: 90%;
   }
 

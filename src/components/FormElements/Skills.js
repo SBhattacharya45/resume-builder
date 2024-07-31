@@ -28,7 +28,7 @@ const Skills = props => {
     return (
         <>
             <h1 className={classes.heading}>Skills</h1>
-            <Grid item xs={12} sm={2}>
+            <div>
                 <div className={classes.Container}>
                     <form onSubmit={props.onSubmit}>
                         <div className={classes.InputContainer}>
@@ -45,7 +45,7 @@ const Skills = props => {
                     <p className={classes.textNote}> At least 1 required</p>
                     {skills}
                 </div>
-            </Grid>
+            </div>
         </>
     );
 }

@@ -75,7 +75,7 @@ class Preview extends Component {
                         }
                     </PDFDownloadLink>
 
-                    <Button variant="outlined" color="primary" onClick={this.editClickedHandler} startIcon={<EditIcon />} >
+                    <Button variant="contained" color="primary" onClick={this.editClickedHandler} startIcon={<EditIcon />} >
                         Edit
                 </Button>
                 </div>

@@ -30,7 +30,7 @@ const Projects = props => {
     return (
         <>
             <h1 className={classes.heading}>Projects</h1>
-            <Grid item xs={12} sm={2}>
+            <div>
                 <div className={classes.Container}>
                     <form onSubmit={props.onSubmit}>
                         <div>
@@ -77,7 +77,7 @@ const Projects = props => {
                     </form>
                     {proItems}
                 </div>
-            </Grid>
+            </div>
         </>
     )
 

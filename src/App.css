@@ -8,9 +8,9 @@ body{
 }
 
 .main{
-  margin-top: 7vh;
+  margin-top: 50px;
   background-color: white;
-  height: 93vh;
+  height: calc(100vh - 50px);
 }
 
 .main-header{
@@ -19,5 +19,3 @@ body{
   top: 0;
   width: 100vw !important;
 }
-
-

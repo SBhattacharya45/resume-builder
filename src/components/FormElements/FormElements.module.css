@@ -9,7 +9,7 @@
 
 .Container {
     margin: 30px auto;
-    width: 61rem;
+    width: 100%;
     background-color: rgb(252, 252, 252);
     border: 1px solid lightgray;
     /* -webkit-backdrop-filter: blur(10px);
@@ -139,7 +139,8 @@
 }
 
 .gridController {
-    width: 800 !important;
+    width: 100% !important;
+    max-width: unset !important;
 }
 
 .trainingForm {
@@ -155,7 +156,7 @@
 
 @media only screen and (max-width: 600px) {
     .Container {
-        width: 94%;
+        width: 97%;
     }
 
 

@@ -38,6 +38,11 @@
   font-size: 1.2rem;
   color: rgb(36, 97, 121);
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.315);
+  border-radius: 10px;
+}
+
+.landingPage__controls .MuiButton-root:hover a {
+  color: #fff !important;
 }
 
 .landingPage__icons {

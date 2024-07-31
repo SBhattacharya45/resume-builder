@@ -7,9 +7,14 @@
     height: 100%;
 }
 
+.formWrapper {
+    width: 90%;
+    max-width: 1100px;
+}
+
 .Container {
     margin: 30px auto;
-    width: 61rem;
+    width: 100%;
     background-color:  rgb(252,252,252);
     border: 1px solid lightgrey;
     /* -webkit-backdrop-filter: blur(10px);
@@ -64,7 +69,7 @@
 .formButtons{
     display: flex;
     justify-content: space-around;
-    margin-bottom: 4rem;
+    /* margin-bottom: 4rem; */
 }
 
 
@@ -151,9 +156,39 @@
     border-radius: 10px;
 }
 
+.formTabs {
+    display: flex;
+    justify-content: space-between;
+}
+
+.formTabsSelect {
+    display: none;
+    margin: 20px 10px;
+    width: 97%;
+}
+
+.formTabsSelect select {
+    width: 100%;
+    height: 30px;
+    border-radius: 10px;
+    border: 1px solid var(--primary-btn-color);
+}
+
+@media only screen and (max-width: 1050px){
+    .formTabs{
+        display: none;
+    }
+    .formTabsSelect {
+        display: block;
+    }
+    .Container {
+        width: 97%;
+    }
+ }
+
 @media only screen and (max-width: 600px) {
     .Container {
-        width: 94%;
+        width: 97%;
     }
 
     .Input {

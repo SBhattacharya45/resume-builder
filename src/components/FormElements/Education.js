@@ -32,7 +32,7 @@ const Education = props => {
     return (
         <>
         <h1 className={classes.heading}>Educational Qualification</h1>
-        <Grid item xs={12} sm={2}>
+        <div>
                     <div className={classes.Container}>
                         <form onSubmit={props.onSubmit}>
                             <div className={classes.InputContainer}>
@@ -89,7 +89,7 @@ const Education = props => {
                             {eduItems}
                         </div>
                     </div>
-                </Grid>
+                </div>
                 </>
     )
 }

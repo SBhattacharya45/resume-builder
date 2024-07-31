@@ -80,7 +80,7 @@ const styles = StyleSheet.create({
     display: 'flex',
     borderTopColor: 'grey',
     borderTopWidth: '5px',
-    color: '#4285f4',
+    color: '#356077',
     borderTopStyle: "solid",
     fontSize: 10,
     padding: 5,
@@ -92,7 +92,7 @@ const styles = StyleSheet.create({
 
   },
   tableHeaders: {
-    backgroundColor: '#4285f4',
+    backgroundColor: '#356077',
     color: ' white',
     padding: 5,
 
@@ -116,7 +116,7 @@ const styles = StyleSheet.create({
   link: {
     fontSize: 10,
     paddingRight: 10,
-    color: '#4285f4',
+    color: '#356077',
     textDecoration: 'none',
   }
 });
@@ -332,7 +332,8 @@ const MyDocument = (props) => {
             </View>
           </View>
           <Text>&nbsp;</Text>
-          <View>
+          {props.userDetails.expDetails.length > 0 ?
+            <View>
             <Text style={styles.heading}>Experience</Text>
             <View style={styles.table}>
               <View style={styles.tableRow}>
@@ -352,6 +353,7 @@ const MyDocument = (props) => {
               {expList}
             </View>
           </View>
+            : null}
           <Text>&nbsp;</Text>
           <View>
             <Text style={styles.heading}>Skills</Text>

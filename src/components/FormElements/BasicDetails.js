@@ -29,11 +29,11 @@ const BasicDetails = props => {
     return (
         <React.Fragment>
             <h1 className= {classes.heading}>Personal Details</h1>
-            <Grid item xs={12} sm={2} classsName={classes.gridController}>
+            <div classsName={classes.gridController}>
                 <div className={classes.Container}>
                     {form}
                 </div>
-            </Grid>
+            </div>
         </React.Fragment>
     );
 }
