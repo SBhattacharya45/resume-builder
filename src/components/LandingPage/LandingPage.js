@@ -34,7 +34,7 @@ const LandingPage = () => {
                 <IconButton href="https://www.facebook.com/orangeink1221" >
                     <FacebookIcon />
                 </IconButton>
-                <IconButton href="https://github.com/Rajat-Chowdhury/resume-builder" >
+                <IconButton href="https://github.com/SBhattacharya45/resume-builder" >
                     <GitHubIcon />
                 </IconButton>
                 <SimpleModal />
