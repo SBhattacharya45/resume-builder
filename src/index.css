@@ -48,10 +48,23 @@ code {
 }
 
 .MuiButton-containedPrimary {
-  background-color: #4285F4 !important;
+  color: var(--primary-btn-color) !important;
+  border-radius: 10px !important;
+  background-color: #fff !important;
+  box-shadow: none !important;
+  border: 1px solid var(--primary-btn-color) !important;
+}
+.MuiButton-containedPrimary.activeButton {
+  background-color: var(--primary-btn-color) !important;
+  color: #fff !important;
+}
+
+.MuiIconButton-colorPrimary {
+  color: var(--primary-btn-color) !important;
 }
 
 .MuiButton-outlinedSecondary{
-  color:  #DB4437 !important;
-  border: 1px solid  #db453781 !important;
+  background-color:  #DB4437 !important;
+  color: #fff !important;
+  border-radius: 10px !important;
 }

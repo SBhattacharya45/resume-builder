@@ -255,9 +255,9 @@ class FormConatiner extends Component {
                 input={this.inputChangedHandler} />
             <Grid item xs={12} sm={2}>
                 <div className={classes.Container}>
-                    <h2>Image</h2>
-                    <label className={classes.uploadImage}>
-                        Upload Image
+                <h2>Profile Image</h2>
+                        <label className={classes.uploadImage}>
+                            Click here to upload
                             <input style={{ display: 'none' }} className={classes.imageLoader} type="file" accept="image/*" onChange={this.handleImageUpload} />
                     </label>
                 </div>
@@ -271,9 +271,9 @@ class FormConatiner extends Component {
                     input={this.inputChangedHandler} />
                 <Grid item xs={12} sm={2}>
                     <div className={classes.Container}>
-                        <h2>Image</h2>
+                    <h2>Profile Image</h2>
                         <label className={classes.uploadImage}>
-                            Upload Image
+                            Click here to upload
                             &nbsp;
                             {this.imgName ? this.imgName : null}
                             <input style={{ display: 'none' }} className={classes.imageLoader} type="file" accept="image/*" onChange={this.handleImageUpload} />
@@ -319,9 +319,9 @@ class FormConatiner extends Component {
                     input={this.inputChangedHandler} />
                 <Grid item xs={12} sm={2}>
                     <div className={classes.Container}>
-                        <h2>Image</h2>
+                        <h2>Profile Image</h2>
                         <label className={classes.uploadImage}>
-                            Upload Image
+                            Click here to upload
                         <input style={{ display: 'none' }} className={classes.imageLoader} type="file" accept="image/*" onChange={this.handleImageUpload} />
                         </label>
                     </div>
@@ -331,13 +331,13 @@ class FormConatiner extends Component {
 
         let navButtons = null
         if (this.props.Case === 1) {
-            navButtons = <IconButton color="primary" style={{ backgroundColor: 'lightgrey', margin: '20px' }} onClick={() => { this.changeChosenCaseHandler(this.props.Case + 1); window.scrollTo(0, 0) }}><NavigateNextIcon /> </IconButton>
+            navButtons = <IconButton color="primary" style={{ backgroundColor: '#fff', border: '1px solid var(--primary-btn-color)', margin: '20px' }} onClick={() => { this.changeChosenCaseHandler(this.props.Case + 1); window.scrollTo(0, 0) }}><NavigateNextIcon /> </IconButton>
         } else if (this.props.Case === 7) {
-            navButtons = <IconButton style={{ backgroundColor: 'lightgrey', margin: '20px' }} color="primary" onClick={() => { this.changeChosenCaseHandler(this.props.Case - 1); window.scrollTo(0, 0) }}><NavigateBeforeIcon /></IconButton>
+            navButtons = <IconButton style={{ backgroundColor: '#fff', border: '1px solid var(--primary-btn-color)', margin: '20px' }} color="primary" onClick={() => { this.changeChosenCaseHandler(this.props.Case - 1); window.scrollTo(0, 0) }}><NavigateBeforeIcon /></IconButton>
         } else {
             navButtons = (<>
-                <IconButton style={{ backgroundColor: 'lightgrey', margin: '20px' }} color="primary" onClick={() => this.changeChosenCaseHandler(this.props.Case - 1)}><NavigateBeforeIcon /></IconButton>
-                <IconButton style={{ backgroundColor: 'lightgrey', margin: '20px' }} color="primary" onClick={() => this.changeChosenCaseHandler(this.props.Case + 1)}> <NavigateNextIcon /> </IconButton>
+                <IconButton style={{ backgroundColor: '#fff', border: '1px solid var(--primary-btn-color)', margin: '20px' }} color="primary" onClick={() => this.changeChosenCaseHandler(this.props.Case - 1)}><NavigateBeforeIcon /></IconButton>
+                <IconButton style={{ backgroundColor: '#fff', border: '1px solid var(--primary-btn-color)', margin: '20px' }} color="primary" onClick={() => this.changeChosenCaseHandler(this.props.Case + 1)}> <NavigateNextIcon /> </IconButton>
             </>);
         }
 
@@ -357,16 +357,16 @@ class FormConatiner extends Component {
 
                 <Grid container-fluid >
                     <div style={{ textAlign: 'center' }}>
-                        <Button variant="contained" color="primary" onClick={() => { this.changeChosenCaseHandler(1) }} >Basic Details</Button>
-                        <Button variant="contained" color="primary" onClick={() => { this.changeChosenCaseHandler(2) }} >Education</Button>
-                        <Button variant="contained" color="primary" onClick={() => { this.changeChosenCaseHandler(3) }} >Skills</Button>
-                        <Button variant="contained" color="primary" onClick={() => { this.changeChosenCaseHandler(4) }} >Projects</Button>
-                        <Button variant="contained" color="primary" onClick={() => { this.changeChosenCaseHandler(5) }} >Training</Button>
-                        <Button variant="contained" color="primary" onClick={() => { this.changeChosenCaseHandler(6) }} >Experience</Button>
-                        <Button variant="contained" color="primary" onClick={() => { this.changeChosenCaseHandler(7) }} >Achievements</Button>
+                        <Button variant="contained" color="primary" className={(this.props.Case === 1 ? 'activeButton' : '')} onClick={() => { this.changeChosenCaseHandler(1) }} >Basic Details</Button>
+                        <Button variant="contained" color="primary" className={(this.props.Case === 2 ? 'activeButton' : '')} onClick={() => { this.changeChosenCaseHandler(2) }} >Education</Button>
+                        <Button variant="contained" color="primary" className={(this.props.Case === 3 ? 'activeButton' : '')} onClick={() => { this.changeChosenCaseHandler(3) }} >Skills</Button>
+                        <Button variant="contained" color="primary" className={(this.props.Case === 4 ? 'activeButton' : '')} onClick={() => { this.changeChosenCaseHandler(4) }} >Projects</Button>
+                        <Button variant="contained" color="primary" className={(this.props.Case === 5 ? 'activeButton' : '')} onClick={() => { this.changeChosenCaseHandler(5) }} >Training</Button>
+                        <Button variant="contained" color="primary" className={(this.props.Case === 6 ? 'activeButton' : '')} onClick={() => { this.changeChosenCaseHandler(6) }} >Experience</Button>
+                        <Button variant="contained" color="primary" className={(this.props.Case === 7 ? 'activeButton' : '')} onClick={() => { this.changeChosenCaseHandler(7) }} >Achievements</Button>
                     </div>
                     {/* have other buttons here to change case at will  */}
-                    {componentToBeLoaded}
+                    <div className={classes.sectionWrapper}>{componentToBeLoaded}</div>
                     <div className={classes.bottomNavigationButtons}>
                         {navButtons}
                     </div>

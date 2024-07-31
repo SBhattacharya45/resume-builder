@@ -27,7 +27,7 @@ const LandingPage = () => {
                     Fill the form. Print the resume
                 </p>
                 <p className="landingPage__text">It's that easy</p>
-               <Button >  <NavLink to="/form"  style={{ textDecoration: 'none' }}> GET STARTED</NavLink> </Button>
+               <Button className="landingPage__started">  <NavLink to="/form"  style={{ textDecoration: 'none', color: 'var(--primary-btn-color)' }}> GET STARTED</NavLink> </Button>
 
             </div>
             <div className="landingPage__icons">

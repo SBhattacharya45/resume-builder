@@ -8,6 +8,7 @@ import FormContainer from "./containers/FormContainer/FormContainer";
 import TemplatePage from "./containers/Templates/TemplatePage";
 
 import Preview from './containers/Preview/Preview';
+import './colors.css'
 
 //import TemplatePage1 from './containers/Templates/Template1/Template1';
 
