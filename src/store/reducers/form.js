@@ -158,8 +158,9 @@ const initialState = {
     achivs: [],
     proDetails: [],
     trainDetails: [],
-    imageUrl: "https://firebasestorage.googleapis.com/v0/b/resume-builder-d8c46.appspot.com/o/images%2FSample-1---right.jpg?alt=media&token=fea84def-1533-4fec-97b5-d94fc1219a10",
+    imageUrl: "",
     formIsValid: false,
+    isImgUploading: false,
       }
 }
 

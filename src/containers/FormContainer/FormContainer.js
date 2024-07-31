@@ -91,6 +91,7 @@ class FormConatiner extends Component {
             grade: data.get('grade')
         })
         this.setState({ eduDetails: updatedEduDetails });
+        event.target.reset();
     }
 
     eduDeleteHandler = (key) => {
@@ -110,6 +111,7 @@ class FormConatiner extends Component {
             duration: data.get('duration')
         })
         this.setState({ expDetails: updatedExpDetails });
+        event.target.reset();
     }
 
     proSubmitHandler = (event) => {
@@ -123,6 +125,7 @@ class FormConatiner extends Component {
             link: data.get('link')
         })
         this.setState({ proDetails: updatedProDetails });
+        event.target.reset();
     }
 
     proDeleteHandler = (key) => {
@@ -142,6 +145,7 @@ class FormConatiner extends Component {
             to: data.get('to')
         })
         this.setState({ trainDetails: updatedTrainDetails });
+        event.target.reset();
     }
 
     trainDeleteHandler = (key) => {
@@ -164,6 +168,7 @@ class FormConatiner extends Component {
             skill: data.get('skill')
         })
         this.setState({ skills: updatedSkills });
+        event.target.reset();
     }
 
     skillDeleteHandler = (key) => {
@@ -180,6 +185,7 @@ class FormConatiner extends Component {
             achiv: data.get('achiv')
         })
         this.setState({ achivs: updatedAchivs });
+        event.target.reset();
     }
 
     achivDeleteHandler = (key) => {
@@ -192,6 +198,7 @@ class FormConatiner extends Component {
         event.preventDefault();
 
         const { files } = event.target;
+        this.setState({ isImgUploading: true });
         const uploadTask = storage.ref(`/images/${files[0].name}`).put(files[0])
         //initiates the firebase side uploading 
         uploadTask.on('state_changed', 
@@ -208,6 +215,7 @@ class FormConatiner extends Component {
            .then(fireBaseUrl => {
             this.imgName = files[0].name;
             this.setState({ imageUrl: fireBaseUrl });
+            this.setState({ isImgUploading: false });
            })
         })
     }
@@ -276,9 +284,11 @@ class FormConatiner extends Component {
                     <div className={classes.Container}>
                     <h2>Profile Image</h2>
                         <label className={classes.uploadImage}>
-                            Click here to upload
-                            &nbsp;
-                            {this.imgName ? this.imgName : null}
+                            <span>Click here to upload</span>
+                            <span>
+                                {this.imgName ? this.imgName : null}
+                                {this.state.isImgUploading ? "Uploading..." : null}
+                            </span>
                             <input style={{ display: 'none' }} className={classes.imageLoader} type="file" accept="image/*" onChange={this.handleImageUpload} />
                         </label>
                     </div>

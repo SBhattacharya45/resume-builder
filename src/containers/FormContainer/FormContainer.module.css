@@ -149,7 +149,8 @@
 
 .uploadImage{
     border: 1px solid #ccc;
-    display: inline-block;
+    display: flex;
+    justify-content: space-between;
     padding: 6px 12px;
     cursor: pointer;
     color: var(--primary-btn-color);
