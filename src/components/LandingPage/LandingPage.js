@@ -20,7 +20,7 @@ const LandingPage = () => {
         <div className="landingPage">
             <div className="landingPage__controls">
                 <h1 className="landingPage__heading">
-                    Resume Maker
+                    Resume Builder
                 </h1>
                 <p className="landingPage__text">
                     Fill the form. Print the resume
